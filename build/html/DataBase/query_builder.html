@@ -1,0 +1,632 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>语法构造器 &mdash; CC 框架文档 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="数据一致性" href="transaction.html" />
+    <link rel="prev" title="基本使用方法" href="guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> CC 框架文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">基础(Base)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Base/install.html"><strong>安装</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Base/config.html"><strong>配置</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Base/catalog.html"><strong>目录结构</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Base/standard.html"><strong>开发规范</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">架构(Framework)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/overview.html"><strong>架构总览</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/entry.html"><strong>入口文件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/module.html"><strong>模块设计</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/lifetime.html"><strong>生命周期</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">请求(Request)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Request/index.html"><strong>获取请求参数</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">响应(Response)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html"><strong>响应为Json格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#jsonp"><strong>响应为Jsonp格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#render"><strong>响应为Render格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应空</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">路由(Route)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Route/interceptor.html"><strong>路由拦截器(Interceptor)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Route/method.html"><strong>路由使用方法(Route Guide)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">控制器(Controller)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/index.html"><strong>基本控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/index.html#id2"><strong>其它控制器</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">验证器(Checker)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Checker/index.html"><strong>验证器用法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Checker/index.html#id2"><strong>验证器列表</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">视图组件(View Component)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../View/index.html"><strong>视图</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">数据库(DataBase)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="guide.html"><strong>基本使用方法</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>语法构造器</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#select"><strong>SELECT</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#from"><strong>FROM</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#where"><strong>WHERE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#join"><strong>JOIN</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inner-join"><strong>INNER JOIN</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#left-join"><strong>LEFT JOIN</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#right-join"><strong>RIGHT JOIN</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#group-by"><strong>GROUP BY</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#order-by"><strong>ORDER BY</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#having"><strong>HAVING</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#limit"><strong>LIMIT</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#offset"><strong>OFFSET</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html"><strong>数据一致性</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html"><strong>数据库调试</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">权限(Auth)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Auth/index.html"><strong>权限相关</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">安全(Safe)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Safe/index.html"><strong>资源加密</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Safe/index.html#id2"><strong>资源解密</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">文件系统(Files)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html"><strong>导入(Import)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html#export"><strong>导出(Export)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">异常和调试(Exception &amp; Debug)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ExceptionAndDebug/index.html"><strong>异常(Exception)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ExceptionAndDebug/index.html#debug"><strong>调试(Debug)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">日志(Log)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Log/index.html"><strong>日志(Log)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">后台任务调度(Crontab)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Crontab/index.html"><strong>后台任务调度</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">Helper &amp; Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/index.html"><strong>Helper &amp; Utils</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">国际化(I18n)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../I18n/index.html"><strong>国际化(I18n)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">注意事项(Attention)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Attention/index.html"><strong>注意事项</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CC 框架文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><strong>语法构造器</strong></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/DataBase/query_builder.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><strong>语法构造器</strong><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="select">
+<h2><strong>SELECT</strong><a class="headerlink" href="#select" title="Permalink to this headline">¶</a></h2>
+<p><strong>说明：</strong> 在（ <strong>ItemModel/ListModel</strong> ）查询时指定查询的字段使用 <code class="docutils literal notranslate"><span class="pre">-&gt;select($columns)</span></code> 函数即可。</p>
+<p><strong>用法：</strong> select($columns)</p>
+<p><strong>参数：</strong> $columns: string | array</p>
+<p><strong>例1：</strong> 底层实现最终都会转化为数组形式。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">select</span><span class="p">(</span><span class="s1">&#39;id, name, age&#39;</span><span class="p">)</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+    <span class="nx">ListModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">select</span><span class="p">([</span>
+</span><span class="hll">            <span class="nx">id</span><span class="p">,</span>
+</span><span class="hll">            <span class="nx">name</span><span class="p">,</span>
+</span><span class="hll">            <span class="nx">age</span>
+</span><span class="hll">        <span class="p">])</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="from">
+<h2><strong>FROM</strong><a class="headerlink" href="#from" title="Permalink to this headline">¶</a></h2>
+<p><strong>说明：</strong> 在所有 <strong>Model</strong> 类中的 <code class="docutils literal notranslate"><span class="pre">::make($table)</span></code> $table 就是数据库表名, 并且默认不写数据库表前缀 <code class="docutils literal notranslate"><span class="pre">t_</span></code>, 系统内部还会自动为这个表生成一个别名 <code class="docutils literal notranslate"><span class="pre">t</span></code> , 以便于需要使用这个表时直接使用别名即可。</p>
+<p><strong>用法：</strong> make($table)</p>
+<p><strong>参数：</strong> $table: string</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span> <span class="c1">// 数据库表名是: `t_user`</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="where">
+<h2><strong>WHERE</strong><a class="headerlink" href="#where" title="Permalink to this headline">¶</a></h2>
+<p><strong>说明：</strong> 在 <strong>Model</strong> 类中只有 <code class="docutils literal notranslate"><span class="pre">InsertModel</span></code> 没有该条件。</p>
+<p><strong>用法：</strong> 本章节中基本使用方法/<a class="reference external" href="./guide.html#id11">条件控制</a> 有各种形式的封装。</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+    <span class="o">-&gt;</span><span class="na">addColumn</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">addColumnsCondition</span><span class="p">([</span>
+            <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span>
+            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;jollysone&#39;</span>
+        <span class="p">])</span>
+    <span class="o">-&gt;</span><span class="na">addStrCondition</span><span class="p">(</span><span class="s1">&#39;id = 10&#39;</span><span class="p">)</span>
+
+    <span class="o">-&gt;</span><span class="na">addInCondition</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="join">
+<h2><strong>JOIN</strong><a class="headerlink" href="#join" title="Permalink to this headline">¶</a></h2>
+<p>MySQL官方只提供了三种join方式。</p>
+<ol class="arabic simple">
+<li><p><strong>内连接</strong> (inner join)</p></li>
+<li><p><strong>左连接</strong> (left join)</p></li>
+<li><p><strong>右连接</strong> (right join)</p></li>
+</ol>
+<p>不支持其他的连接关键字。直接写 <code class="docutils literal notranslate"><span class="pre">join</span></code> 会默认选择内连接方式。</p>
+<div class="section" id="inner-join">
+<h3><strong>INNER JOIN</strong><a class="headerlink" href="#inner-join" title="Permalink to this headline">¶</a></h3>
+<p><strong>说明：</strong> 数据库使用 <code class="docutils literal notranslate"><span class="pre">join</span></code> 其实默认就是 <code class="docutils literal notranslate"><span class="pre">inner</span> <span class="pre">join</span></code> 。它也被称为一个等值连接。通过结合基于联接谓词两个表(表1和表2)列值创建一个新的结果表。查询比较表1中的每一行与表2中的每一行，找到所有满足联接谓词的行。 当联接谓词被满足时，对于每个匹配的一对A和B的列值被组合成一个结果行。</p>
+<a class="reference internal image-reference" href="../_images/内连接.png"><img alt="内连接" class="align-center" src="../_images/内连接.png" style="height: 200px;" /></a>
+<p><strong>用法：</strong> join($type, $table, $as, $on = '', $params = array())</p>
+<p><strong>参数：</strong></p>
+<blockquote>
+<div><p>$type: enum    , 连接方式 <code class="docutils literal notranslate"><span class="pre">inner</span> <span class="pre">join</span></code> | <code class="docutils literal notranslate"><span class="pre">left</span> <span class="pre">join</span></code> | <code class="docutils literal notranslate"><span class="pre">right</span> <span class="pre">join'</span></code></p>
+<p>$table: string    , 表名,默认不带前缀</p>
+<p>$as：string     , 此表的别名</p>
+<p>$on: string     , 连接条件</p>
+<p>$params：array      , 连接条件中的 PDO 传参</p>
+</div></blockquote>
+<p><strong>例1：</strong> 此函数可以自定义构造任何一种连接方式。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">join</span><span class="p">(</span><span class="s1">&#39;inner join&#39;</span><span class="p">,</span> <span class="s1">&#39;logs&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;t.id = l.uid&#39;</span><span class="p">)</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">join</span><span class="p">(</span><span class="s1">&#39;left join&#39;</span><span class="p">,</span> <span class="s1">&#39;logs&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;t.id = l.uid and t.phone = ? and l.time = ?&#39;</span><span class="p">,</span> <span class="p">[</span>
+</span><span class="hll">            <span class="s1">&#39;13011118899&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="s1">&#39;2019-08-08 12:34:56&#39;</span>
+</span><span class="hll">        <span class="p">])</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="left-join">
+<h3><strong>LEFT JOIN</strong><a class="headerlink" href="#left-join" title="Permalink to this headline">¶</a></h3>
+<p><strong>说明：</strong> 左连接是得到A表中去除B表内容的剩下的部分，也就是A表独有的一部分。可以看做是在左外连接的结果中将双方共有的部分去掉得到的。</p>
+<a class="reference internal image-reference" href="../_images/左连接.png"><img alt="左连接" class="align-center" src="../_images/左连接.png" style="height: 200px;" /></a>
+<p><strong>用法：</strong> leftJoin($table, $as, $on = '', $params = array())</p>
+<p><strong>参数：</strong></p>
+<blockquote>
+<div><p>$table: string    , 表名,默认不带前缀</p>
+<p>$as：string     , 此表的别名</p>
+<p>$on: string     , 连接条件</p>
+<p>$params：array      , 连接条件中的 PDO 传参</p>
+</div></blockquote>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">leftJoin</span><span class="p">(</span><span class="s1">&#39;logs&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;t.id = l.uid&#39;</span><span class="p">)</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">leftJoin</span><span class="p">(</span><span class="s1">&#39;logs&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;t.id = l.uid and t.phone = ? and l.time = ?&#39;</span><span class="p">,</span> <span class="p">[</span>
+</span><span class="hll">            <span class="s1">&#39;13011118899&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="s1">&#39;2019-08-08 12:34:56&#39;</span>
+</span><span class="hll">        <span class="p">])</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="right-join">
+<h3><strong>RIGHT JOIN</strong><a class="headerlink" href="#right-join" title="Permalink to this headline">¶</a></h3>
+<p><strong>说明：</strong> 同理，右连接是在右外连接的结果中得到B表独有的那一部分。</p>
+<a class="reference internal image-reference" href="../_images/右连接.png"><img alt="右连接" class="align-center" src="../_images/右连接.png" style="height: 200px;" /></a>
+<p><strong>用法：</strong> rightJoin($table, $as, $on = '', $params = array())</p>
+<p><strong>参数：</strong></p>
+<blockquote>
+<div><p>$table: string    , 表名,默认不带前缀</p>
+<p>$as：string     , 此表的别名</p>
+<p>$on: string     , 连接条件</p>
+<p>$params：array      , 连接条件中的 PDO 传参</p>
+</div></blockquote>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">rightJoin</span><span class="p">(</span><span class="s1">&#39;logs&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;t.id = l.uid&#39;</span><span class="p">)</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">rightJoin</span><span class="p">(</span><span class="s1">&#39;logs&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;t.id = l.uid and t.phone = ? and l.time = ?&#39;</span><span class="p">,</span> <span class="p">[</span>
+</span><span class="hll">            <span class="s1">&#39;13011118899&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="s1">&#39;2019-08-08 12:34:56&#39;</span>
+</span><span class="hll">        <span class="p">])</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="group-by">
+<h2><strong>GROUP BY</strong><a class="headerlink" href="#group-by" title="Permalink to this headline">¶</a></h2>
+<p><strong>说明：</strong> 按条件分组查询, 可以多次分组(分组后再分组), 一般和聚合函数 <code class="docutils literal notranslate"><span class="pre">count()</span></code> 、 <code class="docutils literal notranslate"><span class="pre">sum()</span></code> 、 <code class="docutils literal notranslate"><span class="pre">avg()</span></code> <code class="docutils literal notranslate"><span class="pre">...</span></code> 搭配使用才有意义。</p>
+<p><strong>用法：</strong> group($columns)</p>
+<p><strong>参数：</strong> $columns: string | array</p>
+<p><strong>例1：</strong> 底层实现最终都会转化为数组形式。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;id, name&#39;</span><span class="p">)</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">group</span><span class="p">([</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">])</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="order-by">
+<h2><strong>ORDER BY</strong><a class="headerlink" href="#order-by" title="Permalink to this headline">¶</a></h2>
+<p><strong>说明：</strong> 按某个条件进行排序, 可以多个条件, 依次从左到右排序。</p>
+<p><strong>用法：</strong> order($columns)</p>
+<p><strong>参数：</strong> $columns: string</p>
+<p><strong>例1：</strong> <code class="docutils literal notranslate"><span class="pre">ASC</span></code> 升序, <code class="docutils literal notranslate"><span class="pre">DESC</span></code> 降序。（不区分大小写）</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">order</span><span class="p">(</span><span class="s1">&#39;id desc&#39;</span><span class="p">)</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">order</span><span class="p">(</span><span class="s1">&#39;id desc, age asc&#39;</span><span class="p">)</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="having">
+<h2><strong>HAVING</strong><a class="headerlink" href="#having" title="Permalink to this headline">¶</a></h2>
+<p><strong>说明：</strong> 一般用于 <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code> 分组后的条件查询, 其他情况视条件而用。</p>
+<p><strong>用法：</strong> having($condition, $params = [])</p>
+<p><strong>参数：</strong> $condition: string , $params: array</p>
+<p><strong>例1：</strong> 底层实现是字符串拼接或PDO传参形式。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">having</span><span class="p">(</span><span class="s2">&quot;name = &#39;jollysone&#39; and age = 24&quot;</span><span class="p">)</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;id, name&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">having</span><span class="p">(</span><span class="s1">&#39;name = ? and age = ?&#39;</span><span class="p">,[</span>
+</span><span class="hll">            <span class="s1">&#39;jollysone&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="mi">24</span>
+</span><span class="hll">        <span class="p">])</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="limit">
+<h2><strong>LIMIT</strong><a class="headerlink" href="#limit" title="Permalink to this headline">¶</a></h2>
+<p>尚未整理</p>
+</div>
+<div class="section" id="offset">
+<h2><strong>OFFSET</strong><a class="headerlink" href="#offset" title="Permalink to this headline">¶</a></h2>
+<p>尚未整理</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="transaction.html" class="btn btn-neutral float-right" title="数据一致性" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="guide.html" class="btn btn-neutral float-left" title="基本使用方法" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, jollysone
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

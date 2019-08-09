@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CC 框架文档 1.0.0 &mdash; CC 框架文档 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="安装" href="Base/install.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> CC 框架文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">基础(Base)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Base/install.html"><strong>安装</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Base/config.html"><strong>配置</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Base/catalog.html"><strong>目录结构</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Base/standard.html"><strong>开发规范</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">架构(Framework)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Framework/overview.html"><strong>架构总览</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Framework/entry.html"><strong>入口文件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Framework/module.html"><strong>模块设计</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Framework/lifetime.html"><strong>生命周期</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">请求(Request)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Request/index.html"><strong>获取请求参数</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">响应(Response)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Response/index.html"><strong>响应为Json格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Response/index.html#jsonp"><strong>响应为Jsonp格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Response/index.html#render"><strong>响应为Render格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Response/index.html#id1"><strong>响应空数据格式</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">路由(Route)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Route/interceptor.html"><strong>路由拦截器(Interceptor)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Route/method.html"><strong>路由使用方法(Route Guide)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">控制器(Controller)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Controller/index.html"><strong>基本控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Controller/index.html#id2"><strong>其它控制器</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">验证器(Checker)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Checker/index.html"><strong>验证器用法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Checker/index.html#id2"><strong>验证器列表</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">视图组件(View Component)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="View/index.html"><strong>视图</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">数据库(DataBase)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DataBase/guide.html"><strong>基本使用方法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataBase/query_builder.html"><strong>语法构造器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataBase/transaction.html"><strong>数据一致性</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataBase/debug.html"><strong>数据库调试</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">权限(Auth)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Auth/index.html"><strong>权限相关</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">安全(Safe)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Safe/index.html"><strong>资源加密</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Safe/index.html#id2"><strong>资源解密</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">文件系统(Files)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Files/index.html"><strong>导入(Import)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Files/index.html#export"><strong>导出(Export)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">异常和调试(Exception &amp; Debug)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ExceptionAndDebug/index.html"><strong>异常(Exception)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ExceptionAndDebug/index.html#debug"><strong>调试(Debug)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">日志(Log)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Log/index.html"><strong>日志(Log)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">后台任务调度(Crontab)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Crontab/index.html"><strong>后台任务调度</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">Helper &amp; Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Utils/index.html"><strong>Helper &amp; Utils</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">国际化(I18n)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="I18n/index.html"><strong>国际化(I18n)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">注意事项(Attention)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Attention/index.html"><strong>注意事项</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">CC 框架文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>CC 框架文档 1.0.0</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cc-1-0-0">
+<h1>CC 框架文档 1.0.0<a class="headerlink" href="#cc-1-0-0" title="Permalink to this headline">¶</a></h1>
+<p>整合了文档内容, 便于开发, 很多地方没有完善，仅供参考, 如有问题, 联系我（<a class="reference external" href="mailto:jollysone&#37;&#52;&#48;gmail&#46;com">jollysone<span>&#64;</span>gmail<span>&#46;</span>com</a>）及时更正。</p>
+<p>本文档使用 <code class="docutils literal notranslate"><span class="pre">Python</span></code> 官方文档工具 <code class="docutils literal notranslate"><span class="pre">Sphinx</span></code> 进行编写的 <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> 格式文档, 代码块使用的是前 <code class="docutils literal notranslate"><span class="pre">Github</span></code> 代码高亮引擎 <code class="docutils literal notranslate"><span class="pre">Pygments</span></code> 进行语法高亮。</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">基础(Base)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Base/install.html"><strong>安装</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Base/config.html"><strong>配置</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Base/config.html#id2">配置文件列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Base/config.html#id3">配置文件内容</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Base/catalog.html"><strong>目录结构</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Base/standard.html"><strong>开发规范</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Base/standard.html#php">PHP开发规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Base/standard.html#id2">存储规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Base/standard.html#id3">命名规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Base/standard.html#id4">其他规范</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">架构(Framework)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Framework/overview.html"><strong>架构总览</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Framework/entry.html"><strong>入口文件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Framework/module.html"><strong>模块设计</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Framework/lifetime.html"><strong>生命周期</strong></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">请求(Request)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Request/index.html"><strong>获取请求参数</strong></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">响应(Response)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Response/index.html"><strong>响应为Json格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Response/index.html#jsonp"><strong>响应为Jsonp格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Response/index.html#render"><strong>响应为Render格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Response/index.html#id1"><strong>响应空数据格式</strong></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">路由(Route)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Route/interceptor.html"><strong>路由拦截器(Interceptor)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Route/method.html"><strong>路由使用方法(Route Guide)</strong></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">控制器(Controller)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Controller/index.html"><strong>基本控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Controller/index.html#id2"><strong>其它控制器</strong></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">验证器(Checker)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Checker/index.html"><strong>验证器用法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Checker/index.html#id2"><strong>验证器列表</strong></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">视图组件(View Component)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="View/index.html"><strong>视图</strong></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">数据库(DataBase)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DataBase/guide.html"><strong>基本使用方法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataBase/query_builder.html"><strong>语法构造器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataBase/transaction.html"><strong>数据一致性</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataBase/debug.html"><strong>数据库调试</strong></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">权限(Auth)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Auth/index.html"><strong>权限相关</strong></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">安全(Safe)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Safe/index.html"><strong>资源加密</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Safe/index.html#id2"><strong>资源解密</strong></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">文件系统(Files)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Files/index.html"><strong>导入(Import)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Files/index.html#export"><strong>导出(Export)</strong></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">异常和调试(Exception &amp; Debug)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ExceptionAndDebug/index.html"><strong>异常(Exception)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ExceptionAndDebug/index.html#debug"><strong>调试(Debug)</strong></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">日志(Log)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Log/index.html"><strong>日志(Log)</strong></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">后台任务调度(Crontab)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Crontab/index.html"><strong>后台任务调度</strong></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Helper &amp; Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Utils/index.html"><strong>Helper &amp; Utils</strong></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">国际化(I18n)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="I18n/index.html"><strong>国际化(I18n)</strong></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">注意事项(Attention)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Attention/index.html"><strong>注意事项</strong></a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Base/install.html" class="btn btn-neutral float-right" title="安装" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, jollysone
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

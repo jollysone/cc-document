@@ -1,0 +1,528 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>开发规范 &mdash; CC 框架文档 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="架构总览" href="../Framework/overview.html" />
+    <link rel="prev" title="目录结构" href="catalog.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> CC 框架文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">基础(Base)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html"><strong>安装</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html"><strong>配置</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="catalog.html"><strong>目录结构</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>开发规范</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#php">PHP开发规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">存储规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">命名规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">其他规范</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">1. 等号两侧使用空格隔开</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">2. 尽可能的使用别名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">3. 合理的缩进</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">架构(Framework)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/overview.html"><strong>架构总览</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/entry.html"><strong>入口文件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/module.html"><strong>模块设计</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/lifetime.html"><strong>生命周期</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">请求(Request)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Request/index.html"><strong>获取请求参数</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">响应(Response)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html"><strong>响应为Json格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#jsonp"><strong>响应为Jsonp格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#render"><strong>响应为Render格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应空</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">路由(Route)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Route/interceptor.html"><strong>路由拦截器(Interceptor)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Route/method.html"><strong>路由使用方法(Route Guide)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">控制器(Controller)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/index.html"><strong>基本控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/index.html#id2"><strong>其它控制器</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">验证器(Checker)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Checker/index.html"><strong>验证器用法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Checker/index.html#id2"><strong>验证器列表</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">视图组件(View Component)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../View/index.html"><strong>视图</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">数据库(DataBase)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/guide.html"><strong>基本使用方法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/query_builder.html"><strong>语法构造器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/transaction.html"><strong>数据一致性</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/debug.html"><strong>数据库调试</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">权限(Auth)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Auth/index.html"><strong>权限相关</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">安全(Safe)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Safe/index.html"><strong>资源加密</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Safe/index.html#id2"><strong>资源解密</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">文件系统(Files)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html"><strong>导入(Import)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html#export"><strong>导出(Export)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">异常和调试(Exception &amp; Debug)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ExceptionAndDebug/index.html"><strong>异常(Exception)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ExceptionAndDebug/index.html#debug"><strong>调试(Debug)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">日志(Log)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Log/index.html"><strong>日志(Log)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">后台任务调度(Crontab)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Crontab/index.html"><strong>后台任务调度</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">Helper &amp; Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/index.html"><strong>Helper &amp; Utils</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">国际化(I18n)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../I18n/index.html"><strong>国际化(I18n)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">注意事项(Attention)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Attention/index.html"><strong>注意事项</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CC 框架文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><strong>开发规范</strong></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Base/standard.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><strong>开发规范</strong><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="php">
+<h2>PHP开发规范<a class="headerlink" href="#php" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>PSR-1： 基本编码标准</strong> （<a class="reference external" href="https://www.php-fig.org/psr/psr-1/">Basic-Coding-Standard</a>）</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>PSR-2： 编码风格指南</strong> （<a class="reference external" href="https://www.php-fig.org/psr/psr-2/">Coding-Style-Guide</a>）</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>PSR-3： 日志记录器接口</strong> （<a class="reference external" href="https://www.php-fig.org/psr/psr-3/">Logger-Interface</a>）</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>PSR-4： 自动加载器</strong> （<a class="reference external" href="https://www.php-fig.org/psr/psr-4/">Autoloader</a>）</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>PSR-6： 缓存接口</strong> （<a class="reference external" href="https://www.php-fig.org/psr/psr-6/">Caching-Interface</a>）</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>PSR-7： HTTP消息接口</strong> （<a class="reference external" href="https://www.php-fig.org/psr/psr-7/">HTTP-message-interfaces</a>）</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>PSR-11：容器接口</strong> （<a class="reference external" href="https://www.php-fig.org/psr/psr-11/">Container-interface</a>）</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>PSR-13：链路定义接口</strong> （<a class="reference external" href="https://www.php-fig.org/psr/psr-11/">Link-definition-interfaces</a>）</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>PSR-14：事件调度程序</strong> （<a class="reference external" href="https://www.php-fig.org/psr/psr-14/">Event-Dispatcher</a>）</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>PSR-15：HTTP服务器请求处理程序</strong> （<a class="reference external" href="https://www.php-fig.org/psr/psr-15/">HTTP-Server-Request-Handlers</a>）</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>PSR-16：缓存库的通用接口</strong> （<a class="reference external" href="https://www.php-fig.org/psr/psr-16/">Common-Interface-for-Caching-Libraries</a>）</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>PSR-17：HTTP工厂</strong> （<a class="reference external" href="https://www.php-fig.org/psr/psr-17/">HTTP-Factories</a>）</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>PSR-18：HTTP客户端</strong> （<a class="reference external" href="https://www.php-fig.org/psr/psr-18/">HTTP-Client</a>）</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>...</strong></p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>存储规范<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">app</span><span class="o">/</span><span class="n">protected</span><span class="o">/</span><span class="n">module</span><span class="o">/</span>    <span class="n">各模块的相关文件都必须存储在这个路径</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>命名规范<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><strong>文件及目录定义方式</strong></p>
+<p>路由访问默认方式： <code class="docutils literal notranslate"><span class="pre">www.project.com/权限/模块/子模块/文件</span></code> ,  <code class="docutils literal notranslate"><span class="pre">定义路由后可自定义使用路由访问方式</span></code>。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>仅管理员：/admin/file/manage/list
+开放：/api/file/manage/list
+
+├─module        应用模块
+│  ├─file          文件模块
+│  │  ├─manage    子模块
+│  │  │    ├─...
+│  │  │    └─FileManageListAction.php
+│  │  └─...
+│  └─...
+
+命名：FileManageListAction.php / FileManageListAdminAction.php
+需要访问 /admin/file/manage/list
+
+如需要开放API接口，需要命名 FileManageListApiAction.php
+</pre></div>
+</div>
+<p><strong>变量命名方式</strong></p>
+<p>请勿使用没有意义的变量进行命名, 使用英文翻译尽量达意。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+    <span class="c1">// 测试路径日志</span>
+    <span class="nv">$test_trace_log</span> <span class="o">=</span> <span class="s1">&#39;ceshi&#39;</span><span class="p">;</span>
+
+    <span class="nv">$testTraceLog</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id4">
+<h2>其他规范<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>1. 等号两侧使用空格隔开<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+    <span class="c1">// error</span>
+    <span class="nv">$test_trace_log</span><span class="o">=</span><span class="s1">&#39;ceshi&#39;</span><span class="p">;</span>
+    <span class="nv">$test_operate_log</span> <span class="o">=</span><span class="s1">&#39;ceshi&#39;</span><span class="p">;</span>
+    <span class="nv">$test_user_log</span><span class="o">=</span> <span class="s1">&#39;ceshi&#39;</span><span class="p">;</span>
+
+    <span class="c1">// correct</span>
+    <span class="nv">$correct_arg_standard</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id6">
+<h3>2. 尽可能的使用别名<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+    <span class="c1">// error</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">select</span><span class="p">(</span><span class="s1">&#39;phone&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+    <span class="c1">// correct</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">select</span><span class="p">(</span><span class="s1">&#39;t.phone&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id7">
+<h3>3. 合理的缩进<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+    <span class="c1">// error</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">rightJoin</span><span class="p">(</span><span class="s1">&#39;logs&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;t.id = l.uid and t.phone = ? and l.time = ?&#39;</span><span class="p">,</span> <span class="p">[</span>
+        <span class="s1">&#39;13011118899&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;2019-08-08 12:34:56&#39;</span><span class="p">])</span>
+    <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+    <span class="c1">// correct</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">rightJoin</span><span class="p">(</span><span class="s1">&#39;logs&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;t.id = l.uid and t.phone = ? and l.time = ?&#39;</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">&#39;13011118899&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;2019-08-08 12:34:56&#39;</span>
+        <span class="p">])</span>
+        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+    <span class="c1">// error</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">getPostNames</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">&quot;happen_time,handle_time,operate_time,create_time,end_time,address,lng,lat,case_type,case_source,case_attribute,main_sponsor,co_sponsor&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// correct</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">getPostNames</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">&quot;happen_time,handle_time,operate_time,create_time,end_time</span>
+<span class="s2">                address,lng,lat,</span>
+<span class="s2">                case_type,case_source,case_attribute,</span>
+<span class="s2">                main_sponsor,co_sponsor&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Framework/overview.html" class="btn btn-neutral float-right" title="架构总览" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="catalog.html" class="btn btn-neutral float-left" title="目录结构" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, jollysone
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

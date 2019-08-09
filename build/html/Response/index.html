@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>响应为Json格式 &mdash; CC 框架文档 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="路由拦截器(Interceptor)" href="../Route/interceptor.html" />
+    <link rel="prev" title="获取请求参数" href="../Request/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> CC 框架文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">基础(Base)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Base/install.html"><strong>安装</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Base/config.html"><strong>配置</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Base/catalog.html"><strong>目录结构</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Base/standard.html"><strong>开发规范</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">架构(Framework)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/overview.html"><strong>架构总览</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/entry.html"><strong>入口文件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/module.html"><strong>模块设计</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/lifetime.html"><strong>生命周期</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">请求(Request)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Request/index.html"><strong>获取请求参数</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">响应(Response)</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>响应为Json格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="#jsonp"><strong>响应为Jsonp格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="#render"><strong>响应为Render格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id1"><strong>响应空数据格式</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">路由(Route)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Route/interceptor.html"><strong>路由拦截器(Interceptor)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Route/method.html"><strong>路由使用方法(Route Guide)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">控制器(Controller)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/index.html"><strong>基本控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/index.html#id2"><strong>其它控制器</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">验证器(Checker)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Checker/index.html"><strong>验证器用法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Checker/index.html#id2"><strong>验证器列表</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">视图组件(View Component)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../View/index.html"><strong>视图</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">数据库(DataBase)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/guide.html"><strong>基本使用方法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/query_builder.html"><strong>语法构造器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/transaction.html"><strong>数据一致性</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/debug.html"><strong>数据库调试</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">权限(Auth)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Auth/index.html"><strong>权限相关</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">安全(Safe)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Safe/index.html"><strong>资源加密</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Safe/index.html#id2"><strong>资源解密</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">文件系统(Files)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html"><strong>导入(Import)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html#export"><strong>导出(Export)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">异常和调试(Exception &amp; Debug)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ExceptionAndDebug/index.html"><strong>异常(Exception)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ExceptionAndDebug/index.html#debug"><strong>调试(Debug)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">日志(Log)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Log/index.html"><strong>日志(Log)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">后台任务调度(Crontab)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Crontab/index.html"><strong>后台任务调度</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">Helper &amp; Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/index.html"><strong>Helper &amp; Utils</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">国际化(I18n)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../I18n/index.html"><strong>国际化(I18n)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">注意事项(Attention)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Attention/index.html"><strong>注意事项</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CC 框架文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><strong>响应为Json格式</strong></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Response/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="json">
+<h1><strong>响应为Json格式</strong><a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h1>
+<p><strong>代码示例</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">class</span> <span class="nc">TaskApiAction</span> <span class="k">extends</span> <span class="nx">\CAction</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nx">CRequest</span> <span class="nv">$request</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">\CJsonData</span><span class="p">([</span>
+                <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;jollysone&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;age&#39;</span> <span class="o">=&gt;</span> <span class="mi">24</span>
+            <span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>结果示例</strong></p>
+<div class="highlight-json notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;ok&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;servertime&quot;</span><span class="p">:</span> <span class="mi">1565342212</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;jollysone&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">24</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="jsonp">
+<h1><strong>响应为Jsonp格式</strong><a class="headerlink" href="#jsonp" title="Permalink to this headline">¶</a></h1>
+<p><strong>代码示例</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+    <span class="k">class</span> <span class="nc">TaskApiAction</span> <span class="k">extends</span> <span class="nx">\CAction</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nx">CRequest</span> <span class="nv">$request</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">\CJsonpData</span><span class="p">([</span>
+                <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;jollysone&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;age&#39;</span> <span class="o">=&gt;</span> <span class="mi">24</span>
+            <span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>结果示例</strong></p>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="s2">&quot;ok&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;servertime&quot;</span><span class="p">:</span><span class="mi">1565342395</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;jollysone&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;age&quot;</span><span class="p">:</span><span class="mi">24</span>
+<span class="p">})</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="render">
+<h1><strong>响应为Render格式</strong><a class="headerlink" href="#render" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>return new CRenderData($data, $view, $isLayout, $layouts, $view_dir);</p>
+</div></blockquote>
+</div>
+<div class="section" id="id1">
+<h1><strong>响应空数据格式</strong><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p><strong>代码示例</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nx">CRequest</span> <span class="nv">$request</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">\CNoneData</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>结果示例</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="x">// 响应为空, 什么内容都没有</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Route/interceptor.html" class="btn btn-neutral float-right" title="路由拦截器(Interceptor)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Request/index.html" class="btn btn-neutral float-left" title="获取请求参数" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, jollysone
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

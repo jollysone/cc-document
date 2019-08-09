@@ -1,0 +1,841 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>基本使用方法 &mdash; CC 框架文档 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="语法构造器" href="query_builder.html" />
+    <link rel="prev" title="视图" href="../View/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> CC 框架文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">基础(Base)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Base/install.html"><strong>安装</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Base/config.html"><strong>配置</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Base/catalog.html"><strong>目录结构</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Base/standard.html"><strong>开发规范</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">架构(Framework)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/overview.html"><strong>架构总览</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/entry.html"><strong>入口文件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/module.html"><strong>模块设计</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/lifetime.html"><strong>生命周期</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">请求(Request)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Request/index.html"><strong>获取请求参数</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">响应(Response)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html"><strong>响应为Json格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#jsonp"><strong>响应为Jsonp格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#render"><strong>响应为Render格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应空</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">路由(Route)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Route/interceptor.html"><strong>路由拦截器(Interceptor)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Route/method.html"><strong>路由使用方法(Route Guide)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">控制器(Controller)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/index.html"><strong>基本控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/index.html#id2"><strong>其它控制器</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">验证器(Checker)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Checker/index.html"><strong>验证器用法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Checker/index.html#id2"><strong>验证器列表</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">视图组件(View Component)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../View/index.html"><strong>视图</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">数据库(DataBase)</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>基本使用方法</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2"><strong>用前须知</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3"><strong>查询数据</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4"><strong>查询单条数据</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5"><strong>查询多条数据</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6"><strong>添加数据</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7"><strong>添加单条数据</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8"><strong>添加多条数据</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9"><strong>更新数据</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10"><strong>删除数据</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11"><strong>条件控制</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#addcolumn"><strong>addColumn()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addcolumnscondition"><strong>addColumnsCondition()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addstrcondition"><strong>addStrCondition()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addincondition"><strong>addInCondition()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addconditions"><strong>addConditions()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adddata"><strong>addData()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12"><strong>addData()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adddatas"><strong>addDatas()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addlikecondition"><strong>addLikeCondition()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adddataex"><strong>addDataEx()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addselect"><strong>addSelect()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addormulticolumnscondtion"><strong>addOrMultiColumnsCondtion()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addfiltercolumn"><strong>addFilterColumn()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addfiltercolumnscondition"><strong>addFilterColumnsCondition()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addforupdate"><strong>addForUpdate()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addgroup"><strong>addGroup()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addid"><strong>addId()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addnoconditioninterceptors"><strong>addNoConditionInterceptors()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addorder"><strong>addOrder()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addimpossibility"><strong>addImpossibility()</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#addnoglobalinsertbeforeinterceptors"><strong>addNoGlobalInsertBeforeInterceptors()</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="query_builder.html"><strong>语法构造器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html"><strong>数据一致性</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html"><strong>数据库调试</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">权限(Auth)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Auth/index.html"><strong>权限相关</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">安全(Safe)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Safe/index.html"><strong>资源加密</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Safe/index.html#id2"><strong>资源解密</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">文件系统(Files)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html"><strong>导入(Import)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html#export"><strong>导出(Export)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">异常和调试(Exception &amp; Debug)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ExceptionAndDebug/index.html"><strong>异常(Exception)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ExceptionAndDebug/index.html#debug"><strong>调试(Debug)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">日志(Log)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Log/index.html"><strong>日志(Log)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">后台任务调度(Crontab)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Crontab/index.html"><strong>后台任务调度</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">Helper &amp; Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/index.html"><strong>Helper &amp; Utils</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">国际化(I18n)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../I18n/index.html"><strong>国际化(I18n)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">注意事项(Attention)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Attention/index.html"><strong>注意事项</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CC 框架文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><strong>基本使用方法</strong></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/DataBase/guide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><strong>基本使用方法</strong><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2><strong>用前须知</strong><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><strong>须知1：</strong> 由于业务场景的需要，在所有的 <code class="docutils literal notranslate"><span class="pre">Model</span></code> 类查询中均会自动加入条件  <code class="docutils literal notranslate"><span class="pre">'com_id'</span> <span class="pre">=</span> <span class="pre">'10'</span></code> , 即为对应登录账号的公司号。</p>
+<p>且 <code class="docutils literal notranslate"><span class="pre">where</span></code> 条件会固定写入 <code class="docutils literal notranslate"><span class="pre">1</span></code> 。(此说明可以忽略)</p>
+<p>如 <code class="docutils literal notranslate"><span class="pre">ListModel</span></code> 生成的语句：</p>
+<div class="highlight-mysql notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">users</span> <span class="k">where</span> <span class="mi">1</span> <span class="k">and</span> <span class="p">(</span>  <span class="ss">`com_id`</span><span class="o">=</span><span class="s1">&#39;10&#39;</span> <span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>须知2：</strong> 在 <code class="docutils literal notranslate"><span class="pre">ItemModel::make('user')</span></code> 中 <code class="docutils literal notranslate"><span class="pre">'user'</span></code> 是数据库表名( <strong>t_user</strong> ), 默认是不写前缀 <code class="docutils literal notranslate"><span class="pre">t_</span></code>。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="hll">    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>须知3：</strong> 语句最后必须执行 <code class="docutils literal notranslate"><span class="pre">-&gt;execute()</span></code> 方法，否则只能生成对象，语句并不执行。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+</span><span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>须知4：</strong> 如语句出现 <code class="docutils literal notranslate"><span class="pre">?</span></code> 这是因为数据库使用的是 <code class="docutils literal notranslate"><span class="pre">PDO</span></code> 的方式且通过传参对应到具体值上：</p>
+<div class="highlight-mysql notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">insert</span> <span class="k">into</span> <span class="nf">table_name</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,...)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="o">?</span><span class="p">,</span> <span class="o">?</span><span class="p">,....);</span>
+
+<span class="n">Params</span><span class="p">:(</span>
+    <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;jollysone&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>须知5：</strong> 所有条件控制的可选参数 <code class="docutils literal notranslate"><span class="pre">$op</span></code> 都会把可选参数拼接到条件的前面, 而非后面。</p>
+</div>
+<div class="section" id="id3">
+<h2><strong>查询数据</strong><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3><strong>查询单条数据</strong><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>查询单条数据使用 <code class="docutils literal notranslate"><span class="pre">ItemModel</span></code> 类，如下：</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p>返回结构如下：</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="x">array (</span>
+<span class="x">    &#39;:qp0&#39; =&gt; 1,</span>
+<span class="x">    &#39;:qp1&#39; =&gt; &#39;jollysone&#39;</span>
+<span class="x">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id5">
+<h3><strong>查询多条数据</strong><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>查询单条数据使用 <code class="docutils literal notranslate"><span class="pre">ListModel</span></code> 类，如下：</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">ListModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p>返回结构如下：</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="x">array (</span>
+<span class="x">    0 =&gt; array (</span>
+<span class="x">        &#39;id&#39; =&gt; 1,</span>
+<span class="x">        &#39;name&#39; =&gt; &#39;jollysone&#39;</span>
+<span class="x">    ),</span>
+<span class="x">    1 =&gt; array (</span>
+<span class="x">        &#39;id&#39; =&gt; 3,</span>
+<span class="x">        &#39;name&#39; =&gt; &#39;hermit&#39;</span>
+<span class="x">    )</span>
+<span class="x">    2 =&gt; array (</span>
+<span class="x">        &#39;id&#39; =&gt; 4,</span>
+<span class="x">        &#39;name&#39; =&gt; &#39;lixu&#39;</span>
+<span class="x">    )</span>
+<span class="x">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><strong>添加数据</strong><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3><strong>添加单条数据</strong><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>查询单条数据使用 <code class="docutils literal notranslate"><span class="pre">InsertModel</span></code> 类的 <code class="docutils literal notranslate"><span class="pre">addData()</span></code> 方法，如下：</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">InsertModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">addData</span><span class="p">([</span>
+</span><span class="hll">            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;jollysone&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="s1">&#39;age&#39;</span> <span class="o">=&gt;</span> <span class="mi">24</span><span class="p">,</span>
+</span><span class="hll">            <span class="s1">&#39;sex&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+</span><span class="hll">        <span class="p">])</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p>返回结构如下：</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">bool (false) 或 int (n)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3><strong>添加多条数据</strong><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>查询单条数据使用 <code class="docutils literal notranslate"><span class="pre">InsertModel</span></code> 类的 <code class="docutils literal notranslate"><span class="pre">addDatas()</span></code> 方法，如下：</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">InsertModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">addDatas</span><span class="p">([</span>
+</span><span class="hll">        <span class="p">[</span>
+</span><span class="hll">                <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;jollysone&#39;</span><span class="p">,</span>
+</span><span class="hll">                <span class="s1">&#39;age&#39;</span> <span class="o">=&gt;</span> <span class="mi">24</span><span class="p">,</span>
+</span><span class="hll">                <span class="s1">&#39;sex&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+</span><span class="hll">        <span class="p">],</span>
+</span><span class="hll">        <span class="p">[</span>
+</span><span class="hll">                <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;hermit&#39;</span><span class="p">,</span>
+</span><span class="hll">                <span class="s1">&#39;age&#39;</span> <span class="o">=&gt;</span> <span class="mi">28</span><span class="p">,</span>
+</span><span class="hll">                <span class="s1">&#39;sex&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+</span><span class="hll">        <span class="p">]</span>
+</span><span class="hll">        <span class="p">])</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p>返回结构如下：</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">bool (true)</span>
+<span class="x">bool (false)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><strong>更新数据</strong><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>更新数据使用 <code class="docutils literal notranslate"><span class="pre">UpdateModel</span></code> 类的 <code class="docutils literal notranslate"><span class="pre">addData()</span></code> 方法更新数据，同时需要增加需要更新哪一条的条件，否则就更新全部，如下：</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">UpdateModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">addColumn</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span>        <span class="o">-&gt;</span><span class="na">addData</span><span class="p">([</span>
+            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;jollysone&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;age&#39;</span> <span class="o">=&gt;</span> <span class="mi">24</span><span class="p">,</span>
+            <span class="s1">&#39;sex&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+        <span class="p">])</span>
+        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p>返回结构如下：</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">bool (true)</span>
+<span class="x">bool (false)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2><strong>删除数据</strong><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>删除数据使用 <code class="docutils literal notranslate"><span class="pre">DeleteModel</span></code> 类即可，只需要添加删除的控制条件即可，否则就删除全部，如下：</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">DeleteModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">addColumn</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p>返回结构如下：</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">bool (true)</span>
+<span class="x">bool (false)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2><strong>条件控制</strong><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="addcolumn">
+<h3><strong>addColumn()</strong><a class="headerlink" href="#addcolumn" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>  <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>  <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
+<p><strong>参数：</strong> addColumn($name, $value, $compare = '=')</p>
+<p><strong>例1：</strong> 查询条件为 <code class="docutils literal notranslate"><span class="pre">'id'</span> <span class="pre">=</span> <span class="pre">'10'</span></code> 的数据。如需  <code class="docutils literal notranslate"><span class="pre">'id'</span> <span class="pre">&gt;</span> <span class="pre">'10'</span></code> , 可配置第三个参数。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">addColumn</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">)</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="addcolumnscondition">
+<h3><strong>addColumnsCondition()</strong><a class="headerlink" href="#addcolumnscondition" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>  <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>  <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
+<p><strong>参数：</strong> addColumnsCondition($array, $op = 'and')</p>
+<p><strong>例1：</strong> 查询条件为 <code class="docutils literal notranslate"><span class="pre">'id'</span> <span class="pre">=</span> <span class="pre">'10'</span></code> 且 <code class="docutils literal notranslate"><span class="pre">'name'</span> <span class="pre">=</span> <span class="pre">'jollysone'</span></code> 的数据。如需  <code class="docutils literal notranslate"><span class="pre">'id'</span> <span class="pre">=</span> <span class="pre">'10'</span></code> 或 <code class="docutils literal notranslate"><span class="pre">'name'</span> <span class="pre">=</span> <span class="pre">'jollysone'</span></code> , 可配置第二个参数为 <code class="docutils literal notranslate"><span class="pre">'or'</span></code> 。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">addColumnsCondition</span><span class="p">([</span>
+</span><span class="hll">            <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;10&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;jollysone&#39;</span>
+</span><span class="hll">        <span class="p">])</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>例2：</strong> 查询条件为包含 <code class="docutils literal notranslate"><span class="pre">'id'</span> <span class="pre">=</span> <span class="pre">1</span></code> 、 <code class="docutils literal notranslate"><span class="pre">'id'</span> <span class="pre">=</span> <span class="pre">2</span></code> 、 <code class="docutils literal notranslate"><span class="pre">'id'</span> <span class="pre">=</span> <span class="pre">3</span></code> 且 <code class="docutils literal notranslate"><span class="pre">'name'</span> <span class="pre">=</span> <span class="pre">'jollysone'</span></code> 的数据。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">addColumnsCondition</span><span class="p">([</span>
+</span><span class="hll">            <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span>
+</span><span class="hll">            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;jollysone&#39;</span>
+</span><span class="hll">        <span class="p">])</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="addstrcondition">
+<h3><strong>addStrCondition()</strong><a class="headerlink" href="#addstrcondition" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>  <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>  <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
+<p><strong>参数：</strong> addStrCondition($conditionstr, $params = array(), $op = 'and')</p>
+<p><strong>例1：</strong> 查询条件为 <code class="docutils literal notranslate"><span class="pre">'id'</span> <span class="pre">=</span> <span class="pre">'10'</span></code> 的数据, 直接拼接SQL语句，比较灵活，一般根据场景用于复杂的语句使用, 尽量使用其他已有的封装。 <code class="docutils literal notranslate"><span class="pre">$params</span></code> 是用于PDO传参的方式, 能对应参数传入。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">addStrCondition</span><span class="p">(</span><span class="s1">&#39;id = 10&#39;</span><span class="p">)</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="hll">
+</span>    <span class="c1">// PDO 传参会对应 ? 先后和一维数组先后传参进去</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">addStrCondition</span><span class="p">(</span><span class="s1">&#39;id = ? and name = ? and age = ?&#39;</span><span class="p">,</span> <span class="p">[</span>
+</span><span class="hll">            <span class="s1">&#39;10&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="s1">&#39;jollysone&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="s1">&#39;24&#39;</span>
+</span><span class="hll">        <span class="p">])</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="addincondition">
+<h3><strong>addInCondition()</strong><a class="headerlink" href="#addincondition" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>  <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>  <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
+<p><strong>参数：</strong> addInCondition($name, $array, $op = 'and')</p>
+<p><strong>例1：</strong> 查询条件为包含 <code class="docutils literal notranslate"><span class="pre">'id'</span> <span class="pre">=</span> <span class="pre">1</span></code> 、 <code class="docutils literal notranslate"><span class="pre">'id'</span> <span class="pre">=</span> <span class="pre">2</span></code> 、 <code class="docutils literal notranslate"><span class="pre">'id'</span> <span class="pre">=</span> <span class="pre">3</span></code> 的数据。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">addInCondition</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="addconditions">
+<h3><strong>addConditions()</strong><a class="headerlink" href="#addconditions" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>  <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>  <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
+<p><strong>参数：</strong> addConditions(array $conditions)</p>
+<p><strong>例1：</strong> 查询条件不包含公司号。更多 <strong>Conditions</strong> 请查看 Conditions 相关章节。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">)</span>
+<span class="hll">        <span class="o">-&gt;</span><span class="na">addConditions</span><span class="p">([</span>
+</span><span class="hll">            <span class="k">new</span> <span class="nx">NoComidCondition</span><span class="p">()</span>
+</span><span class="hll">        <span class="p">])</span>
+</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="adddata">
+<h3><strong>addData()</strong><a class="headerlink" href="#adddata" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code></p>
+<p><strong>参数：</strong> addData($data,$id = null)</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>      <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id12">
+<h3><strong>addData()</strong><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">INSERT</span></code></p>
+<p><strong>参数：</strong> addData($data)</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>      <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="adddatas">
+<h3><strong>addDatas()</strong><a class="headerlink" href="#adddatas" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">INSERT</span></code></p>
+<p><strong>参数：</strong> addDatas($datas)</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>      <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="addlikecondition">
+<h3><strong>addLikeCondition()</strong><a class="headerlink" href="#addlikecondition" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>  <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>  <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
+<p><strong>参数：</strong> addLikeCondition($name, $value, $op = 'and')</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>      <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="adddataex">
+<h3><strong>addDataEx()</strong><a class="headerlink" href="#adddataex" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code></p>
+<p><strong>参数：</strong> addDataEx($key, $value)</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>      <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="addselect">
+<h3><strong>addSelect()</strong><a class="headerlink" href="#addselect" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>  <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>  <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
+<p><strong>参数：</strong> addSelect($columns)</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>      <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="addormulticolumnscondtion">
+<h3><strong>addOrMultiColumnsCondtion()</strong><a class="headerlink" href="#addormulticolumnscondtion" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>  <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>  <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
+<p><strong>参数：</strong> addOrMultiColumnsCondtion($array1, $array2)</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>      <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="addfiltercolumn">
+<h3><strong>addFilterColumn()</strong><a class="headerlink" href="#addfiltercolumn" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>  <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>  <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
+<p><strong>参数：</strong> addFilterColumn($name, $value, $compare = '=')</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>      <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="addfiltercolumnscondition">
+<h3><strong>addFilterColumnsCondition()</strong><a class="headerlink" href="#addfiltercolumnscondition" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>  <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>  <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
+<p><strong>参数：</strong> addFilterColumnsCondition($array, $op = 'and')</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>      <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="addforupdate">
+<h3><strong>addForUpdate()</strong><a class="headerlink" href="#addforupdate" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>  <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>  <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
+<p><strong>参数：</strong> addForUpdate()</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="addgroup">
+<h3><strong>addGroup()</strong><a class="headerlink" href="#addgroup" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>  <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>  <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
+<p><strong>参数：</strong> addGroup($columns)</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>      <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="addid">
+<h3><strong>addId()</strong><a class="headerlink" href="#addid" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>  <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>  <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
+<p><strong>参数：</strong> addId($id, $filed = 'id')</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>      <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="addnoconditioninterceptors">
+<h3><strong>addNoConditionInterceptors()</strong><a class="headerlink" href="#addnoconditioninterceptors" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>  <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>  <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
+<p><strong>参数：</strong> addNoConditionInterceptors(array $noConditionInterceptors)</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>      <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="addorder">
+<h3><strong>addOrder()</strong><a class="headerlink" href="#addorder" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>  <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>  <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
+<p><strong>参数：</strong> addOrder($columns)</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>      <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="addimpossibility">
+<h3><strong>addImpossibility()</strong><a class="headerlink" href="#addimpossibility" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>  <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>  <code class="docutils literal notranslate"><span class="pre">DELETE</span></code></p>
+<p><strong>参数：</strong> addImpossibility()</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>      <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="addnoglobalinsertbeforeinterceptors">
+<h3><strong>addNoGlobalInsertBeforeInterceptors()</strong><a class="headerlink" href="#addnoglobalinsertbeforeinterceptors" title="Permalink to this headline">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">INSERT</span></code></p>
+<p><strong>参数：</strong> addNoGlobalInsertBeforeInterceptors(array $insertBeforeInterceptorNames)</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>      <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="query_builder.html" class="btn btn-neutral float-right" title="语法构造器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../View/index.html" class="btn btn-neutral float-left" title="视图" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, jollysone
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
