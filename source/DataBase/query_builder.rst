@@ -337,3 +337,90 @@ MySQL官方只提供了三种join方式。
 
 尚未整理
 
+
+
+统计总数
+
+$count = CDbCommand::count($CDbCondition, '*');
+构造IN条件
+
+DbUtil::buildInCondition($dbField, $idArray);
+数组方式写查询条件
+
+addColumnsCondition([
+    'field1' => 'value1',
+    'field2' => ['>=', 'value2'],
+    'field3' => ['<=', 'value3'],
+    'field4' => ['in', array()]
+]);
+上级公司
+
+// 1.只对上级公司有效
+// 2.查询逻辑：com_id in (当前公司及其子公司id)
+// 3.支持筛选：传__com_id，筛选__com_id中的公司 
+new ManagerComidCondition()
+用户权限
+
+// 根据当前会话的权限类型，算出uid的取值范围，作为in条件
+new UserAuthConditon(AuthType::getAuthType(AuthManager::AUTH_HOUSEHOLD_VIEW), 'uid')
+in条件
+
+new EqualInCondition($http_field, $db_field)
+=条件
+
+new EqualCondition($http_field, $db_field)
+定值条件
+
+// $value是数值，=查询
+// $value是数组，in查询
+new DefaultValueCondition($db_field, $value)
+模糊查询
+
+// 默认匹配%$http_field%
+// $db_field是一个字段，单字段like查询
+// $db_field是字段数组，多字段or like查询
+new LikeCondition($http_field, $db_field, $lr)
+数字范围
+
+// $db_field >= $http_start_field AND $db_field <= $http_end_field
+// $data_type 传 int 或 decimal
+new NumberRangeCondition($http_start_field, $http_end_field, $db_field, $data_type)
+日期范围
+
+// $db_field >= strtotime($http_start_field) 
+// AND $db_field <= strtotime($http_end_field) + 86400
+new DateRangeCondition($http_start_field, $http_end_field, $db_field)
+
+
+
+
+
+
+
+
+切换数据库
+
+//访问全局
+\CC::app()->db->addConnectListener(new ZhifaServer2ConnectListenerInterface());
+
+//某条查询
+$config = [
+    'dsn' => 'mysql:host=localhost;dbname=fhj', 
+    'username' => 'root', 
+    'password' => '123456'
+];
+InsertModel::make($table)
+    ->setDbConnectListener(new SimpleConnectListener($config)) 
+    ->addData($item) 
+    ->execute();
+插入记录不带com_id
+
+InsertModel::make($table)
+    ->addNoGlobalInsertBeforeInterceptors([
+        'CC\action\module\common\db\sglobal\ComInsertInterceptors'
+    ])
+    ->addData($item) 
+    ->execute();
+去掉拦截器默认加上的com_id等于当前公司id的条件
+
+new NoComidCondition()

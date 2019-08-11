@@ -89,6 +89,10 @@ PHP开发规范
 
 **文件及目录定义方式**
 
+http://host/rootpath/group/module/controller/actionName
+对应类名 ModuleControllerActionNameGroupAction
+
+
 路由访问默认方式： ``www.project.com/权限/模块/子模块/文件`` ,  ``定义路由后可自定义使用路由访问方式``。
 
 .. code-block:: 
@@ -217,5 +221,64 @@ PHP开发规范
         }
 
     ?>
+
+================================================================================
+4. 使用全局宏/枚举值
+================================================================================
+
+.. code-block:: php
+    :linenos:
+
+    <?php
+
+        // error
+        ItemModel::make('user')->execute();
+
+        // correct
+        ItemModel::make(\DBUtils::USER)->execute();
+
+    ?>
+
+
+.. code-block:: php
+    :linenos:
+    :emphasize-lines: 5,8,11,21,24,27
+
+    <?php
+
+        // error
+        switch ($data['sub_status']){
+                case 1:
+                    $msg = '待查看';
+                    break;
+                case 2:
+                    $msg = '待处理';
+                    break;
+                case 3:
+                    $msg = '处理中';
+                    break;
+                default:
+                    $msg = '未知状态';
+                    break;
+        }
+
+        // correct
+        switch ($data['sub_status']){
+                case TaskOpTypeEnum::WAIT_LOOK:
+                    $msg = '待查看';
+                    break;
+                case TaskOpTypeEnum::WAIT_HANDLE:
+                    $msg = '待处理';
+                    break;
+                case TaskOpTypeEnum::HANDLING:
+                    $msg = '处理中';
+                    break;
+                default:
+                    $msg = '未知状态';
+                    break;
+        }
+
+    ?>
+
 
 

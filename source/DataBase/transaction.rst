@@ -12,14 +12,13 @@
 
 .. code-block:: php
     :linenos:
-    :emphasize-lines: 4
+    :emphasize-lines: 5
 
     <?php
 
-        ItemModel::make(DBUtils::COLLECT_TASK_HANDLE_DETAIL)
+        ItemModel::make($table)
+            ->addId($id)
             ->addForUpdate()
-            ->addColumn('id', $this->id)
-            ->select('id, case_object_unit, case_object_shop')
             ->execute();
 
     ?>
@@ -46,3 +45,9 @@
 
     ?>
 
+
+
+
+$transaction = \CC::app()->db->beginTransaction();
+$transaction->commit();
+$transaction->rollBack();

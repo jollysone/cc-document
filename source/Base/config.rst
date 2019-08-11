@@ -94,3 +94,56 @@
         );
 
     ?>
+
+
+
+
+    自定义参数
+
+//配置
+'params' => [
+    'test' => 1
+]
+
+//访问
+\CC::app()->params['test']
+数据库连接
+
+'db' => [
+    'dsn' => 'mysql:host=192.168.1.35;port=3306;dbname=autest',
+    'username' => 'root',
+    'password' => '123456',
+]
+
+//当前项目的数据库连接
+\CC::app()->db->getConnect();
+加密盐
+
+'cc_class_config' => [
+    'util/encrypt/Password' => [
+        'salt' => 'H6ku3dBNBxmSZmw7WMRT8fu4ce95mdda',
+    ]
+]
+分组默认布局文件
+
+'cc_class_config' => [
+    'response/CRenderData' => [
+        'groupLayouts' => [
+            'admin' => '/layouts/default',
+            'web' => '/layouts/simple',
+            'api' => '/layouts/mobile',
+            'xbwqLink' => '/layouts/simple',
+        ],
+    ],
+],
+分组配置
+
+'env' => [
+    'api' => 'api',
+    'web' => 'admin,web',
+    'cmd' => 'cmd',
+]
+
+
+
+

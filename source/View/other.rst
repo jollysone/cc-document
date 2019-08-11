@@ -1,0 +1,217 @@
+####################################################################################################
+**视图**
+####################################################################################################
+
+******************************************************************************************
+**视图用法**
+******************************************************************************************
+
+同级控制器目录的/view目录下写上就行
+
+******************************************************************************************
+**视图组件**
+******************************************************************************************
+
+================================================================================
+**让弹窗稳定居中**
+================================================================================
+
+/*放弹窗*/
+$('.ow_open_cont').addClass('detail_pop')
+
+/*放首页*/
+.detail_pop {
+    font-size: 0;
+    letter-spacing: 0;
+    word-spacing: 0;
+    height: 500px;
+    overflow-y: auto;
+}
+
+
+================================================================================
+**详情页视图**
+================================================================================
+
+
+use CC\util\common\widget\widget\DetailWidget;
+use CC\util\common\widget\widget\WidgetBuilder;
+
+echo WidgetBuilder::build(new DetailWidget([        
+        ['label' => '', 'name' => '','value' => ''],     
+    ])
+);
+
+================================================================================
+**图片地址**
+================================================================================
+
+$imgUrl = $publicUrl."/biz/admin/common/images/avatar.jpg";
+
+================================================================================
+**加载css/js**
+================================================================================
+
+echo AssetManager::instance()->getCssJs([ 
+    '/public/biz/admin/module/css/xx.css', 
+    '/public/biz/admin/module/js/xx.js'
+]);
+
+================================================================================
+**输入框**
+================================================================================
+
+echo (new FilesInput('import_data', ''))->onCreateInput(null);
+
+================================================================================
+**刷新前端元素**
+================================================================================
+
+reload_element('.my_class', url);
+
+请求url返回的视图文件格式是(取.my_class里包裹的所有html代码)
+html
+<div>
+<div class='.my_class'>
+<div>
+</div>
+
+================================================================================
+**表格数据格式化**
+================================================================================
+
+new SimpleColumnValueSetterWrapper($dataKey, $dataArr);
+
+================================================================================
+**表格基本用法**
+================================================================================
+
+use CC\util\common\widget\panel\ListBodyPanel;
+use CC\util\common\widget\panel\ListTablePanel;
+use CC\util\common\widget\widget\ListTableWidget;
+use CC\util\common\widget\widget\WidgetBuilder;
+
+//list-body-panel可以配合 op_link 的回调函数 reload_element 一起工作
+echo ListBodyPanel::instance()->start();
+
+echo ListBtnPanel::instance()->start();
+//这个位置可以放按钮哦 :)
+echo WidgetBuilder::build(new \CC\util\common\widget\widget\buttons\ButtonWidget('新增', 'save'));
+echo ListBtnPanel::instance()->end();
+
+echo WidgetBuilder::build(new ListTableWidget($this, $list, $page, []), ListTablePanel::instance());
+
+echo ListBodyPanel::instance()->end();
+
+================================================================================
+**表格高级配置**
+================================================================================
+
+$options = [
+    'is_show_page_num' => true, //定制每页显示的行数
+    'is_change_page_num_ajax' => true, //异步分页
+    'is_show_sequence' => true, //第一列显示序号
+    'op_btn_pos_front' => true, //操作按钮放列表左边
+];
+
+//is_change_page_num_ajax 要和这个配合使用
+echo WidgetBuilder::build(new FilterWidget($this, ['is_asyn' => true]), ListSearchPanel::instance());
+
+================================================================================
+**表单基本用法**
+================================================================================
+
+use CC\util\common\widget\panel\FormPanel;
+use CC\util\common\widget\widget\FormWidget;
+use CC\util\common\widget\widget\WidgetBuilder;
+
+echo WidgetBuilder::build(new FormWidget($this, $data), FormPanel::instance());
+
+================================================================================
+**标签页**
+================================================================================
+
+echo WidgetBuilder::build(new CustomTabWidget());
+
+重载父类的getActions方法
+
+class CustomTabWidget extends TabWidget
+{
+
+    protected function getActions()
+    {
+        $data = [];
+        $data[] = ['name' => '文案', 'action_str' => '/test/index/index', 'params' => ['a' => 1]];
+        return $data;
+    }
+}
+
+
+================================================================================
+**超链接**
+================================================================================
+
+// $action_str 对应<a>的href
+echo WidgetBuilder::build(new ButtonWidget($name, $action_str, $params), ListBtnPanel::instance());
+
+================================================================================
+**编辑弹窗**
+================================================================================
+
+// 对应js是pop.editOpen()
+// 对应class为edit_link
+// $action_str对应data-href
+// $name对应data-title
+// data-success-after用于回调 通过$dataAttributes设定
+echo WidgetBuilder::build(new EditAjaxButtonWidget($name, $action_str, $params, $dataAttributes));
+
+================================================================================
+**查看弹窗**
+================================================================================
+
+// 对于js是pop.view()
+// 对应class为view_link
+// $action_str对应data-href
+// $name对应data-title
+echo WidgetBuilder::build(new ViewButtonWidget($name, $action_str, $params));
+
+================================================================================
+**操作按钮**
+================================================================================
+
+操作按钮 (注意: $params不能是空数组，否则请求的url是空字符串)
+
+// 对应js是 pop.confirm()
+// 对应class为op_link
+// $action_str对应data-href
+// data-success-after 用于回调 通过$dataAttributes设定
+// $content 对应data-content
+
+echo WidgetBuilder::build(new OperateButtonWidget($name, $action_str, $params, $content, $title, $dataAttributes));
+
+================================================================================
+**返回上级按钮**
+================================================================================
+
+echo WidgetBuilder::build(new RetrunBackWidget($action_str, $params));
+
+================================================================================
+**导出按钮**
+================================================================================
+
+// $action_str对应href是 当前URL自动加is_export=1
+echo WidgetBuilder::build(new ExportButtonWidget($name, $action_str));
+
+
+
+图片查看器
+
+$.imgView({
+    imgs: ["http://xxx/1.jpg"],
+    c_index: 0
+});
+<div data-org="http://xxx.1.jpg" class="img_view"></div>
+
+
+
+
