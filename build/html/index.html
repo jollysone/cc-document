@@ -1,14 +1,14 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="cn" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="cn" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>CC 框架文档 1.0.0 &mdash; CC 框架文档 1.0.0 documentation</title>
+  <title>CC 框架文档 1.0.0 &mdash; CC 框架文档 1.0.0 文档</title>
   
 
   
@@ -33,8 +33,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
     <link rel="next" title="安装" href="Base/install.html" /> 
 </head>
 
@@ -95,7 +95,9 @@
 </ul>
 <p class="caption"><span class="caption-text">请求(Request)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Request/index.html"><strong>获取请求参数</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Request/index.html"><strong>获取参数</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Request/Checker/guide.html"><strong>验证器基础</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Request/Checker/list.html"><strong>验证器列表</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">响应(Response)</span></p>
 <ul>
@@ -111,17 +113,19 @@
 </ul>
 <p class="caption"><span class="caption-text">控制器(Controller)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Controller/index.html"><strong>基本控制器</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Controller/index.html#id2"><strong>其它控制器</strong></a></li>
-</ul>
-<p class="caption"><span class="caption-text">验证器(Checker)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Checker/index.html"><strong>验证器用法</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Checker/index.html#id2"><strong>验证器列表</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Controller/base.html"><strong>基本控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Controller/other.html"><strong>其它控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Controller/func.html"><strong>控制器方法列表</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Controller/handler.html"><strong>流程处理器</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">视图组件(View Component)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="View/index.html"><strong>视图</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="View/base.html"><strong>基本用法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="View/resource.html"><strong>资源列表说明</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="View/filter.html"><strong>过滤器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="View/input.html"><strong>输入框</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="View/list.html"><strong>列表</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="View/other.html"><strong>其它</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">数据库(DataBase)</span></p>
 <ul>
@@ -132,6 +136,7 @@
 </ul>
 <p class="caption"><span class="caption-text">权限(Auth)</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="Auth/checker.html"><strong>权限检查器</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Auth/index.html"><strong>权限相关</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">安全(Safe)</span></p>
@@ -141,17 +146,14 @@
 </ul>
 <p class="caption"><span class="caption-text">文件系统(Files)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Files/index.html"><strong>导入(Import)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Files/index.html#export"><strong>导出(Export)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Files/index.html"><strong>导入文件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Files/index.html#id2"><strong>导出文件</strong></a></li>
 </ul>
-<p class="caption"><span class="caption-text">异常和调试(Exception &amp; Debug)</span></p>
+<p class="caption"><span class="caption-text">开发调试(Debug)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="ExceptionAndDebug/index.html"><strong>异常(Exception)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="ExceptionAndDebug/index.html#debug"><strong>调试(Debug)</strong></a></li>
-</ul>
-<p class="caption"><span class="caption-text">日志(Log)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Log/index.html"><strong>日志(Log)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Debug/exception.html"><strong>异常</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Debug/debugging.html"><strong>调试</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Debug/log.html"><strong>日志</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">后台任务调度(Crontab)</span></p>
 <ul>
@@ -159,15 +161,11 @@
 </ul>
 <p class="caption"><span class="caption-text">Helper &amp; Utils</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Utils/index.html"><strong>Helper &amp; Utils</strong></a></li>
-</ul>
-<p class="caption"><span class="caption-text">国际化(I18n)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="I18n/index.html"><strong>国际化(I18n)</strong></a></li>
-</ul>
-<p class="caption"><span class="caption-text">注意事项(Attention)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Attention/index.html"><strong>注意事项</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Utils/alarm.html"><strong>警信</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Utils/email.html"><strong>邮件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Utils/helper.html"><strong>助手方法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Utils/utils.html"><strong>脚手架工具</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Utils/i18n.html"><strong>国际化</strong></a></li>
 </ul>
 
             
@@ -233,16 +231,17 @@
            <div itemprop="articleBody">
             
   <div class="section" id="cc-1-0-0">
-<h1>CC 框架文档 1.0.0<a class="headerlink" href="#cc-1-0-0" title="Permalink to this headline">¶</a></h1>
+<h1>CC 框架文档 1.0.0<a class="headerlink" href="#cc-1-0-0" title="永久链接至标题">¶</a></h1>
 <p>整合了文档内容, 便于开发, 很多地方没有完善，仅供参考, 如有问题, 联系我（<a class="reference external" href="mailto:jollysone&#37;&#52;&#48;gmail&#46;com">jollysone<span>&#64;</span>gmail<span>&#46;</span>com</a>）及时更正。</p>
-<p>本文档使用 <code class="docutils literal notranslate"><span class="pre">Python</span></code> 官方文档工具 <code class="docutils literal notranslate"><span class="pre">Sphinx</span></code> 进行编写的 <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> 格式文档, 代码块使用的是前 <code class="docutils literal notranslate"><span class="pre">Github</span></code> 代码高亮引擎 <code class="docutils literal notranslate"><span class="pre">Pygments</span></code> 进行语法高亮。</p>
+<p>本文档使用 <em>Python</em> 官方文档工具 <strong>Sphinx</strong> 进行编写的 <strong>reStructuredText</strong> 格式文档, 代码块使用的是前 <em>Github</em> 代码高亮引擎 <strong>Pygments</strong> 进行语法高亮。</p>
+<p>搜索是基于 “结巴” 中文分词- <strong>Jieba</strong> 。</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">基础(Base)</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Base/install.html"><strong>安装</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Base/config.html"><strong>配置</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Base/config.html#id2">配置文件列表</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Base/config.html#id3">配置文件内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Base/config.html#id2"><strong>配置文件列表</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Base/config.html#id3"><strong>配置文件内容</strong></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Base/catalog.html"><strong>目录结构</strong></a></li>
@@ -260,14 +259,55 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Framework/overview.html"><strong>架构总览</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Framework/entry.html"><strong>入口文件</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Framework/module.html"><strong>模块设计</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Framework/module.html"><strong>模块设计</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Framework/module.html#id2"><strong>各服务器切换设计</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framework/module.html#id3"><strong>会话认证设计</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framework/module.html#id4"><strong>加密设计</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framework/module.html#id5"><strong>类属性反射设计</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framework/module.html#id6"><strong>依赖注入设计</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framework/module.html#id7"><strong>数据假删除设计</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framework/module.html#id8"><strong>路由分组模块设计</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framework/module.html#id9"><strong>公司拦截器分组设计</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framework/module.html#url"><strong>URL权限检查器设计</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framework/module.html#id10"><strong>视图设计</strong></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="Framework/lifetime.html"><strong>生命周期</strong></a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">请求(Request)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Request/index.html"><strong>获取请求参数</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Request/index.html"><strong>获取参数</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Request/index.html#get-post">获取GET/POST参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/index.html#id2">获取浏览器访问类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/index.html#getparamsoldversion">getParamsOldVersion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Request/Checker/guide.html"><strong>验证器基础</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/guide.html#id2"><strong>验证器用法</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/guide.html#id3"><strong>自定义验证器</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Request/Checker/list.html"><strong>验证器列表</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/list.html#customchecker"><strong>CustomChecker</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/list.html#emailchecker"><strong>EmailChecker</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/list.html#floatchecker"><strong>FloatChecker</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/list.html#hanzichecker"><strong>HanziChecker</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/list.html#idexistchecker"><strong>IdExistChecker</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/list.html#intchecker"><strong>IntChecker</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/list.html#ipchecker"><strong>IpChecker</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/list.html#lenchecker"><strong>LenChecker</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/list.html#mustchecker"><strong>MustChecker</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/list.html#mustselectonechecker"><strong>MustSelectOneChecker</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/list.html#namechecker"><strong>NameChecker</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/list.html#phonechecker"><strong>PhoneChecker</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/list.html#picttextmustchecker"><strong>PictTextMustChecker</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/list.html#timerangechecker"><strong>TimeRangeChecker</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/list.html#timerangeconflictchecker"><strong>TimeRangeConflictChecker</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Request/Checker/list.html#uniquechecker"><strong>UniqueChecker</strong></a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -282,43 +322,155 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">路由(Route)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Route/interceptor.html"><strong>路由拦截器(Interceptor)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Route/interceptor.html"><strong>路由拦截器(Interceptor)</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Route/interceptor.html#url"><strong>URL</strong></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="Route/method.html"><strong>路由使用方法(Route Guide)</strong></a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">控制器(Controller)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Controller/index.html"><strong>基本控制器</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Controller/index.html#id2"><strong>其它控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Controller/base.html"><strong>基本控制器</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Controller/base.html#caction"><strong>控制器基类(CAction)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/base.html#listaction"><strong>列表控制器(ListAction)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/base.html#detailaction"><strong>详情控制器(DetailAction)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/base.html#saveaction"><strong>保存控制器(SaveAction)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/base.html#deteleaction"><strong>删除控制器(DeteleAction)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/base.html#other"><strong>其它(Other)</strong></a></li>
 </ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">验证器(Checker)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Checker/index.html"><strong>验证器用法</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Checker/index.html#id2"><strong>验证器列表</strong></a></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Controller/other.html"><strong>其它控制器</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Controller/other.html#tablesortaction"><strong>TableSortAction</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/other.html#treemoveaction"><strong>TreeMoveAction</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/other.html#treesubaction"><strong>TreeSubAction</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Controller/func.html"><strong>控制器方法列表</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Controller/func.html#id2"><strong>配置操作表</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/func.html#id3"><strong>数据搜索条件</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/func.html#id4"><strong>预处理数据</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/func.html#id5"><strong>配置表格字段</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/func.html#id6"><strong>配置操作按钮</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/func.html#id7"><strong>配置过滤器</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/func.html#id8"><strong>访问支持分组</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/func.html#id9"><strong>获得网页标题</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/func.html#id10"><strong>开启控制器事务</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/func.html#id11"><strong>配置布局文件</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/func.html#id12"><strong>是否使用布局文件</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/func.html#id13"><strong>配置控制器返回的数据格式</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/func.html#id14"><strong>返回响应附加字段</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/func.html#id15"><strong>开启导出功能</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/func.html#id16"><strong>配置导出图片</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/func.html#id17"><strong>如何关闭分页</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Controller/handler.html"><strong>流程处理器</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Controller/handler.html#listhandler"><strong>listHandler</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/handler.html#savehandler"><strong>saveHandler</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Controller/handler.html#deletehandler"><strong>deleteHandler</strong></a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">视图组件(View Component)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="View/index.html"><strong>视图</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="View/base.html"><strong>基本用法</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="View/base.html#id2"><strong>视图创建</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="View/base.html#id3"><strong>分页器</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="View/resource.html"><strong>资源列表说明</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="View/resource.html#id2"><strong>后台前端资源列表</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="View/resource.html#id3"><strong>服务器本地路径</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="View/resource.html#url"><strong>URL</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="View/resource.html#id4"><strong>路径转换</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="View/resource.html#id5"><strong>可用路径模板</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="View/filter.html"><strong>过滤器</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="View/filter.html#id2"><strong>基本用法</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="View/filter.html#id3"><strong>过滤器样式</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="View/filter.html#id6"><strong>过滤器组件</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="View/filter.html#id13"><strong>自定义过滤器</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="View/input.html"><strong>输入框</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="View/input.html#id2"><strong>基本用法</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="View/input.html#id3"><strong>输入框组件</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="View/input.html#id26"><strong>自定义输入框</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="View/list.html"><strong>列表</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="View/list.html#id2"><strong>基本用法</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="View/list.html#id4"><strong>自定义表格</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="View/other.html"><strong>其它</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="View/other.html#id2"><strong>侧边栏</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="View/other.html#id3"><strong>导航栏</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="View/other.html#id4"><strong>视图技巧</strong></a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">数据库(DataBase)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="DataBase/guide.html"><strong>基本使用方法</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="DataBase/query_builder.html"><strong>语法构造器</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="DataBase/transaction.html"><strong>数据一致性</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="DataBase/debug.html"><strong>数据库调试</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataBase/guide.html"><strong>基本使用方法</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/guide.html#id2"><strong>用前须知</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/guide.html#id3"><strong>查询数据</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/guide.html#id6"><strong>添加数据</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/guide.html#id9"><strong>更新数据</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/guide.html#id10"><strong>删除数据</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/guide.html#id11"><strong>条件控制</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DataBase/query_builder.html"><strong>语法构造器</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#select"><strong>SELECT</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#from"><strong>FROM</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#where"><strong>WHERE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#join"><strong>JOIN</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#group-by"><strong>GROUP BY</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#order-by"><strong>ORDER BY</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#having"><strong>HAVING</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#limit"><strong>LIMIT</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#offset"><strong>OFFSET</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#id3"><strong>统计总数</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#in"><strong>构造IN条件</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#id4"><strong>上级公司</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#id5"><strong>用户权限</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#equal"><strong>Equal条件</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#id6"><strong>不知道什么的条件</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#id7"><strong>模糊查询</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#id8"><strong>数字范围</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#id9"><strong>日期范围</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#id10"><strong>切换数据库</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/query_builder.html#id11"><strong>当前项目的数据库连接</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DataBase/transaction.html"><strong>数据一致性</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/transaction.html#id2"><strong>加锁</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/transaction.html#id3"><strong>事务操作</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DataBase/debug.html"><strong>数据库调试</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/debug.html#id2"><strong>调试打印上一条语句</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataBase/debug.html#id3"><strong>调试打印所有语句</strong></a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">权限(Auth)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Auth/index.html"><strong>权限相关</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Auth/checker.html"><strong>权限检查器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Auth/index.html"><strong>权限相关</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Auth/index.html#id2"><strong>111</strong></a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -331,45 +483,69 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">文件系统(Files)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Files/index.html"><strong>导入(Import)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Files/index.html#export"><strong>导出(Export)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Files/index.html"><strong>导入文件</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Files/index.html#excel"><strong>导入Excel文件</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Files/index.html#id2"><strong>导出文件</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Files/index.html#id3"><strong>导出配置</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Files/index.html#id4"><strong>导出Excel文件</strong></a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">异常和调试(Exception &amp; Debug)</span></p>
+<p class="caption"><span class="caption-text">开发调试(Debug)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="ExceptionAndDebug/index.html"><strong>异常(Exception)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="ExceptionAndDebug/index.html#debug"><strong>调试(Debug)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Debug/exception.html"><strong>异常</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Debug/exception.html#id2"><strong>捕获异常</strong></a></li>
 </ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">日志(Log)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Log/index.html"><strong>日志(Log)</strong></a></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Debug/debugging.html"><strong>调试</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Debug/log.html"><strong>日志</strong></a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">后台任务调度(Crontab)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Crontab/index.html"><strong>后台任务调度</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crontab/index.html"><strong>后台任务调度</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Crontab/index.html#id2"><strong>自启动流程</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Crontab/index.html#cmd-core-bgtask-run"><strong>/cmd/core/bgtask/run 运行机制</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Crontab/index.html#id3"><strong>如何实现一个永久运行的后台任务?</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Crontab/index.html#id4"><strong>如何实现一个一次运行的后台任务?</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Crontab/index.html#id5"><strong>其它</strong></a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Helper &amp; Utils</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Utils/index.html"><strong>Helper &amp; Utils</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Utils/alarm.html"><strong>警信</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Utils/alarm.html#notice"><strong>Notice消息</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utils/alarm.html#message"><strong>Message消息</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utils/alarm.html#id2"><strong>自定义消息</strong></a></li>
 </ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">国际化(I18n)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="I18n/index.html"><strong>国际化(I18n)</strong></a></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Utils/email.html"><strong>邮件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Utils/helper.html"><strong>助手方法</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Utils/helper.html#id2"><strong>缓存</strong></a></li>
 </ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">注意事项(Attention)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Attention/index.html"><strong>注意事项</strong></a></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Utils/utils.html"><strong>脚手架工具</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Utils/utils.html#curl"><strong>CURL</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utils/utils.html#url"><strong>构造URL</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utils/utils.html#id2"><strong>获取当前URL的分组</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utils/utils.html#id3"><strong>当前页面URL</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utils/utils.html#id4"><strong>取二维数组某一列数据</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utils/utils.html#id5"><strong>改二维数组的索引</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utils/utils.html#id6"><strong>带分隔符的字符串转数组</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utils/utils.html#id7"><strong>下载文件到当前服务器</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utils/utils.html#id8"><strong>上传文件到阿里云</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utils/utils.html#id9"><strong>遍历目录</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Utils/i18n.html"><strong>国际化</strong></a></li>
 </ul>
 </div>
 </div>

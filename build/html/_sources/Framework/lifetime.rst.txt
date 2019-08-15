@@ -3,3 +3,17 @@
 ####################################################################################################
 
 尚未完善
+
+所有访问都定向到 index.php, 然后 $app->run();
+
+然后 执行 CUrlManager的 runController()
+
+runController 方法根据请求的URL 找到对应的类文件 的 路径
+
+然后php include进来, 实例化这个类, 调用Action对象的 execute()方法
+
+execute() 方法如果返回 CRenderData(), 就会 include 同级目录下的view文件夹的对应 视图文件
+
+视图文件 也就是网页的前端部分
+
+视图文件提供 布局文件 $content 的部分, 布局文件一般放在 protected\module\layouts 下面, 提供一些基本的 前端资源 .css .js, 布局文件 还渲染共用的 导航条

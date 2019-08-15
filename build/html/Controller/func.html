@@ -1,0 +1,790 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>控制器方法列表 &mdash; CC 框架文档 1.0.0 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="流程处理器" href="handler.html" />
+    <link rel="prev" title="其它控制器" href="other.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> CC 框架文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">基础(Base)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Base/install.html"><strong>安装</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Base/config.html"><strong>配置</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Base/catalog.html"><strong>目录结构</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Base/standard.html"><strong>开发规范</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">架构(Framework)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/overview.html"><strong>架构总览</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/entry.html"><strong>入口文件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/module.html"><strong>模块设计</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/lifetime.html"><strong>生命周期</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">请求(Request)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Request/index.html"><strong>获取参数</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Request/Checker/guide.html"><strong>验证器基础</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Request/Checker/list.html"><strong>验证器列表</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">响应(Response)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html"><strong>响应为Json格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#jsonp"><strong>响应为Jsonp格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#render"><strong>响应为Render格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应空数据格式</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">路由(Route)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Route/interceptor.html"><strong>路由拦截器(Interceptor)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Route/method.html"><strong>路由使用方法(Route Guide)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">控制器(Controller)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="base.html"><strong>基本控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html"><strong>其它控制器</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>控制器方法列表</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2"><strong>配置操作表</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3"><strong>数据搜索条件</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4"><strong>预处理数据</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5"><strong>配置表格字段</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6"><strong>配置操作按钮</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7"><strong>配置过滤器</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8"><strong>访问支持分组</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9"><strong>获得网页标题</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10"><strong>开启控制器事务</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11"><strong>配置布局文件</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12"><strong>是否使用布局文件</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id13"><strong>配置控制器返回的数据格式</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14"><strong>返回响应附加字段</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15"><strong>开启导出功能</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id16"><strong>配置导出图片</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id17"><strong>如何关闭分页</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="handler.html"><strong>流程处理器</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">视图组件(View Component)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../View/base.html"><strong>基本用法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/resource.html"><strong>资源列表说明</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/filter.html"><strong>过滤器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/input.html"><strong>输入框</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/list.html"><strong>列表</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/other.html"><strong>其它</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">数据库(DataBase)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/guide.html"><strong>基本使用方法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/query_builder.html"><strong>语法构造器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/transaction.html"><strong>数据一致性</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/debug.html"><strong>数据库调试</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">权限(Auth)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Auth/checker.html"><strong>权限检查器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Auth/index.html"><strong>权限相关</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">安全(Safe)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Safe/index.html"><strong>资源加密</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Safe/index.html#id2"><strong>资源解密</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">文件系统(Files)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html"><strong>导入文件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html#id2"><strong>导出文件</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发调试(Debug)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Debug/exception.html"><strong>异常</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Debug/debugging.html"><strong>调试</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Debug/log.html"><strong>日志</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">后台任务调度(Crontab)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Crontab/index.html"><strong>后台任务调度</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">Helper &amp; Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/alarm.html"><strong>警信</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/email.html"><strong>邮件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/helper.html"><strong>助手方法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/utils.html"><strong>脚手架工具</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/i18n.html"><strong>国际化</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CC 框架文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><strong>控制器方法列表</strong></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Controller/func.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><strong>控制器方法列表</strong><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><strong>配置操作表</strong><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code> <code class="docutils literal notranslate"><span class="pre">DetailAction</span></code> <code class="docutils literal notranslate"><span class="pre">SaveAction</span></code> <code class="docutils literal notranslate"><span class="pre">DeleteAction</span></code></p>
+<p><strong>说明：</strong> 需要对哪个表操作，就配置上对应的表即可。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>注意1：</strong> 通过 <cite>CAction</cite> 衍生的控制器都 <strong>需要</strong> 配置此项。</p></li>
+<li><p><strong>注意2：</strong> 返回表名 <strong>一定要</strong> 用 <strong>宏定义/枚举值</strong> 的方式。</p></li>
+</ul>
+</div></blockquote>
+<p><strong>例1：</strong> 配置控制器默认操作 'user' 表。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">getTable</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">DBUtils</span><span class="o">::</span><span class="na">USER</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id3">
+<h2><strong>数据搜索条件</strong><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code> <code class="docutils literal notranslate"><span class="pre">DetailAction</span></code></p>
+<p><strong>说明：</strong> 配置搜索条件，具体可配置方法可参考 <strong>数据库 -&gt; 基本使用方法-&gt; 条件控制</strong> 。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>列表页：</strong> 一般根据条件重写此方法，同时也是联动筛选项的，</p></li>
+<li><p><strong>详情页：</strong> 一般不需重写，默认自动获取 <strong>id</strong> 关联表条件。</p></li>
+</ul>
+</div></blockquote>
+<p><strong>例1：</strong> 列表页重写搜索条件。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">getSearchCondition</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">dbCondition</span><span class="o">-&gt;</span><span class="na">leftJoin</span><span class="p">(</span><span class="nx">DBUtils</span><span class="o">::</span><span class="na">USER</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;t.id = u.work_id&#39;</span><span class="p">);</span>
+
+        <span class="o">...</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">dbCondition</span><span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;t.id&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">order</span><span class="p">(</span><span class="s1">&#39;t.is_draft desc, t.submit_time desc&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">select</span><span class="p">(</span><span class="s1">&#39;t.*&#39;</span><span class="p">);</span>
+
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>例2：</strong> 详情页通过类属性反射自动获取到 <strong>id</strong> 并自动添加条件。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">dbCondition</span><span class="o">-&gt;</span><span class="na">addColumnsCondition</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;t.id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">,</span>
+    <span class="p">));</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id4">
+<h2><strong>预处理数据</strong><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code> <code class="docutils literal notranslate"><span class="pre">DetailAction</span></code></p>
+<p><strong>说明：</strong> 如果有需要预处理的数据，把预处理逻辑写在 <strong>beforHandler</strong> 中处理显示前的数据即可。详细写法参考 <strong>控制器 -&gt; 流程处理器 -&gt; listHandler</strong> 。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>提示：</strong> 以数组形式可返回多个流程处理器对象，执行顺序按索引顺序依次往后。</p></li>
+</ul>
+</div></blockquote>
+<p><strong>例1：</strong> 注入一个流程处理器对象 <strong>ExampleListBeforeAdminHandler()</strong> 。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">onListBefore</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$list</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="k">new</span> <span class="nx">ExampleListBeforeAdminHandler</span><span class="p">(),</span>
+        <span class="p">];</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id5">
+<h2><strong>配置表格字段</strong><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code></p>
+<p><strong>说明：</strong> 可以配置列表页所需显示的字段，详细用法可见 <strong>视图组件 -&gt; 列表 -&gt; 配置表格字段</strong> 。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>注意：</strong> 需要实现 <code class="docutils literal notranslate"><span class="pre">ITableViewCreator</span></code> 才可以使用此方法。</p></li>
+</ul>
+</div></blockquote>
+<p><strong>例1：</strong> 配置列表名为 <strong>标题</strong> 的一列。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">createListColumns</span><span class="p">(</span><span class="k">array</span> <span class="nv">$list</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$columns</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Column</span><span class="p">(</span><span class="s1">&#39;标题&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$columns</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id6">
+<h2><strong>配置操作按钮</strong><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code></p>
+<p><strong>说明：</strong> 可以配置列表页列表后面的操作按钮，详细用法可见 <strong>视图组件 -&gt; 列表 -&gt; 配置操作按钮</strong> 。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>注意：</strong> 需要实现 <code class="docutils literal notranslate"><span class="pre">ITableViewCreator</span></code> 才可以使用此方法。</p></li>
+</ul>
+</div></blockquote>
+<p><strong>例1：</strong> 在列表中配置 <code class="docutils literal notranslate"><span class="pre">详情</span></code> 、<code class="docutils literal notranslate"><span class="pre">编辑</span></code> 和 <code class="docutils literal notranslate"><span class="pre">删除</span></code> 三个按钮。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">createOperateButtons</span><span class="p">(</span><span class="k">array</span> <span class="nv">$list</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="k">function</span> <span class="p">(</span><span class="nv">$data</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$buttons</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ViewButtonWidget</span><span class="p">(</span><span class="s1">&#39;详情&#39;</span><span class="p">,</span> <span class="s1">&#39;detail&#39;</span><span class="p">);</span>
+                <span class="nv">$buttons</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EditAjaxButtonWidget</span><span class="p">(</span><span class="s1">&#39;编辑&#39;</span><span class="p">,</span> <span class="s1">&#39;edit&#39;</span><span class="p">);</span>
+                <span class="nv">$buttons</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OperateButtonWidget</span><span class="p">(</span><span class="s1">&#39;删除&#39;</span><span class="p">,</span><span class="s1">&#39;delete&#39;</span><span class="p">);</span>
+
+                <span class="k">return</span> <span class="k">new</span> <span class="nx">ArrayDataWidget</span><span class="p">(</span><span class="nv">$buttons</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">];</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id7">
+<h2><strong>配置过滤器</strong><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code></p>
+<p><strong>说明：</strong> 可以配置列表页顶部的过滤器显示，详细用法可见 <strong>视图组件 -&gt; 过滤器</strong> 。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>注意：</strong> 需要实现 <code class="docutils literal notranslate"><span class="pre">ITableViewCreator</span></code> 才可以使用此方法。</p></li>
+</ul>
+</div></blockquote>
+<p><strong>例1：</strong> 配置列表页顶部的过滤器：<strong>时间搜索</strong> 和 <strong>状态筛选</strong> 。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">createListFilters</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TimeRangeFilter</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;时间&#39;</span><span class="p">,</span> <span class="s1">&#39;simple&#39;</span><span class="p">);</span>
+        <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SelectFilter</span><span class="p">(</span><span class="s1">&#39;sub_status&#39;</span><span class="p">,</span> <span class="s1">&#39;状态&#39;</span><span class="p">,</span> <span class="nx">TaskOpTypeEnum</span><span class="o">::</span><span class="na">getValues</span><span class="p">());</span>
+
+        <span class="k">return</span> <span class="nv">$filters</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id8">
+<h2><strong>访问支持分组</strong><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">CAction</span></code> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code> <code class="docutils literal notranslate"><span class="pre">DetailAction</span></code> <code class="docutils literal notranslate"><span class="pre">SaveAction</span></code> <code class="docutils literal notranslate"><span class="pre">DeleteAction</span></code></p>
+<p><strong>说明：</strong> 可以重写支持固定的分组，默认不写就是全部都能够访问（ <strong>return '_all'</strong> ），支持分组详见 <strong>架构 -&gt; 模块设计 -&gt; 路由分组模块设计</strong> 。</p>
+<p><strong>例1：</strong> 配置支持 <code class="docutils literal notranslate"><span class="pre">api</span></code> 和 <code class="docutils literal notranslate"><span class="pre">admin</span></code> 分组访问。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">supportGroups</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;api,admin&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id9">
+<h2><strong>获得网页标题</strong><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">CAction</span></code> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code> <code class="docutils literal notranslate"><span class="pre">DetailAction</span></code> <code class="docutils literal notranslate"><span class="pre">SaveAction</span></code> <code class="docutils literal notranslate"><span class="pre">DeleteAction</span></code></p>
+<p><strong>说明：</strong> 此方法可以获得网页标题信息，如需修改可重写 <code class="docutils literal notranslate"><span class="pre">$this-&gt;pageTitle</span></code> 属性即可。</p>
+<p><strong>例1：</strong> 获得网页标题信息。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getPageTitle</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pageTitle</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id10">
+<h2><strong>开启控制器事务</strong><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">CAction</span></code> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code> <code class="docutils literal notranslate"><span class="pre">DetailAction</span></code> <code class="docutils literal notranslate"><span class="pre">SaveAction</span></code> <code class="docutils literal notranslate"><span class="pre">DeleteAction</span></code></p>
+<p><strong>说明：</strong> 重写此方法返回 <code class="docutils literal notranslate"><span class="pre">true</span></code> 即可打开控制器事务开关。</p>
+<p><strong>例1：</strong> 获得网页标题信息。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">getIsOpenTransaction</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id11">
+<h2><strong>配置布局文件</strong><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">CAction</span></code> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code> <code class="docutils literal notranslate"><span class="pre">DetailAction</span></code> <code class="docutils literal notranslate"><span class="pre">SaveAction</span></code> <code class="docutils literal notranslate"><span class="pre">DeleteAction</span></code></p>
+<p><strong>说明：</strong> 重写属性 <code class="docutils literal notranslate"><span class="pre">$layouts</span></code> 配置布局文件模板。默认是 <code class="docutils literal notranslate"><span class="pre">模板1</span></code>, 只显示视图组件的可配置 <code class="docutils literal notranslate"><span class="pre">模板2</span></code> ，一般不需要显示页面组件的可配置 <code class="docutils literal notranslate"><span class="pre">模板3</span></code> 进行隐藏。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>模板1：</strong> '/layouts/default'：是包括了整个管理端页面的模板。 <strong>默认是这个模板</strong> 。</p></li>
+<li><p><strong>模板2：</strong> '/layouts/simple'：只渲染视图组件的模板。</p></li>
+<li><p><strong>模板3：</strong> false：不渲染模板。</p></li>
+</ul>
+</div></blockquote>
+<p><strong>提示：</strong> 页面上是否有视图组件取决于是否实现 <code class="docutils literal notranslate"><span class="pre">ITableViewCreator</span></code> 。</p>
+<p><strong>例1：</strong> 底层默认获取视图布局模板。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getLayouts</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">layouts</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>例2：</strong> 修改模板，让网页只渲染视图组件的模板。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">public</span> <span class="nv">$layouts</span> <span class="o">=</span> <span class="s1">&#39;/layouts/simple&#39;</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id12">
+<h2><strong>是否使用布局文件</strong><a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code> <code class="docutils literal notranslate"><span class="pre">DetailAction</span></code> <code class="docutils literal notranslate"><span class="pre">SaveAction</span></code> <code class="docutils literal notranslate"><span class="pre">DeleteAction</span></code></p>
+<p><strong>说明：</strong> 重写 <code class="docutils literal notranslate"><span class="pre">getIsLayout()</span></code> 方法配置不加载布局配置模板。（默认不重写是 <strong>true</strong> ）</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>提示：</strong> 适合只写了相关内容而不需要加载布局配置模板的控制器。</p></li>
+</ul>
+</div></blockquote>
+<p><strong>例1：</strong> 配置不加载布局配置模板。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="c1">// 弹窗不卡的秘密哦</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getIsLayout</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id13">
+<h2><strong>配置控制器返回的数据格式</strong><a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code> <code class="docutils literal notranslate"><span class="pre">DetailAction</span></code></p>
+<p><strong>说明：</strong> 重写 <code class="docutils literal notranslate"><span class="pre">getDataType()</span></code> 方法配置配置控制器返回的数据格式。（默认不重写是 <strong>'render'</strong> 方式）</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>提示：</strong> 适合既想继承 <code class="docutils literal notranslate"><span class="pre">ListAction</span></code> 或 <code class="docutils literal notranslate"><span class="pre">DetailAction</span></code> 控制器，又不想返回页面响应格式的情况。</p></li>
+</ul>
+</div></blockquote>
+<p><strong>例1：</strong> 配置不加载布局配置模板。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">getDataType</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;json&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>底层实现：</strong> 通过配置不同的 <strong>$data_type</strong> 来实现不同的响应方式。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="nv">$data_type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="s1">&#39;json&#39;</span><span class="o">:</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">CJsonData</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+        <span class="k">case</span> <span class="s1">&#39;jsonp&#39;</span><span class="o">:</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">CJsonpData</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+        <span class="k">case</span> <span class="s1">&#39;render&#39;</span><span class="o">:</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">CRenderData</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nv">$view</span><span class="p">,</span> <span class="nv">$isLayout</span><span class="p">,</span> <span class="nv">$layouts</span><span class="p">,</span> <span class="nv">$view_dir</span><span class="p">);</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">CNoneData</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id14">
+<h2><strong>返回响应附加字段</strong><a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code> <code class="docutils literal notranslate"><span class="pre">DetailAction</span></code> <code class="docutils literal notranslate"><span class="pre">SaveAction</span></code> <code class="docutils literal notranslate"><span class="pre">DeleteAction</span></code></p>
+<p><strong>说明：</strong> 重写 <code class="docutils literal notranslate"><span class="pre">onExecute()</span></code> 方法返回一个数组，添加需要附加的字段即会在输出 <strong>Response</strong> 响应合并输出数据。</p>
+<p><strong>例1：</strong> 在返回的数据中追加总条数字段。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">onExecute</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="s1">&#39;total&#39;</span> <span class="o">=&gt;</span> <span class="nx">CDbCommand</span><span class="o">::</span><span class="na">count</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">dbCondition</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>底层实现：</strong> 通过合并方式追加在里面。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nb">array_merge</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">onExecute</span><span class="p">())</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id15">
+<h2><strong>开启导出功能</strong><a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code></p>
+<p><strong>说明：</strong> 只适合列表页控制器开启导出功能（默认配置是 <strong>false</strong> ）。文件导出方法详见： <strong>文件系统 -&gt; 导出文件</strong> 。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>提示：</strong> 判断是命令行环境执行即为导出，就会执行 <code class="docutils literal notranslate"><span class="pre">onExecExport($list)</span></code> 方法把数据导出。</p></li>
+</ul>
+</div></blockquote>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">isExport</span><span class="p">()</span> <span class="p">{</span>
+<span class="hll">        <span class="k">return</span> <span class="nx">\CC</span><span class="o">::</span><span class="na">app</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">url</span><span class="o">-&gt;</span><span class="na">getGroup</span><span class="p">()</span> <span class="o">==</span> <span class="nx">\CEnv</span><span class="o">::</span><span class="na">RUN_CMD</span><span class="p">;</span>
+</span>    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">onExecExport</span><span class="p">(</span><span class="nv">$list</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$excel_data</span> <span class="o">=</span> <span class="nx">ExcelBuilder</span><span class="o">::</span><span class="na">build</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="nv">$list</span><span class="p">,</span> <span class="p">[</span>
+            <span class="k">new</span> <span class="nx">CustomFieldColumnBuildBeforeHandler</span><span class="p">(</span><span class="s1">&#39;xxx&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;is_export_field&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">])</span>
+        <span class="p">]);</span>
+        <span class="nx">FileExportServer</span><span class="o">::</span><span class="na">asyncExportExcel</span><span class="p">(</span><span class="nv">$excel_data</span><span class="p">,</span> <span class="s1">&#39;xxx导出表&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+
+<span class="hll">        <span class="k">return</span> <span class="k">new</span> <span class="nx">\CNoneData</span><span class="p">();</span>
+</span>    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id16">
+<h2><strong>配置导出图片</strong><a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code></p>
+<p><strong>说明：</strong> 列表控制器导出列项有图片。文件导出方法详见： <strong>文件系统 -&gt; 导出文件</strong> 。</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+
+
+
+    <span class="nx">尚未完善用法</span>
+
+
+
+    <span class="k">list</span><span class="p">(</span><span class="nv">$filename</span><span class="p">,</span> <span class="nv">$url</span><span class="p">)</span> <span class="o">=</span> <span class="nx">Excel</span><span class="o">::</span><span class="na">instance</span><span class="p">(</span><span class="nx">ExcelBuilder</span><span class="o">::</span><span class="na">build</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="nv">$list</span><span class="p">))</span>
+        <span class="o">-&gt;</span><span class="na">setExportDirForFlag</span><span class="p">()</span>
+        <span class="o">-&gt;</span><span class="na">createExeclForSave</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+
+    <span class="nv">$columns</span><span class="p">[]</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">Column</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;pic&#39;</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">setExcelValueSetter</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nv">$data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">FileDownColumnValueSetter</span><span class="p">(</span><span class="s1">&#39;pic&#39;</span><span class="p">,</span> <span class="s1">&#39;images/&#39;</span> <span class="o">.</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]);</span>
+    <span class="p">});</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id17">
+<h2><strong>如何关闭分页</strong><a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code></p>
+<p><strong>说明：</strong> 列表控制器关闭分页的显示。</p>
+<p><strong>例1：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getPageSize</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="handler.html" class="btn btn-neutral float-right" title="流程处理器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="other.html" class="btn btn-neutral float-left" title="其它控制器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, jollysone
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

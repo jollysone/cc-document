@@ -6,55 +6,57 @@
 **用前须知**
 ******************************************************************************************
 
-**须知1：** 由于业务场景的需要，在所有的 ``Model`` 类查询中均会自动加入条件  ``'com_id' = '10'`` , 即为对应登录账号的公司号。
+.. note:: 
+    **须知1：** 由于业务场景的需要，在所有的 ``Model`` 类查询中均会自动加入条件  ``'com_id' = '10'`` , 即为对应登录账号的公司号。
 
-且 ``where`` 条件会固定写入 ``1`` 。(此说明可以忽略)
+    且 ``where`` 条件会固定写入 ``1`` 。(此说明可以忽略)
 
-如 ``ListModel`` 生成的语句：
+    如 ``ListModel`` 生成的语句：
 
-.. code-block:: mysql
-    :linenos:
-    
-    select * from users where 1 and (  `com_id`='10' );
-
-
-**须知2：** 在 ``ItemModel::make('user')`` 中 ``'user'`` 是数据库表名( **t_user** ), 默认是不写前缀 ``t_``。
-
-.. code-block:: php
-    :linenos:
-    :emphasize-lines: 2
-
-    <?php
-        ItemModel::make('user')
-            ->execute();
-    ?>
+    .. code-block:: mysql
+        
+        select * from users where 1 and (  `com_id`='10' );
 
 
-**须知3：** 语句最后必须执行 ``->execute()`` 方法，否则只能生成对象，语句并不执行。
+.. note:: 
+    **须知2：** 在 ``ItemModel::make('user')`` 中 ``'user'`` 是数据库表名( **t_user** ), 默认是不写前缀 ``t_``。
 
-.. code-block:: php
-    :linenos:
-    :emphasize-lines: 3
+    .. code-block:: php
+        :emphasize-lines: 2
 
-    <?php
-        ItemModel::make('table_name')
-            ->execute();
-    ?>
+        <?php
+            ItemModel::make('user')
+                ->execute();
+        ?>
 
 
-**须知4：** 如语句出现 ``?`` 这是因为数据库使用的是 ``PDO`` 的方式且通过传参对应到具体值上：
+.. note:: 
+    **须知3：** 语句最后必须执行 ``->execute()`` 方法，否则只能生成对象，语句并不执行。
 
-.. code-block:: mysql
-    :linenos:
-    
-    insert into table_name (id, name,...) VALUES (?, ?,....);
+    .. code-block:: php
+        :emphasize-lines: 3
 
-    Params:(
-        'id' => 1,
-        'name' => 'jollysone'
-    )
+        <?php
+            ItemModel::make('table_name')
+                ->execute();
+        ?>
 
-**须知5：** 所有条件控制的可选参数 ``$op`` 都会把可选参数拼接到条件的前面, 而非后面。
+
+.. note:: 
+    **须知4：** 如语句出现 ``?`` 这是因为数据库使用的是 ``PDO`` 的方式且通过传参对应到具体值上：
+
+    .. code-block:: mysql
+        
+        insert into table_name (id, name,...) VALUES (?, ?,....);
+
+        Params:(
+            'id' => 1,
+            'name' => 'jollysone'
+        )
+
+
+.. note:: 
+    **须知5：** 所有条件控制的可选参数 ``$op`` 都会把可选参数拼接到条件的前面, 而非后面。
 
 
 ******************************************************************************************
@@ -253,7 +255,7 @@
 
 **适用：** ``SELECT``  ``UPDATE``  ``DELETE``
 
-**参数：** addColumn($name, $value, $compare = '=')
+**参数：** **addColumn(** $name, $value, $compare = '=' **)**
 
 **例1：** 查询条件为 ``'id' = '10'`` 的数据。如需  ``'id' > '10'`` , 可配置第三个参数。
 
@@ -276,7 +278,7 @@
 
 **适用：** ``SELECT``  ``UPDATE``  ``DELETE``
 
-**参数：** addColumnsCondition($array, $op = 'and')
+**参数：** **addColumnsCondition(** $array, $op = 'and' **)**
 
 **例1：** 查询条件为 ``'id' = '10'`` 且 ``'name' = 'jollysone'`` 的数据。如需  ``'id' = '10'`` 或 ``'name' = 'jollysone'`` , 可配置第二个参数为 ``'or'`` 。
 
@@ -317,7 +319,7 @@
 
 **适用：** ``SELECT``  ``UPDATE``  ``DELETE``
 
-**参数：** addStrCondition($conditionstr, $params = array(), $op = 'and')
+**参数：** **addStrCondition(** $conditionstr, $params = array(), $op = 'and' **)**
 
 **例1：** 查询条件为 ``'id' = '10'`` 的数据, 直接拼接SQL语句，比较灵活，一般根据场景用于复杂的语句使用, 尽量使用其他已有的封装。 ``$params`` 是用于PDO传参的方式, 能对应参数传入。
 
@@ -348,7 +350,7 @@
 
 **适用：** ``SELECT``  ``UPDATE``  ``DELETE``
 
-**参数：** addInCondition($name, $array, $op = 'and')
+**参数：** **addInCondition(** $name, $array, $op = 'and' **)**
 
 **例1：** 查询条件为包含 ``'id' = 1`` 、 ``'id' = 2`` 、 ``'id' = 3`` 的数据。
 
@@ -370,7 +372,7 @@
 
 **适用：** ``SELECT``  ``UPDATE``  ``DELETE``
 
-**参数：** addConditions(array $conditions)
+**参数：** **addConditions(** array $conditions **)**
 
 **例1：** 查询条件不包含公司号。更多 **Conditions** 请查看 Conditions 相关章节。
 
@@ -393,7 +395,7 @@
 
 **适用：** ``UPDATE``
 
-**参数：** addData($data,$id = null)
+**参数：** **addData(** $data,$id = null **)**
 
 **例1：** 
 
@@ -424,7 +426,7 @@
 
 **适用：** ``INSERT``
 
-**参数：** addDatas($datas)
+**参数：** **addDatas(** $datas **)**
 
 **例1：** 
 
@@ -440,7 +442,7 @@
 
 **适用：** ``SELECT``  ``UPDATE``  ``DELETE``
 
-**参数：** addLikeCondition($name, $value, $op = 'and')
+**参数：** **addLikeCondition(** $name, $value, $op = 'and' **)**
 
 **例1：** 
 
@@ -456,7 +458,7 @@
 
 **适用：** ``UPDATE``
 
-**参数：** addDataEx($key, $value)
+**参数：** **addDataEx(** $key, $value **)**
 
 **例1：** 
 
@@ -471,7 +473,7 @@
 
 **适用：** ``SELECT``  ``UPDATE``  ``DELETE``
 
-**参数：** addSelect($columns)
+**参数：** **addSelect(** $columns **)**
 
 **例1：** 
 
@@ -486,7 +488,7 @@
 
 **适用：** ``SELECT``  ``UPDATE``  ``DELETE``
 
-**参数：** addOrMultiColumnsCondtion($array1, $array2)
+**参数：** **addOrMultiColumnsCondtion(** $array1, $array2 **)**
 
 **例1：** 
 
@@ -501,7 +503,7 @@
 
 **适用：** ``SELECT``  ``UPDATE``  ``DELETE``
 
-**参数：** addFilterColumn($name, $value, $compare = '=')
+**参数：** **addFilterColumn(** $name, $value, $compare = '=' **)**
 
 **例1：** 
 
@@ -516,7 +518,7 @@
 
 **适用：** ``SELECT``  ``UPDATE``  ``DELETE``
 
-**参数：** addFilterColumnsCondition($array, $op = 'and')
+**参数：** **addFilterColumnsCondition(** $array, $op = 'and' **)**
 
 **例1：** 
 
@@ -531,7 +533,7 @@
 
 **适用：** ``SELECT``  ``UPDATE``  ``DELETE``
 
-**参数：** addForUpdate()
+**参数：** **addForUpdate()**
 
 **例1：** 
 
@@ -548,7 +550,7 @@
 
 **适用：** ``SELECT``  ``UPDATE``  ``DELETE``
 
-**参数：** addGroup($columns)
+**参数：** **addGroup(** $columns **)**
 
 **例1：** 
 
@@ -563,7 +565,7 @@
 
 **适用：** ``SELECT``  ``UPDATE``  ``DELETE``
 
-**参数：** addId($id, $filed = 'id')
+**参数：** **addId(** $id, $filed = 'id' **)**
 
 **例1：** 
 
@@ -578,7 +580,7 @@
 
 **适用：** ``SELECT``  ``UPDATE``  ``DELETE``
 
-**参数：** addNoConditionInterceptors(array $noConditionInterceptors)
+**参数：** **addNoConditionInterceptors(** array $noConditionInterceptors **)**
 
 **例1：** 
 
@@ -593,7 +595,7 @@
 
 **适用：** ``SELECT``  ``UPDATE``  ``DELETE``
 
-**参数：** addOrder($columns)
+**参数：** **addOrder(** $columns **)**
 
 **例1：** 
 
@@ -608,7 +610,7 @@
 
 **适用：** ``SELECT``  ``UPDATE``  ``DELETE``
 
-**参数：** addImpossibility()
+**参数：** **addImpossibility()**
 
 **例1：** 
 
@@ -624,7 +626,7 @@
 
 **适用：** ``INSERT``
 
-**参数：** addNoGlobalInsertBeforeInterceptors(array $insertBeforeInterceptorNames)
+**参数：** **addNoGlobalInsertBeforeInterceptors(** array $insertBeforeInterceptorNames **)**
 
 **例1：** 
 

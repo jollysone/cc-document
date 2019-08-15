@@ -6,7 +6,7 @@
 
 **路由规则：** '新路由路径' => '原路径地址'
 
-只需要在 ``$urlMapping`` 中补充相应规则的路由即可。
+.. Tip:: 只需要在 ``$urlMapping`` 中补充相应规则的路由即可。
 
 .. code-block:: php
     :linenos:

@@ -1,5 +1,5 @@
 ####################################################################################################
-**导入(Import)**
+**导入文件**
 ####################################################################################################
 
 ******************************************************************************************
@@ -9,7 +9,7 @@
 导入Excel文件
 
 ####################################################################################################
-**导出(Export)**
+**导出文件**
 ####################################################################################################
 
 ******************************************************************************************
@@ -110,4 +110,25 @@
             return new \CNoneData();
         }
 
+
+
+
+
+
+
+
+
+         protected function onExecExport($list) {    
+            $excel_data = ExcelBuilder::build($this, $list);
+            return Excel::instance($excel_data)->setExportDirForFlag()->createExeclForDown('xx', 'xx.zip');
+
+            尚未完善
+
+
+            $excel_data = ExcelBuilder::build($this, $list, [new CustomFieldColumnBuildBeforeHandler('xxx', ['is_export_field' => true])]);
+            FileExportServer::asyncExportExcel($excel_data, 'xxx导出表', false);
+
+            return new \CNoneData();
+        }
     ?>
+

@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>过滤器 &mdash; CC 框架文档 1.0.0 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="输入框" href="input.html" />
+    <link rel="prev" title="资源列表说明" href="resource.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> CC 框架文档
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">基础(Base)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Base/install.html"><strong>安装</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Base/config.html"><strong>配置</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Base/catalog.html"><strong>目录结构</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Base/standard.html"><strong>开发规范</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">架构(Framework)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/overview.html"><strong>架构总览</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/entry.html"><strong>入口文件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/module.html"><strong>模块设计</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Framework/lifetime.html"><strong>生命周期</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">请求(Request)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Request/index.html"><strong>获取参数</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Request/Checker/guide.html"><strong>验证器基础</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Request/Checker/list.html"><strong>验证器列表</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">响应(Response)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html"><strong>响应为Json格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#jsonp"><strong>响应为Jsonp格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#render"><strong>响应为Render格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应空数据格式</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">路由(Route)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Route/interceptor.html"><strong>路由拦截器(Interceptor)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Route/method.html"><strong>路由使用方法(Route Guide)</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">控制器(Controller)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/base.html"><strong>基本控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/other.html"><strong>其它控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/func.html"><strong>控制器方法列表</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/handler.html"><strong>流程处理器</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">视图组件(View Component)</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="base.html"><strong>基本用法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="resource.html"><strong>资源列表说明</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>过滤器</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2"><strong>基本用法</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3"><strong>过滤器样式</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4"><strong>水平排列风格</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5"><strong>垂直排列风格</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6"><strong>过滤器组件</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7"><strong>文本输入框</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8"><strong>单选框 &amp; 复选框</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9"><strong>时间范围</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10"><strong>时间点</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11"><strong>范围过滤器</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12"><strong>树结构过滤器</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id13"><strong>自定义过滤器</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="input.html"><strong>输入框</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="list.html"><strong>列表</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html"><strong>其它</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">数据库(DataBase)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/guide.html"><strong>基本使用方法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/query_builder.html"><strong>语法构造器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/transaction.html"><strong>数据一致性</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/debug.html"><strong>数据库调试</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">权限(Auth)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Auth/checker.html"><strong>权限检查器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Auth/index.html"><strong>权限相关</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">安全(Safe)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Safe/index.html"><strong>资源加密</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Safe/index.html#id2"><strong>资源解密</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">文件系统(Files)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html"><strong>导入文件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html#id2"><strong>导出文件</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发调试(Debug)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Debug/exception.html"><strong>异常</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Debug/debugging.html"><strong>调试</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Debug/log.html"><strong>日志</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">后台任务调度(Crontab)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Crontab/index.html"><strong>后台任务调度</strong></a></li>
+</ul>
+<p class="caption"><span class="caption-text">Helper &amp; Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/alarm.html"><strong>警信</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/email.html"><strong>邮件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/helper.html"><strong>助手方法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/utils.html"><strong>脚手架工具</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/i18n.html"><strong>国际化</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CC 框架文档</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><strong>过滤器</strong></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/View/filter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><strong>过滤器</strong><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><strong>基本用法</strong><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>过滤器视图通常需要跟服务端搭配使用。视图中渲染的各种 <code class="docutils literal notranslate"><span class="pre">过滤器组件</span></code> , 详见本章其它小节。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><strong>重要的三步：</strong></p>
+<ol class="arabic simple">
+<li><p>在控制器中实现 <code class="docutils literal notranslate"><span class="pre">ITableViewCreator</span></code> 的 <code class="docutils literal notranslate"><span class="pre">createListFilters()</span></code> 方法。</p></li>
+<li><p>在 <code class="docutils literal notranslate"><span class="pre">createListFilters()</span></code> 方法中实例化各种组件, 并且以 <code class="docutils literal notranslate"><span class="pre">数组形式</span></code> 返回。</p></li>
+<li><p>在同级目录的 <code class="docutils literal notranslate"><span class="pre">view</span></code> 文件中渲染视图内容。</p></li>
+</ol>
+</div>
+<p><strong>控制器写法：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="hll">    <span class="k">class</span> <span class="nc">ExampleManageIndexAction</span> <span class="k">extends</span> <span class="nx">ListAction</span> <span class="k">implements</span> <span class="nx">ITableViewCreator</span>
+</span>    <span class="p">{</span>
+        <span class="o">...</span>
+
+<span class="hll">        <span class="k">public</span> <span class="k">function</span> <span class="nf">createListFilters</span><span class="p">()</span>
+</span><span class="hll">        <span class="p">{</span>
+</span><span class="hll">            <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TimeRangeFilter</span><span class="p">(</span><span class="s1">&#39;assign_time&#39;</span><span class="p">,</span> <span class="s1">&#39;指派时间&#39;</span><span class="p">,</span> <span class="s1">&#39;simple&#39;</span><span class="p">);</span>
+</span><span class="hll">            <span class="k">return</span> <span class="nv">$filters</span><span class="p">;</span>
+</span><span class="hll">        <span class="p">}</span>
+</span>
+        <span class="o">...</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>视图文件写法：</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">use</span> <span class="nx">CC\util\common\widget\panel\ListSearchPanel</span><span class="p">;</span>
+    <span class="k">use</span> <span class="nx">CC\util\common\widget\widget\FilterWidget</span><span class="p">;</span>
+    <span class="k">use</span> <span class="nx">CC\util\common\widget\widget\WidgetBuilder</span><span class="p">;</span>
+
+<span class="hll">    <span class="k">echo</span> <span class="nx">WidgetBuilder</span><span class="o">::</span><span class="na">build</span><span class="p">(</span><span class="k">new</span> <span class="nx">FilterWidget</span><span class="p">(</span><span class="nv">$this</span><span class="p">),</span> <span class="nx">ListSearchPanel</span><span class="o">::</span><span class="na">instance</span><span class="p">());</span>
+</span><span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id3">
+<h2><strong>过滤器样式</strong><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>默认样式是垂直显示方式（ <strong>'style' =&gt; 'vertical'</strong> ）。</p>
+<div class="section" id="id4">
+<h3><strong>水平排列风格</strong><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">use</span> <span class="nx">CC\util\common\widget\panel\ListSearchPanel</span><span class="p">;</span>
+    <span class="k">use</span> <span class="nx">CC\util\common\widget\widget\FilterWidget</span><span class="p">;</span>
+    <span class="k">use</span> <span class="nx">CC\util\common\widget\widget\WidgetBuilder</span><span class="p">;</span>
+
+<span class="hll">    <span class="k">echo</span> <span class="nx">WidgetBuilder</span><span class="o">::</span><span class="na">build</span><span class="p">(</span><span class="k">new</span> <span class="nx">FilterWidget</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;style&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;horizontal&#39;</span><span class="p">]),</span> <span class="nx">ListSearchPanel</span><span class="o">::</span><span class="na">instance</span><span class="p">());</span>
+</span><span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id5">
+<h3><strong>垂直排列风格</strong><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">use</span> <span class="nx">CC\util\common\widget\panel\ListSearchPanel</span><span class="p">;</span>
+    <span class="k">use</span> <span class="nx">CC\util\common\widget\widget\FilterWidget</span><span class="p">;</span>
+    <span class="k">use</span> <span class="nx">CC\util\common\widget\widget\WidgetBuilder</span><span class="p">;</span>
+
+<span class="hll">    <span class="k">echo</span> <span class="nx">WidgetBuilder</span><span class="o">::</span><span class="na">build</span><span class="p">(</span><span class="k">new</span> <span class="nx">FilterWidget</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;style&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;vertical&#39;</span><span class="p">]),</span> <span class="nx">ListSearchPanel</span><span class="o">::</span><span class="na">instance</span><span class="p">());</span>
+</span><span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><strong>过滤器组件</strong><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id7">
+<h3><strong>文本输入框</strong><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">InputFilter</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$label</span><span class="p">,</span> <span class="nv">$placeholder</span><span class="p">,</span> <span class="nv">$is_show_submit</span><span class="p">,</span> <span class="p">[</span>
+        <span class="s1">&#39;is_need_setting&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+        <span class="s1">&#39;is_need_reset&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="p">]);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id8">
+<h3><strong>单选框 &amp; 复选框</strong><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="sd">/**</span>
+<span class="sd">      * $style 可取 &#39;&#39;, &#39;drop-down&#39;, &#39;drop-pop&#39;</span>
+<span class="sd">      * &#39;&#39; 支持单选、多选双模式</span>
+<span class="sd">      * &#39;drop-down&#39; 单选，不自动跳转</span>
+<span class="sd">      * &#39;drop-pop&#39; 单选，自动跳转</span>
+<span class="sd">      * $default_option [value =&gt; showText]</span>
+<span class="sd">    */</span>
+
+    <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SelectFilter</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$label</span><span class="p">,</span> <span class="nv">$data_arr</span><span class="p">,</span> <span class="nv">$style</span><span class="p">,</span> <span class="nv">$default_option</span><span class="p">)</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id9">
+<h3><strong>时间范围</strong><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="sd">/** $style 可取 &#39;&#39;, &#39;simple&#39;</span>
+<span class="sd">      * &#39;&#39; 含快捷标签</span>
+<span class="sd">      * &#39;simple&#39; 只有开始和结束时间</span>
+<span class="sd">      * $ranges 默认取值 [&#39;total&#39;,&#39;today&#39;,&#39;this_week&#39;,&#39;this_month&#39;]</span>
+<span class="sd">      * $ranges 所有可取值 [&#39;total&#39;,&#39;today&#39;,&#39;this_week&#39;,&#39;this_month&#39;,&#39;yesterday&#39;,&#39;last_week&#39;,&#39;last_month&#39;]</span>
+<span class="sd">    */</span>
+
+    <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TimeRangeFilter</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$label</span><span class="p">,</span> <span class="nv">$style</span><span class="p">,</span> <span class="nv">$ranges</span><span class="p">)</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id10">
+<h3><strong>时间点</strong><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SimpleTimeFilter</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$label</span><span class="p">,</span> <span class="nv">$placeholder</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id11">
+<h3><strong>范围过滤器</strong><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RangeInputFilter</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id12">
+<h3><strong>树结构过滤器</strong><a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TreeFilter</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$label</span><span class="p">,</span> <span class="nv">$data_arr</span><span class="p">,</span> <span class="p">[</span>
+        <span class="s1">&#39;is_multi&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="s1">&#39;only_child&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+        <span class="s1">&#39;position&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;fixed&#39;</span>
+    <span class="p">]);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h2><strong>自定义过滤器</strong><a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">use</span> <span class="nx">CC\util\common\widget\filter\FilterAbs</span><span class="p">;</span>
+
+    <span class="k">class</span> <span class="nc">CustomFilter</span> <span class="k">extends</span> <span class="nx">FilterAbs</span>
+    <span class="p">{</span>
+
+        <span class="k">protected</span> <span class="k">function</span> <span class="nf">onCreateFilter</span><span class="p">(</span><span class="nx">\CRequest</span> <span class="nv">$request</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="p">[</span>
+
+            <span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="input.html" class="btn btn-neutral float-right" title="输入框" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="resource.html" class="btn btn-neutral float-left" title="资源列表说明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, jollysone
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

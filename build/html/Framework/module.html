@@ -1,14 +1,14 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="cn" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="cn" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>模块设计 &mdash; CC 框架文档 1.0.0 documentation</title>
+  <title>模块设计 &mdash; CC 框架文档 1.0.0 文档</title>
   
 
   
@@ -33,8 +33,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="生命周期" href="lifetime.html" />
     <link rel="prev" title="入口文件" href="entry.html" /> 
 </head>
@@ -95,20 +95,29 @@
 <li class="toctree-l2"><a class="reference internal" href="#id2"><strong>各服务器切换设计</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3"><strong>会话认证设计</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id4"><strong>加密设计</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5"><strong>类属性反射设计</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6"><strong>依赖注入设计</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7"><strong>数据假删除设计</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8"><strong>路由分组模块设计</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9"><strong>公司拦截器分组设计</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#url"><strong>URL权限检查器设计</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10"><strong>视图设计</strong></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="lifetime.html"><strong>生命周期</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">请求(Request)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../Request/index.html"><strong>获取请求参数</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Request/index.html"><strong>获取参数</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Request/Checker/guide.html"><strong>验证器基础</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Request/Checker/list.html"><strong>验证器列表</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">响应(Response)</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html"><strong>响应为Json格式</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html#jsonp"><strong>响应为Jsonp格式</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html#render"><strong>响应为Render格式</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应空</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应空数据格式</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">路由(Route)</span></p>
 <ul>
@@ -117,17 +126,19 @@
 </ul>
 <p class="caption"><span class="caption-text">控制器(Controller)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../Controller/index.html"><strong>基本控制器</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Controller/index.html#id2"><strong>其它控制器</strong></a></li>
-</ul>
-<p class="caption"><span class="caption-text">验证器(Checker)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../Checker/index.html"><strong>验证器用法</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Checker/index.html#id2"><strong>验证器列表</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/base.html"><strong>基本控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/other.html"><strong>其它控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/func.html"><strong>控制器方法列表</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/handler.html"><strong>流程处理器</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">视图组件(View Component)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../View/index.html"><strong>视图</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/base.html"><strong>基本用法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/resource.html"><strong>资源列表说明</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/filter.html"><strong>过滤器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/input.html"><strong>输入框</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/list.html"><strong>列表</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/other.html"><strong>其它</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">数据库(DataBase)</span></p>
 <ul>
@@ -138,6 +149,7 @@
 </ul>
 <p class="caption"><span class="caption-text">权限(Auth)</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Auth/checker.html"><strong>权限检查器</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Auth/index.html"><strong>权限相关</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">安全(Safe)</span></p>
@@ -147,17 +159,14 @@
 </ul>
 <p class="caption"><span class="caption-text">文件系统(Files)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../Files/index.html"><strong>导入(Import)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Files/index.html#export"><strong>导出(Export)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html"><strong>导入文件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html#id2"><strong>导出文件</strong></a></li>
 </ul>
-<p class="caption"><span class="caption-text">异常和调试(Exception &amp; Debug)</span></p>
+<p class="caption"><span class="caption-text">开发调试(Debug)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../ExceptionAndDebug/index.html"><strong>异常(Exception)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ExceptionAndDebug/index.html#debug"><strong>调试(Debug)</strong></a></li>
-</ul>
-<p class="caption"><span class="caption-text">日志(Log)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../Log/index.html"><strong>日志(Log)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Debug/exception.html"><strong>异常</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Debug/debugging.html"><strong>调试</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Debug/log.html"><strong>日志</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">后台任务调度(Crontab)</span></p>
 <ul>
@@ -165,15 +174,11 @@
 </ul>
 <p class="caption"><span class="caption-text">Helper &amp; Utils</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../Utils/index.html"><strong>Helper &amp; Utils</strong></a></li>
-</ul>
-<p class="caption"><span class="caption-text">国际化(I18n)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../I18n/index.html"><strong>国际化(I18n)</strong></a></li>
-</ul>
-<p class="caption"><span class="caption-text">注意事项(Attention)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../Attention/index.html"><strong>注意事项</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/alarm.html"><strong>警信</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/email.html"><strong>邮件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/helper.html"><strong>助手方法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/utils.html"><strong>脚手架工具</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/i18n.html"><strong>国际化</strong></a></li>
 </ul>
 
             
@@ -239,18 +244,117 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1><strong>模块设计</strong><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1><strong>模块设计</strong><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id2">
-<h2><strong>各服务器切换设计</strong><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2><strong>各服务器切换设计</strong><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>在开发服测试时，需要 <code class="docutils literal notranslate"><span class="pre">Debug</span></code> 测试服的数据时，只需在登录时，在URL追加参数 <code class="docutils literal notranslate"><span class="pre">&amp;__for_test=1</span></code> 再回到开发服时即可。</p>
 </div>
 <div class="section" id="id3">
-<h2><strong>会话认证设计</strong><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2><strong>会话认证设计</strong><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>尚未完善</p>
 </div>
 <div class="section" id="id4">
-<h2><strong>加密设计</strong><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2><strong>加密设计</strong><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>貌似均采用 <code class="docutils literal notranslate"><span class="pre">AES</span></code> 加密。尚未完善。</p>
+</div>
+<div class="section" id="id5">
+<h2><strong>类属性反射设计</strong><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>尚未完善</p>
+<p>所有继承 <code class="docutils literal notranslate"><span class="pre">CAction</span></code> 控制器的其它控制器, 都可以定义任何 <code class="docutils literal notranslate"><span class="pre">类属性</span></code> 来映射 <code class="docutils literal notranslate"><span class="pre">Request</span> <span class="pre">参数</span></code> 。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>A 继承了 <code class="docutils literal notranslate"><span class="pre">CAction</span></code> , A 类中有属性 <code class="docutils literal notranslate"><span class="pre">id</span></code> , 则如果有 <code class="docutils literal notranslate"><span class="pre">Request</span> <span class="pre">参数</span></code> 的传入（包括GET/POST等）, 则此属性会通过参数映射过来, 则此时属性就存储了 <code class="docutils literal notranslate"><span class="pre">Request</span> <span class="pre">参数</span></code> 。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><strong>依赖注入设计</strong><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>尚未完善</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">getCheckers</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="k">new</span> <span class="nx">EmailChecker</span><span class="p">(</span><span class="s1">&#39;sponsor&#39;</span><span class="p">,</span> <span class="s1">&#39;xxx&#39;</span><span class="p">),</span> <span class="c1">// 验证经纬度和地址</span>
+        <span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">dbCondition</span><span class="o">-&gt;</span><span class="na">addConditions</span><span class="p">([</span>
+        <span class="k">new</span> <span class="nx">LikeCondition</span><span class="p">(</span><span class="s1">&#39;search_key&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;t.task_num&#39;</span><span class="p">,</span> <span class="s1">&#39;t.address&#39;</span><span class="p">,</span> <span class="s1">&#39;t.content&#39;</span><span class="p">]),</span>
+    <span class="p">]);</span>
+
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">onBuild</span><span class="p">(</span><span class="nv">$dbCondition</span><span class="p">,</span> <span class="nx">\CRequest</span> <span class="nv">$request</span><span class="p">)</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id7">
+<h2><strong>数据假删除设计</strong><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>需要在表中增加一个字段 <code class="docutils literal notranslate"><span class="pre">is_del</span></code> , <code class="docutils literal notranslate"><span class="pre">is_del</span> <span class="pre">=</span> <span class="pre">1</span></code> 为已删除, <code class="docutils literal notranslate"><span class="pre">is_del</span> <span class="pre">=</span> <span class="pre">0</span></code> 反之。</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>如需假删除, 需要 字段 <code class="docutils literal notranslate"><span class="pre">is_del</span></code> , 否则会导致框架内的某些地方不可用。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><strong>路由分组模块设计</strong><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>访问是面向分组的。</p></li>
+<li><p>分组是可以自定义的, 常见的 <strong>group</strong> 有 <code class="docutils literal notranslate"><span class="pre">admin</span></code> , <code class="docutils literal notranslate"><span class="pre">api</span></code> , <code class="docutils literal notranslate"><span class="pre">cmd</span></code> , <code class="docutils literal notranslate"><span class="pre">xbwqLink</span></code> 。</p></li>
+</ol>
+<p>显式地声明某个控制器支持的分组：</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">supportGroups</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;admin,api,cmd,xbwqLink&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id9">
+<h2><strong>公司拦截器分组设计</strong><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>调用 <code class="docutils literal notranslate"><span class="pre">Model</span></code> 类进行的数据库操作, 都会自动加上当前 <code class="docutils literal notranslate"><span class="pre">com_id</span></code></p>
+<p>ListAction, SaveAction 帮你写的查询都受 <code class="docutils literal notranslate"><span class="pre">com_id</span></code> 拦截器影响。</p>
+</div>
+<div class="section" id="url">
+<h2><strong>URL权限检查器设计</strong><a class="headerlink" href="#url" title="永久链接至标题">¶</a></h2>
+<p>所有 <cite>URL</cite> 链接访问都会有一个权限检查, 如果是 <strong>组件</strong> 没有权限则不显示该组件，其它方式访问没有权限的 <cite>URL</cite> 则直接抛出异常。</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>这些 <cite>URL</cite> 链接有没有权限访问，取决于 <code class="docutils literal notranslate"><span class="pre">protected/biz/auth/UrlsConf.php</span></code> 配置。详细配置可参考 <strong>权限 -&gt; 权限检查器</strong> 模块。</p>
+</div>
+</div>
+<div class="section" id="id10">
+<h2><strong>视图设计</strong><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>ListAction, SaveAction 默认都是加载布局文件的。</p></li>
+<li><p>SaveAction 用于这样的场景：主键字段叫id的1条数据。</p></li>
+<li><p>2种数据操作场景：新增数据 和 编辑数据。</p></li>
+<li><p>如果 <code class="docutils literal notranslate"><span class="pre">ListAction</span></code> 的 <code class="docutils literal notranslate"><span class="pre">getIsSingle()</span></code> 返回 <code class="docutils literal notranslate"><span class="pre">true</span></code> , 视图文件可以直接使用数据库字段名所对应的变量名。</p></li>
+</ol>
 </div>
 </div>
 

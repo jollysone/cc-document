@@ -1,14 +1,14 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="cn" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="cn" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>后台任务调度 &mdash; CC 框架文档 1.0.0 documentation</title>
+  <title>后台任务调度 &mdash; CC 框架文档 1.0.0 文档</title>
   
 
   
@@ -33,10 +33,10 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Helper &amp; Utils" href="../Utils/index.html" />
-    <link rel="prev" title="日志(Log)" href="../Log/index.html" /> 
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="警信" href="../Utils/alarm.html" />
+    <link rel="prev" title="日志" href="../Debug/log.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,14 +96,16 @@
 </ul>
 <p class="caption"><span class="caption-text">请求(Request)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../Request/index.html"><strong>获取请求参数</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Request/index.html"><strong>获取参数</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Request/Checker/guide.html"><strong>验证器基础</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Request/Checker/list.html"><strong>验证器列表</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">响应(Response)</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html"><strong>响应为Json格式</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html#jsonp"><strong>响应为Jsonp格式</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html#render"><strong>响应为Render格式</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应空</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应空数据格式</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">路由(Route)</span></p>
 <ul>
@@ -112,17 +114,19 @@
 </ul>
 <p class="caption"><span class="caption-text">控制器(Controller)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../Controller/index.html"><strong>基本控制器</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Controller/index.html#id2"><strong>其它控制器</strong></a></li>
-</ul>
-<p class="caption"><span class="caption-text">验证器(Checker)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../Checker/index.html"><strong>验证器用法</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Checker/index.html#id2"><strong>验证器列表</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/base.html"><strong>基本控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/other.html"><strong>其它控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/func.html"><strong>控制器方法列表</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/handler.html"><strong>流程处理器</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">视图组件(View Component)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../View/index.html"><strong>视图</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/base.html"><strong>基本用法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/resource.html"><strong>资源列表说明</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/filter.html"><strong>过滤器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/input.html"><strong>输入框</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/list.html"><strong>列表</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/other.html"><strong>其它</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">数据库(DataBase)</span></p>
 <ul>
@@ -133,6 +137,7 @@
 </ul>
 <p class="caption"><span class="caption-text">权限(Auth)</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Auth/checker.html"><strong>权限检查器</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Auth/index.html"><strong>权限相关</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">安全(Safe)</span></p>
@@ -142,33 +147,39 @@
 </ul>
 <p class="caption"><span class="caption-text">文件系统(Files)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../Files/index.html"><strong>导入(Import)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Files/index.html#export"><strong>导出(Export)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html"><strong>导入文件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html#id2"><strong>导出文件</strong></a></li>
 </ul>
-<p class="caption"><span class="caption-text">异常和调试(Exception &amp; Debug)</span></p>
+<p class="caption"><span class="caption-text">开发调试(Debug)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../ExceptionAndDebug/index.html"><strong>异常(Exception)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ExceptionAndDebug/index.html#debug"><strong>调试(Debug)</strong></a></li>
-</ul>
-<p class="caption"><span class="caption-text">日志(Log)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../Log/index.html"><strong>日志(Log)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Debug/exception.html"><strong>异常</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Debug/debugging.html"><strong>调试</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Debug/log.html"><strong>日志</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">后台任务调度(Crontab)</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>后台任务调度</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>后台任务调度</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2"><strong>自启动流程</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cmd-core-bgtask-run"><strong>/cmd/core/bgtask/run 运行机制</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3"><strong>如何实现一个永久运行的后台任务?</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4"><strong>如何实现一个一次运行的后台任务?</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5"><strong>其它</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6"><strong>启动后台任务循环</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7"><strong>关闭后台任务循环</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8"><strong>调试后台任务</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9"><strong>注意</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Helper &amp; Utils</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../Utils/index.html"><strong>Helper &amp; Utils</strong></a></li>
-</ul>
-<p class="caption"><span class="caption-text">国际化(I18n)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../I18n/index.html"><strong>国际化(I18n)</strong></a></li>
-</ul>
-<p class="caption"><span class="caption-text">注意事项(Attention)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../Attention/index.html"><strong>注意事项</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/alarm.html"><strong>警信</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/email.html"><strong>邮件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/helper.html"><strong>助手方法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/utils.html"><strong>脚手架工具</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/i18n.html"><strong>国际化</strong></a></li>
 </ul>
 
             
@@ -234,8 +245,108 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1><strong>后台任务调度</strong><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>后台任务调度</p>
+<h1><strong>后台任务调度</strong><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><strong>自启动流程</strong><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<a class="reference internal image-reference" href="../_images/自启动流程.png"><img alt="自启动流程" class="align-center" src="../_images/自启动流程.png" style="height: 600px;" /></a>
+</div>
+<div class="section" id="cmd-core-bgtask-run">
+<h2><strong>/cmd/core/bgtask/run 运行机制</strong><a class="headerlink" href="#cmd-core-bgtask-run" title="永久链接至标题">¶</a></h2>
+<a class="reference internal image-reference" href="../_images/后台任务运行机制.png"><img alt="后台任务运行机制" class="align-center" src="../_images/后台任务运行机制.png" style="height: 333px;" /></a>
+</div>
+<div class="section" id="id3">
+<h2><strong>如何实现一个永久运行的后台任务?</strong><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">BgTaskServer</span><span class="o">::</span><span class="na">addTask</span><span class="p">(</span><span class="s1">&#39;action_string&#39;</span><span class="p">,</span> <span class="p">[],</span> <span class="nx">BgTaskServer</span><span class="o">::</span><span class="na">EXEC_TYPE_FORVER</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>action_string对应的execute实现</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">while</span><span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="c1">// 或者</span>
+
+    <span class="k">return</span> <span class="nx">BgTaskServer</span><span class="o">::</span><span class="na">execForeverInterval</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{},</span> <span class="nx">interval_times</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id4">
+<h2><strong>如何实现一个一次运行的后台任务?</strong><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p><strong>action_string对应的execute实现</strong></p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">BgTaskServer</span><span class="o">::</span><span class="na">addTask</span><span class="p">(</span><span class="s1">&#39;action_string&#39;</span><span class="p">,</span> <span class="p">[],</span> <span class="nx">BgTaskServer</span><span class="o">::</span><span class="na">EXEC_TYPE_ONCE</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id5">
+<h2><strong>其它</strong><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h3><strong>启动后台任务循环</strong><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="x">http://host/proj/admin</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id7">
+<h3><strong>关闭后台任务循环</strong><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="x">http://host/proj/admin/core/bgtask/restart</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id8">
+<h3><strong>调试后台任务</strong><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nx">CRequest</span> <span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$bg_task</span> <span class="o">=</span> <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="s1">&#39;bg_task&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">addConditions</span><span class="p">([</span>
+            <span class="k">new</span> <span class="nx">NoComidCondition</span><span class="p">(),</span>
+            <span class="k">new</span> <span class="nx">EqualCondition</span><span class="p">(</span><span class="s1">&#39;task_id&#39;</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">),</span>
+        <span class="p">])</span>
+        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$bg_task</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">\CStringData</span><span class="p">(</span><span class="s1">&#39;bg_task 不存在&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="nb">exec</span><span class="p">(</span><span class="s1">&#39;php index.php &#39;</span> <span class="o">.</span> <span class="nv">$bg_task</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s1">&#39; &#39;</span> <span class="o">.</span> <span class="nv">$bg_task</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="nv">$out_put</span><span class="p">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">\CStringData</span><span class="p">(</span><span class="s1">&#39;输出结果：&#39;</span><span class="o">.</span><span class="nb">implode</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&lt;br&gt;&quot;</span><span class="p">,</span> <span class="nv">$out_put</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id9">
+<h3><strong>注意</strong><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>后台任务无法重启</p>
+<p>考虑runtime目录的权限</p>
+</div>
+</div>
 </div>
 
 
@@ -246,10 +357,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../Utils/index.html" class="btn btn-neutral float-right" title="Helper &amp; Utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../Utils/alarm.html" class="btn btn-neutral float-right" title="警信" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../Log/index.html" class="btn btn-neutral float-left" title="日志(Log)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../Debug/log.html" class="btn btn-neutral float-left" title="日志" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

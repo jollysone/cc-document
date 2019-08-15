@@ -89,16 +89,20 @@ PHP开发规范
 
 **文件及目录定义方式**
 
-http://host/rootpath/group/module/controller/actionName
-对应类名 ModuleControllerActionNameGroupAction
+**路由访问默认方式：** ``.../分组/模块/子模块/控制器名`` ,  ``定义路由后可自定义使用路由访问方式``。
 
+**样例：** ``http://domain/root/group/module/controller/actionName``。 不写模块名两者都能访问。
 
-路由访问默认方式： ``www.project.com/权限/模块/子模块/文件`` ,  ``定义路由后可自定义使用路由访问方式``。
+========== ===========================  ======================================================
+ **分组**         **路由**                            **访问文件**
+---------- ---------------------------  ------------------------------------------------------
+   admin     /admin/file/manage/list       /module/file/manage/FileManageListAdminAction.php
+---------- ---------------------------  ------------------------------------------------------
+    api      /admin/file/manage/list       /module/file/manage/FileManageListApiAction.php
+========== ===========================  ======================================================
+
 
 .. code-block:: 
-
-    仅管理员：/admin/file/manage/list
-    开放：/api/file/manage/list
 
     ├─module        应用模块
     │  ├─file          文件模块
@@ -108,11 +112,6 @@ http://host/rootpath/group/module/controller/actionName
     │  │  └─...
     │  └─...
 
-    命名：FileManageListAction.php / FileManageListAdminAction.php
-    需要访问 /admin/file/manage/list
-
-    如需要开放API接口，需要命名 FileManageListApiAction.php
-
 **变量命名方式**
 
 请勿使用没有意义的变量进行命名, 使用英文翻译尽量达意。
@@ -120,13 +119,16 @@ http://host/rootpath/group/module/controller/actionName
 .. code-block:: php
     :linenos:
 
+    // 测试路径日志变量
     <?php
+        // error
+        $cs = 'ceshi';
+        $ceshi = 'ceshi';
+        $a1 = 'ceshi';
 
-        // 测试路径日志
+        // correct
         $test_trace_log = 'ceshi';
-
         $testTraceLog = 'foo';
-
     ?>
 
 ******************************************************************************************
@@ -158,6 +160,7 @@ http://host/rootpath/group/module/controller/actionName
 
 .. code-block:: php
     :linenos:
+    :emphasize-lines: 10
 
     <?php
 
@@ -179,6 +182,7 @@ http://host/rootpath/group/module/controller/actionName
 
 .. code-block:: php
     :linenos:
+    :emphasize-lines: 5-8,12-16
 
     <?php
 

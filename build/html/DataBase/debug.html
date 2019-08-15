@@ -1,14 +1,14 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="cn" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="cn" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>数据库调试 &mdash; CC 框架文档 1.0.0 documentation</title>
+  <title>数据库调试 &mdash; CC 框架文档 1.0.0 文档</title>
   
 
   
@@ -33,9 +33,9 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="权限相关" href="../Auth/index.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="权限检查器" href="../Auth/checker.html" />
     <link rel="prev" title="数据一致性" href="transaction.html" /> 
 </head>
 
@@ -96,14 +96,16 @@
 </ul>
 <p class="caption"><span class="caption-text">请求(Request)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../Request/index.html"><strong>获取请求参数</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Request/index.html"><strong>获取参数</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Request/Checker/guide.html"><strong>验证器基础</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Request/Checker/list.html"><strong>验证器列表</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">响应(Response)</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html"><strong>响应为Json格式</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html#jsonp"><strong>响应为Jsonp格式</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html#render"><strong>响应为Render格式</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应空</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应空数据格式</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">路由(Route)</span></p>
 <ul>
@@ -112,17 +114,19 @@
 </ul>
 <p class="caption"><span class="caption-text">控制器(Controller)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../Controller/index.html"><strong>基本控制器</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Controller/index.html#id2"><strong>其它控制器</strong></a></li>
-</ul>
-<p class="caption"><span class="caption-text">验证器(Checker)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../Checker/index.html"><strong>验证器用法</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Checker/index.html#id2"><strong>验证器列表</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/base.html"><strong>基本控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/other.html"><strong>其它控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/func.html"><strong>控制器方法列表</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Controller/handler.html"><strong>流程处理器</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">视图组件(View Component)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../View/index.html"><strong>视图</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/base.html"><strong>基本用法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/resource.html"><strong>资源列表说明</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/filter.html"><strong>过滤器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/input.html"><strong>输入框</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/list.html"><strong>列表</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../View/other.html"><strong>其它</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">数据库(DataBase)</span></p>
 <ul class="current">
@@ -137,6 +141,7 @@
 </ul>
 <p class="caption"><span class="caption-text">权限(Auth)</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Auth/checker.html"><strong>权限检查器</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Auth/index.html"><strong>权限相关</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">安全(Safe)</span></p>
@@ -146,17 +151,14 @@
 </ul>
 <p class="caption"><span class="caption-text">文件系统(Files)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../Files/index.html"><strong>导入(Import)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Files/index.html#export"><strong>导出(Export)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html"><strong>导入文件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Files/index.html#id2"><strong>导出文件</strong></a></li>
 </ul>
-<p class="caption"><span class="caption-text">异常和调试(Exception &amp; Debug)</span></p>
+<p class="caption"><span class="caption-text">开发调试(Debug)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../ExceptionAndDebug/index.html"><strong>异常(Exception)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ExceptionAndDebug/index.html#debug"><strong>调试(Debug)</strong></a></li>
-</ul>
-<p class="caption"><span class="caption-text">日志(Log)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../Log/index.html"><strong>日志(Log)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Debug/exception.html"><strong>异常</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Debug/debugging.html"><strong>调试</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Debug/log.html"><strong>日志</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">后台任务调度(Crontab)</span></p>
 <ul>
@@ -164,15 +166,11 @@
 </ul>
 <p class="caption"><span class="caption-text">Helper &amp; Utils</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../Utils/index.html"><strong>Helper &amp; Utils</strong></a></li>
-</ul>
-<p class="caption"><span class="caption-text">国际化(I18n)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../I18n/index.html"><strong>国际化(I18n)</strong></a></li>
-</ul>
-<p class="caption"><span class="caption-text">注意事项(Attention)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../Attention/index.html"><strong>注意事项</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/alarm.html"><strong>警信</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/email.html"><strong>邮件</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/helper.html"><strong>助手方法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/utils.html"><strong>脚手架工具</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Utils/i18n.html"><strong>国际化</strong></a></li>
 </ul>
 
             
@@ -238,15 +236,15 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1><strong>数据库调试</strong><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1><strong>数据库调试</strong><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="id2">
-<h2><strong>调试打印上一条语句</strong><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2><strong>调试打印上一条语句</strong><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <div class="highlight-perl notranslate"><div class="highlight"><pre><span></span><span class="n">var_dump</span><span class="p">(</span><span class="o">\</span><span class="nn">CModel::</span><span class="n">getLastSql</span><span class="p">());</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id3">
-<h2><strong>调试打印所有语句</strong><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2><strong>调试打印所有语句</strong><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <div class="highlight-perl notranslate"><div class="highlight"><pre><span></span><span class="n">var_dump</span><span class="p">(</span><span class="o">\</span><span class="nn">CModel::</span><span class="n">getAlllSql</span><span class="p">());</span> <span class="sr">//</span> <span class="n">这样打印出来是字符串形式的</span><span class="p">,</span> <span class="n">看起来比较乱</span>
 
 <span class="n">echo</span> <span class="o">\</span><span class="nn">CModel::</span><span class="n">getAlllSql</span><span class="p">(</span><span class="s">&#39;html&#39;</span><span class="p">);</span> <span class="sr">//</span> <span class="n">以网页标签的形式格式化打印</span>
@@ -264,7 +262,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../Auth/index.html" class="btn btn-neutral float-right" title="权限相关" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../Auth/checker.html" class="btn btn-neutral float-right" title="权限检查器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="transaction.html" class="btn btn-neutral float-left" title="数据一致性" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
