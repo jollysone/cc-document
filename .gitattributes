@@ -1,3 +1,3 @@
-*.js linguist-language=rst
-*.css linguist-language=rst
-*.html linguist-language=rst
+*.js linguist-language=reStructuredText
+*.css linguist-language=reStructuredText
+*.html linguist-language=reStructuredText
