@@ -116,11 +116,23 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="base.html"><strong>基本控制器</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="other.html"><strong>其它控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="condition.html"><strong>条件控制器</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="func.html"><strong>控制器方法列表</strong></a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>流程处理器</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#listhandler"><strong>listHandler</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#savehandler"><strong>saveHandler</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#deletehandler"><strong>deleteHandler</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2"><strong>列表处理器</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#onlistbefore-list"><strong>onListBefore(&amp;$list)</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3"><strong>保存处理器</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#onbeforesave-data"><strong>onBeforeSave(&amp;$data)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#onaftersave-data"><strong>onAfterSave($data)</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4"><strong>删除处理器</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#onbeforedelete-data"><strong>onBeforeDelete(&amp;$data)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#onafterdelete-data"><strong>onAfterDelete(&amp;$data)</strong></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -238,17 +250,385 @@
             
   <div class="section" id="id1">
 <h1><strong>流程处理器</strong><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<div class="section" id="listhandler">
-<h2><strong>listHandler</strong><a class="headerlink" href="#listhandler" title="永久链接至标题">¶</a></h2>
-<p>listHandler</p>
+<div class="section" id="id2">
+<h2><strong>列表处理器</strong><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="onlistbefore-list">
+<h3><strong>onListBefore(&amp;$list)</strong><a class="headerlink" href="#onlistbefore-list" title="永久链接至标题">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">ListAction</span></code>  <code class="docutils literal notranslate"><span class="pre">DetailAction</span></code></p>
+<p><strong>说明：</strong> 在渲染列表前需要进行数据处理。数组内可以传入多个，执行顺序按数组索引顺序。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<blockquote>
+<div><p><strong>第一步：</strong> 新建流程处理类对象处理列表数据的引用。（需实现 <code class="docutils literal notranslate"><span class="pre">IListBeforeHandler</span></code> 方法）</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="x">    </span><span class="cp">&lt;?php</span>
+        <span class="k">class</span> <span class="nc">ExampleListBeforeHandler</span> <span class="k">implements</span> <span class="nx">IListBeforeHandler</span>
+        <span class="p">{</span>
+            <span class="k">public</span> <span class="k">function</span> <span class="nf">onListBefore</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$list</span><span class="p">,</span> <span class="nx">CRequest</span> <span class="nv">$request</span><span class="p">,</span> <span class="nv">$action</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">foreach</span><span class="p">(</span><span class="nv">$list</span> <span class="k">as</span> <span class="nv">$k</span> <span class="o">=&gt;</span> <span class="nv">$v</span><span class="p">){</span>
+
+                    <span class="o">...</span>
+
+                    <span class="nv">$list</span><span class="p">[</span><span class="nv">$k</span><span class="p">][</span><span class="s1">&#39;unixtime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">time</span><span class="p">();</span> <span class="c1">// 处理增加一个额外时间</span>
+
+                    <span class="o">...</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>第二步：</strong> 将流程处理类添加到数组中即可。</p>
+<blockquote>
+<div><div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">onListBefore</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$list</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="o">...</span>
+
+            <span class="k">new</span> <span class="nx">ExampleListBeforeHandler</span><span class="p">(),</span>
+
+            <span class="o">...</span>
+        <span class="p">];</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<ol class="arabic simple">
+<li><p>需要其它配合参数可通过 <code class="docutils literal notranslate"><span class="pre">__construct()</span></code> 进行传入。</p></li>
+<li><p>第二步数组内可以传入多个，执行顺序按数组索引顺序。</p></li>
+</ol>
 </div>
-<div class="section" id="savehandler">
-<h2><strong>saveHandler</strong><a class="headerlink" href="#savehandler" title="永久链接至标题">¶</a></h2>
-<p>saveHandler</p>
 </div>
-<div class="section" id="deletehandler">
-<h2><strong>deleteHandler</strong><a class="headerlink" href="#deletehandler" title="永久链接至标题">¶</a></h2>
-<p>deleteHandler</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><strong>保存处理器</strong><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="onbeforesave-data">
+<h3><strong>onBeforeSave(&amp;$data)</strong><a class="headerlink" href="#onbeforesave-data" title="永久链接至标题">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SaveAction</span></code></p>
+<p><strong>说明：</strong> 在保存前需要进行数据处理。数组内可以传入多个，执行顺序按数组索引顺序。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><strong>第一步：</strong> 新建流程处理类对象处理列表数据的引用。（需实现 <code class="docutils literal notranslate"><span class="pre">ISaveBeforeHandler</span></code> 方法）</p>
+<blockquote>
+<div><div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">class</span> <span class="nc">ExampleSaveBeforeHandler</span> <span class="k">implements</span> <span class="nx">ISaveBeforeHandler</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">onSaveBefore</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$data</span><span class="p">,</span> <span class="nx">CRequest</span> <span class="nv">$request</span><span class="p">,</span> <span class="nv">$is_add</span><span class="p">,</span> <span class="nv">$action</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="o">...</span>
+
+            <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;unixtime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">time</span><span class="p">();</span> <span class="c1">// 处理增加一个额外时间</span>
+
+            <span class="o">...</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p><strong>第二步：</strong> 将流程处理类添加到数组中即可。</p>
+<blockquote>
+<div><div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">onBeforeSave</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$data</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="o">...</span>
+
+            <span class="k">new</span> <span class="nx">ExampleSaveBeforeHandler</span><span class="p">(),</span>
+
+            <span class="o">...</span>
+        <span class="p">];</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<ol class="arabic simple">
+<li><p>需要其它配合参数可通过 <code class="docutils literal notranslate"><span class="pre">__construct()</span></code> 进行传入。</p></li>
+<li><p>第二步数组内可以传入多个，执行顺序按数组索引顺序。</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="onaftersave-data">
+<h3><strong>onAfterSave($data)</strong><a class="headerlink" href="#onaftersave-data" title="永久链接至标题">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">SaveAction</span></code></p>
+<p><strong>说明：</strong> 在保存前需要进行数据处理。数组内可以传入多个，执行顺序按数组索引顺序。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><strong>第一步：</strong> 新建流程处理类对象处理列表数据的引用。（需实现 <code class="docutils literal notranslate"><span class="pre">ISaveAfterHandler</span></code> 方法）</p>
+<blockquote>
+<div><div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">class</span> <span class="nc">ExampleSaveAfterHandler</span> <span class="k">implements</span> <span class="nx">ISaveAfterHandler</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">onSaveAfter</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$data</span><span class="p">,</span> <span class="nx">CRequest</span> <span class="nv">$request</span><span class="p">,</span> <span class="nv">$is_add</span><span class="p">,</span> <span class="nv">$old_data</span><span class="p">,</span> <span class="nv">$action</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="o">...</span>
+
+            <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;unixtime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">time</span><span class="p">();</span> <span class="c1">// 处理增加一个额外时间</span>
+
+            <span class="o">...</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p><strong>第二步：</strong> 将流程处理类添加到数组中即可。</p>
+<blockquote>
+<div><div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">onAfterSave</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="o">...</span>
+
+            <span class="k">new</span> <span class="nx">ExampleSaveAfterHandler</span><span class="p">(),</span>
+
+            <span class="o">...</span>
+        <span class="p">];</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<ol class="arabic simple">
+<li><p>需要其它参数配合可通过 <code class="docutils literal notranslate"><span class="pre">__construct()</span></code> 进行传入。处理过程中还可以使用更多的参数 <code class="docutils literal notranslate"><span class="pre">$is_add</span></code> <code class="docutils literal notranslate"><span class="pre">$old_data</span></code> 。</p></li>
+<li><p>第二步数组内可以传入多个，执行顺序按数组索引顺序。</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><strong>删除处理器</strong><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="onbeforedelete-data">
+<h3><strong>onBeforeDelete(&amp;$data)</strong><a class="headerlink" href="#onbeforedelete-data" title="永久链接至标题">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">DeleteAction</span></code></p>
+<p><strong>说明：</strong> 在保存前需要进行数据处理。数组内可以传入多个，执行顺序按数组索引顺序。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><strong>第一步：</strong> 新建流程处理类对象处理列表数据的引用。（需实现 <code class="docutils literal notranslate"><span class="pre">IDeleteBeforeHandler</span></code> 方法）</p>
+<blockquote>
+<div><div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">class</span> <span class="nc">ExampleSaveBeforeHandler</span> <span class="k">implements</span> <span class="nx">IDeleteBeforeHandler</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">onDeleteBefore</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$data</span><span class="p">,</span> <span class="nx">CRequest</span> <span class="nv">$request</span><span class="p">,</span> <span class="nv">$action</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="o">...</span>
+
+            <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;unixtime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">time</span><span class="p">();</span> <span class="c1">// 处理增加一个额外时间</span>
+
+            <span class="o">...</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p><strong>第二步：</strong> 将流程处理类添加到数组中即可。</p>
+<blockquote>
+<div><div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">onBeforeDelete</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$data</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="o">...</span>
+
+            <span class="k">new</span> <span class="nx">ExampleDeleteBeforeHandler</span><span class="p">(),</span>
+
+            <span class="o">...</span>
+        <span class="p">];</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<ol class="arabic simple">
+<li><p>需要其它配合参数可通过 <code class="docutils literal notranslate"><span class="pre">__construct()</span></code> 进行传入。</p></li>
+<li><p>第二步数组内可以传入多个，执行顺序按数组索引顺序。</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="onafterdelete-data">
+<h3><strong>onAfterDelete(&amp;$data)</strong><a class="headerlink" href="#onafterdelete-data" title="永久链接至标题">¶</a></h3>
+<p><strong>适用：</strong> <code class="docutils literal notranslate"><span class="pre">DeleteAction</span></code></p>
+<p><strong>说明：</strong> 在保存前需要进行数据处理。数组内可以传入多个，执行顺序按数组索引顺序。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><strong>第一步：</strong> 新建流程处理类对象处理列表数据的引用。（需实现 <code class="docutils literal notranslate"><span class="pre">IDeleteAfterHandler</span></code> 方法）</p>
+<blockquote>
+<div><div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">class</span> <span class="nc">ExampleSaveBeforeHandler</span> <span class="k">implements</span> <span class="nx">ISaveBeforeHandler</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">onDeleteAfter</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$data</span><span class="p">,</span> <span class="nx">CRequest</span> <span class="nv">$request</span><span class="p">,</span> <span class="nv">$action</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="o">...</span>
+
+            <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;unixtime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">time</span><span class="p">();</span> <span class="c1">// 处理增加一个额外时间</span>
+
+            <span class="o">...</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+<p><strong>第二步：</strong> 将流程处理类添加到数组中即可。</p>
+<blockquote>
+<div><div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">onAfterDelete</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$data</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="o">...</span>
+
+            <span class="k">new</span> <span class="nx">ExampleDeleteBeforeHandler</span><span class="p">(),</span>
+
+            <span class="o">...</span>
+        <span class="p">];</span>
+    <span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+</div></blockquote>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<ol class="arabic simple">
+<li><p>需要其它配合参数可通过 <code class="docutils literal notranslate"><span class="pre">__construct()</span></code> 进行传入。</p></li>
+<li><p>第二步数组内可以传入多个，执行顺序按数组索引顺序。</p></li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 

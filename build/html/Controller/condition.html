@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>数据一致性 &mdash; CC 框架文档 1.0.0 文档</title>
+  <title>条件控制器 &mdash; CC 框架文档 1.0.0 文档</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="数据库调试" href="debug.html" />
-    <link rel="prev" title="语法构造器" href="query_builder.html" /> 
+    <link rel="next" title="控制器方法列表" href="func.html" />
+    <link rel="prev" title="其它控制器" href="other.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -113,12 +113,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../Route/method.html"><strong>路由使用方法(Route Guide)</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">控制器(Controller)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../Controller/base.html"><strong>基本控制器</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Controller/other.html"><strong>其它控制器</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Controller/condition.html"><strong>条件控制器</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Controller/func.html"><strong>控制器方法列表</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Controller/handler.html"><strong>流程处理器</strong></a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="base.html"><strong>基本控制器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="other.html"><strong>其它控制器</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>条件控制器</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#condition"><strong>Condition</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="func.html"><strong>控制器方法列表</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="handler.html"><strong>流程处理器</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">视图组件(View Component)</span></p>
 <ul>
@@ -130,15 +133,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../View/other.html"><strong>其它</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">数据库(DataBase)</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="guide.html"><strong>基本使用方法</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="query_builder.html"><strong>语法构造器</strong></a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>数据一致性</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2"><strong>加锁</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3"><strong>事务操作</strong></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="debug.html"><strong>数据库调试</strong></a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/guide.html"><strong>基本使用方法</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/query_builder.html"><strong>语法构造器</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/transaction.html"><strong>数据一致性</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataBase/debug.html"><strong>数据库调试</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">权限(Auth)</span></p>
 <ul>
@@ -217,13 +216,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li><strong>数据一致性</strong></li>
+      <li><strong>条件控制器</strong></li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/DataBase/transaction.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Controller/condition.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -237,53 +236,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1><strong>数据一致性</strong><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<div class="section" id="id2">
-<h2><strong>加锁</strong><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<p>单条语句加锁操作，只需加上 <code class="docutils literal notranslate"><span class="pre">addForUpdate()</span></code> 条件即可。</p>
-<p><strong>注意：</strong> 加锁后，如果有其他想修改该条记录的语句只能等待锁释放。以及锁全表问题。</p>
-<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-
-    <span class="nx">ItemModel</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="nv">$table</span><span class="p">)</span>
-        <span class="o">-&gt;</span><span class="na">addId</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
-<span class="hll">        <span class="o">-&gt;</span><span class="na">addForUpdate</span><span class="p">()</span>
-</span>        <span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
-
-<span class="cp">?&gt;</span><span class="x"></span>
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="section" id="id3">
-<h2><strong>事务操作</strong><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>由于整个控制器业务逻辑复杂，需要开启事务保证整个业务流程的完善。成功后事务提交，有异常将会抛出并且回滚整个事务。</p>
-<p>如果该控制器继承了 <code class="docutils literal notranslate"><span class="pre">CAction</span></code> , 则只需继承后重写 <code class="docutils literal notranslate"><span class="pre">getIsOpenTransaction()</span></code> 方法的返回值为 <code class="docutils literal notranslate"><span class="pre">true</span></code> 即可。</p>
-<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-
-    <span class="k">protected</span> <span class="k">function</span> <span class="nf">getIsOpenTransaction</span><span class="p">()</span>
-    <span class="p">{</span>
-<span class="hll">        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
-</span>    <span class="p">}</span>
-
-<span class="cp">?&gt;</span><span class="x"></span>
-</pre></div>
-</td></tr></table></div>
-<p>$transaction = CC::app()-&gt;db-&gt;beginTransaction();
-$transaction-&gt;commit();
-$transaction-&gt;rollBack();</p>
+<h1><strong>条件控制器</strong><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="condition">
+<h2><strong>Condition</strong><a class="headerlink" href="#condition" title="永久链接至标题">¶</a></h2>
 </div>
 </div>
 
@@ -295,10 +250,10 @@ $transaction-&gt;rollBack();</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="debug.html" class="btn btn-neutral float-right" title="数据库调试" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="func.html" class="btn btn-neutral float-right" title="控制器方法列表" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="query_builder.html" class="btn btn-neutral float-left" title="语法构造器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="other.html" class="btn btn-neutral float-left" title="其它控制器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -62,6 +62,7 @@ CC 框架文档 1.0.0
 
     Controller/base
     Controller/other
+    Controller/condition
     Controller/func
     Controller/handler
 

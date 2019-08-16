@@ -1,0 +1,3 @@
+*.js linguist-language=rst
+*.css linguist-language=rst
+*.html linguist-language=rst
