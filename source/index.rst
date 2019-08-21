@@ -76,7 +76,7 @@ CC 框架文档 1.0.0
     View/input
     View/list
     View/other
-*.js linguist-language=Go
+
 .. toctree::
     :maxdepth: 2
     :caption: 数据库(DataBase)

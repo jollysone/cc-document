@@ -1,2 +1,11 @@
-[0814/182935:INFO:exception_record.cc(518)] [QB]Process ID: 3336 Type: 2
-[0814/182942:INFO:exception_record.cc(518)] [QB]Process ID: 13488 Type: 2
+[0820/130130:WARNING:dns_config_service_win.cc(674)] Failed to read DnsConfig.
+[0820/132301:WARNING:dns_config_service_win.cc(674)] Failed to read DnsConfig.
+[0820/132302:WARNING:dns_config_service_win.cc(674)] Failed to read DnsConfig.
+[0820/132302:WARNING:dns_config_service_win.cc(674)] Failed to read DnsConfig.
+[0820/132306:INFO:exception_record.cc(518)] [QB]Process ID: 12396 Type: 4
+[0820/141212:WARNING:dns_config_service_win.cc(674)] Failed to read DnsConfig.
+[0820/141212:WARNING:dns_config_service_win.cc(674)] Failed to read DnsConfig.
+[0820/141216:INFO:exception_record.cc(518)] [QB]Process ID: 11864 Type: 4
+[0820/174300:INFO:exception_record.cc(518)] [QB]Process ID: 11364 Type: 2
+[0820/174302:INFO:http_cache_transaction.cc(72)] IgnoreZeroCacheError: 0
+[0820/174434:INFO:exception_record.cc(518)] [QB]Process ID: 9396 Type: 2

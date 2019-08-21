@@ -115,25 +115,100 @@
 **单选框 & 复选框**
 ================================================================================
 
+**方法：** **new SelectFilter(** $name, $label, $data_arr, $style = '', $default_option = [] **)**
+
+**参数：** 
+
+    **$name：** ``必填`` 字段名，
+
+    **$label：** ``必填`` 标签显示名称，
+
+    **$data_arr：** ``必填`` 选择框数据（一维数组），
+
+    **$style：** 选择框样式（ **'', 'multi', 'drop-down', 'drop-pop'** ）默认第一个，
+
+    **$default_option：** 额外配置默认选择的一项 **['value' => 'showText']**，默认不选择。
+
+**扩展方法：** 设置是否多选，只适用于 ``$style：'' | 'multi'`` 的场景。
+
 .. code-block:: php
     :linenos:
 
     <?php
-        /** 
-          * $style 可取 '', 'drop-down', 'drop-pop'
-          * '' 支持单选、多选双模式
-          * 'drop-down' 单选，不自动跳转
-          * 'drop-pop' 单选，自动跳转
-          * $default_option [value => showText]
-        */
-
-        $filters[] = new SelectFilter($name, $label, $data_arr, $style, $default_option)
+        $filters[] = (new SelectFilter($name, $label, $data_arr))->setIsMultiple(bool);
     ?>
+
+
+**例1：** 配置 $style = 'multi' 或者 $style = ''，支持单选、多选双模式。
+
+.. image:: ../_static/view_filter_select_1.png
+    :height: 62px
+    :alt: view_filter_select_1
+    :align: center
+
+.. Tip:: 
+    需要保持这个样式但是只需要单选功能，可配置扩展方法（ **setIsMultiple(false)** ）设置单选;
+
+**例2：** 配置 $style = 'drop-down' ，单选，不自动跳转。
+
+.. image:: ../_static/view_filter_select_2.png
+    :height: 128px
+    :alt: view_filter_select_2
+    :align: center
+
+**例3：** 配置 $style = 'drop-pop' ，单选，自动跳转。
+
+.. image:: ../_static/view_filter_select_3.png
+    :height: 130px
+    :alt: view_filter_select_3
+    :align: center
 
 
 ================================================================================
 **时间范围**
 ================================================================================
+
+**方法：** **new TimeRangeFilter(** $name, $label, $style = '', $ranges = null, $option = [] **)**
+
+**参数：** 
+
+    **$name：** ``必填`` 字段名，
+
+    **$label：** ``必填`` 标签显示名称，
+
+    **$style：** 选择框样式（ **'', 'simple'** ）默认第一个，
+    
+    **$ranges：** 默认 **['total', 'today', 'this_week', 'this_month']**，
+
+    **$option：** 额外配置默认选择项 **['default_choose' => 'total']**，默认不选择。
+
+.. note::
+    **$ranges** 可配置的可选项。
+    
+        1. 'total' 全部,
+        2. 'today' 今日,
+        3. 'this_week' 本周,
+        4. 'this_month' 本月,
+        5. 'yesterday' 昨日,
+        6. 'last_week' 上周,
+        7. 'last_month' 上一月,
+
+**扩展方法：**  。
+
+.. code-block:: php
+    :linenos:
+
+    <?php
+        $filters[] = (new SelectFilter($name, $label, $data_arr))->setIsMultiple(bool);
+    ?>
+
+
+**例1：** 配置 $style = 'multi' 或者 $style = ''，支持单选、多选双模式。
+
+.. image:: ../_static/view_filter_select_1.png
+    :height: 62px
+    :alt: view_filter_select_1
+    :align: center
 
 .. code-block:: php
     :linenos:
@@ -154,12 +229,45 @@
 **时间点**
 ================================================================================
 
-.. code-block:: php
-    :linenos:
+**方法：** 
 
-    <?php
-        $filters[] = new SimpleTimeFilter($name, $label, $placeholder);
-    ?>
+**new SimpleTimeFilter(** $name, $label, $placeholder, $style = '', $end_min = false, $end_max = false **)**
+
+**参数：** 
+
+    **$name：** ``必填`` 字段名，
+
+    **$label：** ``必填`` 标签显示名称，
+
+    **$placeholder：**  ``必填`` 描述输入字段预期值的提示信息，
+
+    **$style：**  配置该组件的 class ，选择月份 ``'date-month'`` 选择年份 ``'date-year'`` 默认选择日期，
+
+    **$end_min：** 可选择的最早时间是否从当前开始，
+
+    **$end_max：** 可选择的最晚时间是否从当前结束。
+
+
+**例1：** 配置 $style = '' 或者 不配置，日期的选择。
+
+.. image:: ../_static/view_filter_simple_time_1.png
+    :height: 240px
+    :alt: view_filter_simple_time_1
+    :align: center
+
+**例2：** 配置 $style = 'date-month' ，可按月份选择。
+
+.. image:: ../_static/view_filter_simple_time_2.png
+    :height: 231px
+    :alt: view_filter_simple_time_2
+    :align: center
+
+**例3：** 配置 $style = 'date-year' ，可按年份选择。
+
+.. image:: ../_static/view_filter_simple_time_3.png
+    :height: 237px
+    :alt: view_filter_simple_time_3
+    :align: center
 
 
 ================================================================================

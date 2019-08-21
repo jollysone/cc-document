@@ -371,32 +371,70 @@
 </div>
 <div class="section" id="id8">
 <h3><strong>单选框 &amp; 复选框</strong><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
-<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-    <span class="sd">/**</span>
-<span class="sd">      * $style 可取 &#39;&#39;, &#39;drop-down&#39;, &#39;drop-pop&#39;</span>
-<span class="sd">      * &#39;&#39; 支持单选、多选双模式</span>
-<span class="sd">      * &#39;drop-down&#39; 单选，不自动跳转</span>
-<span class="sd">      * &#39;drop-pop&#39; 单选，自动跳转</span>
-<span class="sd">      * $default_option [value =&gt; showText]</span>
-<span class="sd">    */</span>
-
-    <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SelectFilter</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$label</span><span class="p">,</span> <span class="nv">$data_arr</span><span class="p">,</span> <span class="nv">$style</span><span class="p">,</span> <span class="nv">$default_option</span><span class="p">)</span>
+<p><strong>方法：</strong> <strong>new SelectFilter(</strong> $name, $label, $data_arr, $style = '', $default_option = [] <strong>)</strong></p>
+<p><strong>参数：</strong></p>
+<blockquote>
+<div><p><strong>$name：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 字段名，</p>
+<p><strong>$label：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 标签显示名称，</p>
+<p><strong>$data_arr：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 选择框数据（一维数组），</p>
+<p><strong>$style：</strong> 选择框样式（ <strong>'', 'multi', 'drop-down', 'drop-pop'</strong> ）默认第一个，</p>
+<p><strong>$default_option：</strong> 额外配置默认选择的一项 <strong>['value' =&gt; 'showText']</strong>，默认不选择。</p>
+</div></blockquote>
+<p><strong>扩展方法：</strong> 设置是否多选，只适用于 <code class="docutils literal notranslate"><span class="pre">$style：''</span> <span class="pre">|</span> <span class="pre">'multi'</span></code> 的场景。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">SelectFilter</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$label</span><span class="p">,</span> <span class="nv">$data_arr</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">setIsMultiple</span><span class="p">(</span><span class="nx">bool</span><span class="p">);</span>
 <span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </td></tr></table></div>
+<p><strong>例1：</strong> 配置 $style = 'multi' 或者 $style = ''，支持单选、多选双模式。</p>
+<a class="reference internal image-reference" href="../_images/view_filter_select_1.png"><img alt="view_filter_select_1" class="align-center" src="../_images/view_filter_select_1.png" style="height: 62px;" /></a>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>需要保持这个样式但是只需要单选功能，可配置扩展方法（ <strong>setIsMultiple(false)</strong> ）设置单选;</p>
+</div>
+<p><strong>例2：</strong> 配置 $style = 'drop-down' ，单选，不自动跳转。</p>
+<a class="reference internal image-reference" href="../_images/view_filter_select_2.png"><img alt="view_filter_select_2" class="align-center" src="../_images/view_filter_select_2.png" style="height: 128px;" /></a>
+<p><strong>例3：</strong> 配置 $style = 'drop-pop' ，单选，自动跳转。</p>
+<a class="reference internal image-reference" href="../_images/view_filter_select_3.png"><img alt="view_filter_select_3" class="align-center" src="../_images/view_filter_select_3.png" style="height: 130px;" /></a>
 </div>
 <div class="section" id="id9">
 <h3><strong>时间范围</strong><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p><strong>方法：</strong> <strong>new TimeRangeFilter(</strong> $name, $label, $style = '', $ranges = null, $option = [] <strong>)</strong></p>
+<p><strong>参数：</strong></p>
+<blockquote>
+<div><p><strong>$name：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 字段名，</p>
+<p><strong>$label：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 标签显示名称，</p>
+<p><strong>$style：</strong> 选择框样式（ <strong>'', 'simple'</strong> ）默认第一个，</p>
+<p><strong>$ranges：</strong> 默认 <strong>['total', 'today', 'this_week', 'this_month']</strong>，</p>
+<p><strong>$option：</strong> 额外配置默认选择项 <strong>['default_choose' =&gt; 'total']</strong>，默认不选择。</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><strong>$ranges</strong> 可配置的可选项。</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>'total' 全部,</p></li>
+<li><p>'today' 今日,</p></li>
+<li><p>'this_week' 本周,</p></li>
+<li><p>'this_month' 本月,</p></li>
+<li><p>'yesterday' 昨日,</p></li>
+<li><p>'last_week' 上周,</p></li>
+<li><p>'last_month' 上一月,</p></li>
+</ol>
+</div></blockquote>
+</div>
+<p><strong>扩展方法：</strong>  。</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">SelectFilter</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$label</span><span class="p">,</span> <span class="nv">$data_arr</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">setIsMultiple</span><span class="p">(</span><span class="nx">bool</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>例1：</strong> 配置 $style = 'multi' 或者 $style = ''，支持单选、多选双模式。</p>
+<a class="reference internal image-reference" href="../_images/view_filter_select_1.png"><img alt="view_filter_select_1" class="align-center" src="../_images/view_filter_select_1.png" style="height: 62px;" /></a>
 <div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -421,13 +459,23 @@
 </div>
 <div class="section" id="id10">
 <h3><strong>时间点</strong><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
-<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-    <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SimpleTimeFilter</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$label</span><span class="p">,</span> <span class="nv">$placeholder</span><span class="p">);</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</pre></div>
-</td></tr></table></div>
+<p><strong>方法：</strong></p>
+<p><strong>new SimpleTimeFilter(</strong> $name, $label, $placeholder, $style = '', $end_min = false, $end_max = false <strong>)</strong></p>
+<p><strong>参数：</strong></p>
+<blockquote>
+<div><p><strong>$name：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 字段名，</p>
+<p><strong>$label：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 标签显示名称，</p>
+<p><strong>$placeholder：</strong>  <code class="docutils literal notranslate"><span class="pre">必填</span></code> 描述输入字段预期值的提示信息，</p>
+<p><strong>$style：</strong>  配置该组件的 class ，选择月份 <code class="docutils literal notranslate"><span class="pre">'date-month'</span></code> 选择年份 <code class="docutils literal notranslate"><span class="pre">'date-year'</span></code> 默认选择日期，</p>
+<p><strong>$end_min：</strong> 可选择的最早时间是否从当前开始，</p>
+<p><strong>$end_max：</strong> 可选择的最晚时间是否从当前结束。</p>
+</div></blockquote>
+<p><strong>例1：</strong> 配置 $style = '' 或者 不配置，日期的选择。</p>
+<a class="reference internal image-reference" href="../_images/view_filter_simple_time_1.png"><img alt="view_filter_simple_time_1" class="align-center" src="../_images/view_filter_simple_time_1.png" style="height: 240px;" /></a>
+<p><strong>例2：</strong> 配置 $style = 'date-month' ，可按月份选择。</p>
+<a class="reference internal image-reference" href="../_images/view_filter_simple_time_2.png"><img alt="view_filter_simple_time_2" class="align-center" src="../_images/view_filter_simple_time_2.png" style="height: 231px;" /></a>
+<p><strong>例3：</strong> 配置 $style = 'date-year' ，可按年份选择。</p>
+<a class="reference internal image-reference" href="../_images/view_filter_simple_time_3.png"><img alt="view_filter_simple_time_3" class="align-center" src="../_images/view_filter_simple_time_3.png" style="height: 237px;" /></a>
 </div>
 <div class="section" id="id11">
 <h3><strong>范围过滤器</strong><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
