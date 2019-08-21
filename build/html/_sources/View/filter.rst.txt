@@ -142,8 +142,6 @@
 **例1：** 配置 $style = 'multi' 或者 $style = ''，支持单选、多选双模式。
 
 .. image:: ../_static/view_filter_select_1.png
-    :height: 62px
-    :alt: view_filter_select_1
     :align: center
 
 .. Tip:: 
@@ -152,15 +150,11 @@
 **例2：** 配置 $style = 'drop-down' ，单选，不自动跳转。
 
 .. image:: ../_static/view_filter_select_2.png
-    :height: 128px
-    :alt: view_filter_select_2
     :align: center
 
 **例3：** 配置 $style = 'drop-pop' ，单选，自动跳转。
 
 .. image:: ../_static/view_filter_select_3.png
-    :height: 130px
-    :alt: view_filter_select_3
     :align: center
 
 
@@ -206,8 +200,6 @@
 **例1：** 配置 $style = 'multi' 或者 $style = ''，支持单选、多选双模式。
 
 .. image:: ../_static/view_filter_select_1.png
-    :height: 62px
-    :alt: view_filter_select_1
     :align: center
 
 .. code-block:: php
@@ -229,9 +221,7 @@
 **时间点**
 ================================================================================
 
-**方法：** 
-
-**new SimpleTimeFilter(** $name, $label, $placeholder, $style = '', $end_min = false, $end_max = false **)**
+**方法：** **new SimpleTimeFilter(** $name, $label, $placeholder, $style = '', $end_min = false, $end_max = false **)**
 
 **参数：** 
 
@@ -251,22 +241,16 @@
 **例1：** 配置 $style = '' 或者 不配置，日期的选择。
 
 .. image:: ../_static/view_filter_simple_time_1.png
-    :height: 240px
-    :alt: view_filter_simple_time_1
     :align: center
 
 **例2：** 配置 $style = 'date-month' ，可按月份选择。
 
 .. image:: ../_static/view_filter_simple_time_2.png
-    :height: 231px
-    :alt: view_filter_simple_time_2
     :align: center
 
 **例3：** 配置 $style = 'date-year' ，可按年份选择。
 
 .. image:: ../_static/view_filter_simple_time_3.png
-    :height: 237px
-    :alt: view_filter_simple_time_3
     :align: center
 
 

@@ -111,8 +111,6 @@ MySQL官方只提供了三种join方式。
 **说明：** 数据库使用 ``join`` 其实默认就是 ``inner join`` 。它也被称为一个等值连接。通过结合基于联接谓词两个表(表1和表2)列值创建一个新的结果表。查询比较表1中的每一行与表2中的每一行，找到所有满足联接谓词的行。 当联接谓词被满足时，对于每个匹配的一对A和B的列值被组合成一个结果行。
 
 .. image:: ../_static/内连接.png
-    :height: 200px
-    :alt: 内连接
     :align: center
 
 **用法：** **join(** $type, $table, $as, $on = '', $params = array() **)**
@@ -158,8 +156,6 @@ MySQL官方只提供了三种join方式。
 **说明：** 左连接是得到A表中去除B表内容的剩下的部分，也就是A表独有的一部分。可以看做是在左外连接的结果中将双方共有的部分去掉得到的。
 
 .. image:: ../_static/左连接.png
-    :height: 200px
-    :alt: 左连接
     :align: center
 
 **用法：** **leftJoin(** $table, $as, $on = '', $params = array() **)**
@@ -202,8 +198,6 @@ MySQL官方只提供了三种join方式。
 **说明：** 同理，右连接是在右外连接的结果中得到B表独有的那一部分。
 
 .. image:: ../_static/右连接.png
-    :height: 200px
-    :alt: 右连接
     :align: center
 
 **用法：** **rightJoin(** $table, $as, $on = '', $params = array() **)**
