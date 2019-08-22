@@ -34,7 +34,7 @@ Session::getComID()
 
 Session::getUserID()
 
-
+SessionAbs::getUserClassify() == UserClassifyEnum::ADMIN
 
 
 

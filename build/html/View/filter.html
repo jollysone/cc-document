@@ -136,8 +136,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#id8"><strong>单选框 &amp; 复选框</strong></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id9"><strong>时间范围</strong></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id10"><strong>时间点</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11"><strong>范围过滤器</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id12"><strong>树结构过滤器</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11"><strong>值域范围</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12"><strong>树结构</strong></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id13"><strong>自定义过滤器</strong></a></li>
@@ -313,9 +313,40 @@
 </div>
 <div class="section" id="id3">
 <h2><strong>过滤器样式</strong><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>默认样式是垂直显示方式（ <strong>'style' =&gt; 'vertical'</strong> ）。</p>
+<dl class="field-list">
+<dt class="field-odd">方法：</dt>
+<dd class="field-odd"><p><strong>new FilterWidget(</strong> ITableViewCreator $tableViewBuilder, $options = array() <strong>)</strong></p>
+</dd>
+<dt class="field-even">参数：</dt>
+<dd class="field-even"><ul>
+<li><p><strong>$tableViewBuilder：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 表格对象，</p></li>
+<li><p><strong>$options：</strong> 配置项：</p>
+<blockquote>
+<div><p><strong>1. id：</strong> 默认 <cite>'id' =&gt; ''</cite> ，用于标记表单的 <cite>id</cite>，不标记默认自动随机号码；</p>
+<p><strong>2. show_export_btn：</strong> 默认 <cite>'show_export_btn' =&gt; false</cite> ，可标记是否在过滤器最后显示导出按钮；</p>
+<p><strong>3. style：</strong> 默认 <cite>'style' =&gt; 'vertical'</cite> ，默认显示垂直排列风格，可定义水平排列风格（ <cite>'style' =&gt; 'horizontal'</cite> ）；</p>
+<p><strong>4. filterBuildBeforeHandler：</strong> 默认 <cite>'filterBuildBeforeHandler' =&gt; null</cite> ，过滤器 <cite>BeforeHandler</cite> ， <code class="docutils literal notranslate"><span class="pre">尚未验证用法</span></code> ；</p>
+<p><strong>5. is_asyn：</strong> 默认 <cite>'is_asyn' =&gt; false</cite> ， 是否异步， <code class="docutils literal notranslate"><span class="pre">尚未验证用法</span></code> ；</p>
+<p><strong>6. choose_obj：</strong> 默认 <cite>'choose_obj' =&gt; ''</cite> ， JS对象 要求必须要有 refreshCallBack 这个方法， <code class="docutils literal notranslate"><span class="pre">尚未验证用法</span></code> ；</p>
+<p><strong>7. action：</strong> 默认 <cite>'action' =&gt; ''</cite> ，可指定表单的 <cite>action</cite> ，一般会配合提交按钮才行；</p>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>默认样式是垂直显示方式（ <strong>['style' =&gt; 'vertical']</strong> ）。</p>
+</div>
 <div class="section" id="id4">
 <h3><strong>水平排列风格</strong><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">说明：</dt>
+<dd class="field-odd"><p>水平排列风格将会 <strong>从左到右依次排列</strong> ，元素放不下的情况会自动换到下一行显示。</p>
+</dd>
+<dt class="field-even">代码块：</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
 <div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -331,9 +362,24 @@
 </span><span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </td></tr></table></div>
+<dl class="field-list simple">
+<dt class="field-odd">效果图：</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="figure align-center" id="id14">
+<img alt="../_images/view_filter_horizontal.png" src="../_images/view_filter_horizontal.png" />
+<p class="caption"><span class="caption-text">图：水平排列风格效果图</span><a class="headerlink" href="#id14" title="永久链接至图片">¶</a></p>
+</div>
 </div>
 <div class="section" id="id5">
 <h3><strong>垂直排列风格</strong><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">说明：</dt>
+<dd class="field-odd"><p>垂直排列风格 <strong>一行只会显示一个</strong> ，多个依次换行显示，默认超过 <code class="docutils literal notranslate"><span class="pre">5</span></code> 个之后自动收缩。</p>
+</dd>
+<dt class="field-even">代码块：</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
 <div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -349,6 +395,14 @@
 </span><span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </td></tr></table></div>
+<dl class="field-list simple">
+<dt class="field-odd">效果图：</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="figure align-center" id="id15">
+<img alt="../_images/view_filter_vertical.png" src="../_images/view_filter_vertical.png" />
+<p class="caption"><span class="caption-text">图：垂直排列风格效果图</span><a class="headerlink" href="#id15" title="永久链接至图片">¶</a></p>
+</div>
 </div>
 </div>
 <div class="section" id="id6">
@@ -371,16 +425,23 @@
 </div>
 <div class="section" id="id8">
 <h3><strong>单选框 &amp; 复选框</strong><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
-<p><strong>方法：</strong> <strong>new SelectFilter(</strong> $name, $label, $data_arr, $style = '', $default_option = [] <strong>)</strong></p>
-<p><strong>参数：</strong></p>
-<blockquote>
-<div><p><strong>$name：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 字段名，</p>
-<p><strong>$label：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 标签显示名称，</p>
-<p><strong>$data_arr：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 选择框数据（一维数组），</p>
-<p><strong>$style：</strong> 选择框样式（ <strong>'', 'multi', 'drop-down', 'drop-pop'</strong> ）默认第一个，</p>
-<p><strong>$default_option：</strong> 额外配置默认选择的一项 <strong>['value' =&gt; 'showText']</strong>，默认不选择。</p>
-</div></blockquote>
-<p><strong>扩展方法：</strong> 设置是否多选，只适用于 <code class="docutils literal notranslate"><span class="pre">$style：''</span> <span class="pre">|</span> <span class="pre">'multi'</span></code> 的场景。</p>
+<dl class="field-list">
+<dt class="field-odd">方法：</dt>
+<dd class="field-odd"><p><strong>new SelectFilter(</strong> $name, $label, $data_arr, $style = '', $default_option = [] <strong>)</strong></p>
+</dd>
+<dt class="field-even">参数：</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>$name：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 字段名，</p></li>
+<li><p><strong>$label：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 标签显示名称，</p></li>
+<li><p><strong>$data_arr：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 选择框数据（一维数组），</p></li>
+<li><p><strong>$style：</strong> 选择框样式（ <strong>'', 'multi', 'drop-down', 'drop-pop'</strong> ）默认第一个，</p></li>
+<li><p><strong>$default_option：</strong> 额外配置默认选择的一项 <strong>['value' =&gt; 'showText']</strong>，默认不选择。</p></li>
+</ul>
+</dd>
+<dt class="field-odd">可扩展方法：</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>setIsMultiple(bool)：</strong>  设置是否多选，只适用于 <code class="docutils literal notranslate"><span class="pre">$style：''</span> <span class="pre">|</span> <span class="pre">'multi'</span></code> 的场景。</p></li>
+</ul>
 <div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
@@ -388,53 +449,64 @@
 <span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </td></tr></table></div>
-<p><strong>例1：</strong> 配置 $style = 'multi' 或者 $style = ''，支持单选、多选双模式。</p>
-<img alt="../_images/view_filter_select_1.png" class="align-center" src="../_images/view_filter_select_1.png" />
+</dd>
+<dt class="field-even">使用例子：</dt>
+<dd class="field-even"><p><strong>例1：</strong> 配置 $style = 'multi' 或者 $style = ''，支持单选、多选双模式。</p>
+<div class="figure align-center" id="id16">
+<img alt="../_images/view_filter_select_1.png" src="../_images/view_filter_select_1.png" />
+<p class="caption"><span class="caption-text">图：单选、多选双模式效果图</span><a class="headerlink" href="#id16" title="永久链接至图片">¶</a></p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
 <p>需要保持这个样式但是只需要单选功能，可配置扩展方法（ <strong>setIsMultiple(false)</strong> ）设置单选;</p>
 </div>
 <p><strong>例2：</strong> 配置 $style = 'drop-down' ，单选，不自动跳转。</p>
-<img alt="../_images/view_filter_select_2.png" class="align-center" src="../_images/view_filter_select_2.png" />
+<div class="figure align-center" id="id17">
+<img alt="../_images/view_filter_select_2.png" src="../_images/view_filter_select_2.png" />
+<p class="caption"><span class="caption-text">图：单选不自动跳转效果图</span><a class="headerlink" href="#id17" title="永久链接至图片">¶</a></p>
+</div>
 <p><strong>例3：</strong> 配置 $style = 'drop-pop' ，单选，自动跳转。</p>
-<img alt="../_images/view_filter_select_3.png" class="align-center" src="../_images/view_filter_select_3.png" />
+<div class="figure align-center" id="id18">
+<img alt="../_images/view_filter_select_3.png" src="../_images/view_filter_select_3.png" />
+<p class="caption"><span class="caption-text">图：单选自动跳转效果图</span><a class="headerlink" href="#id18" title="永久链接至图片">¶</a></p>
+</div>
+</dd>
+</dl>
 </div>
 <div class="section" id="id9">
 <h3><strong>时间范围</strong><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
-<p><strong>方法：</strong> <strong>new TimeRangeFilter(</strong> $name, $label, $style = '', $ranges = null, $option = [] <strong>)</strong></p>
-<p><strong>参数：</strong></p>
-<blockquote>
-<div><p><strong>$name：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 字段名，</p>
-<p><strong>$label：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 标签显示名称，</p>
-<p><strong>$style：</strong> 选择框样式（ <strong>'', 'simple'</strong> ）默认第一个，</p>
-<p><strong>$ranges：</strong> 默认 <strong>['total', 'today', 'this_week', 'this_month']</strong>，</p>
-<p><strong>$option：</strong> 额外配置默认选择项 <strong>['default_choose' =&gt; 'total']</strong>，默认不选择。</p>
-</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">方法：</dt>
+<dd class="field-odd"><p><strong>new TimeRangeFilter(</strong> $name, $label, $style = '', $ranges = null, $option = [] <strong>)</strong></p>
+</dd>
+<dt class="field-even">参数：</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>$name：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 字段名，</p></li>
+<li><p><strong>$label：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 标签显示名称，</p></li>
+<li><p><strong>$style：</strong> 选择框样式（ <strong>'', 'simple'</strong> ）默认第一个，</p></li>
+<li><p><strong>$ranges：</strong> 默认 <strong>['total', 'today', 'this_week', 'this_month']</strong>，</p></li>
+<li><p><strong>$option：</strong> 额外配置默认选择项 <strong>['default_choose' =&gt; 'total']</strong>，默认不选择。</p></li>
+</ul>
+</dd>
+</dl>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p><strong>$ranges</strong> 可配置的可选项。</p>
 <blockquote>
-<div><ol class="arabic simple">
-<li><p>'total' 全部,</p></li>
-<li><p>'today' 今日,</p></li>
-<li><p>'this_week' 本周,</p></li>
-<li><p>'this_month' 本月,</p></li>
-<li><p>'yesterday' 昨日,</p></li>
-<li><p>'last_week' 上周,</p></li>
-<li><p>'last_month' 上一月,</p></li>
-</ol>
+<div><p><strong>1.</strong> 'total'      全部,</p>
+<p><strong>2.</strong> 'today'      今日,</p>
+<p><strong>3.</strong> 'this_week'      本周,</p>
+<p><strong>4.</strong> 'this_month'     本月,</p>
+<p><strong>5.</strong> 'yesterday'      昨日,</p>
+<p><strong>6.</strong> 'last_week'      上周,</p>
+<p><strong>7.</strong> 'last_month'     上一月,</p>
 </div></blockquote>
 </div>
-<p><strong>扩展方法：</strong>  。</p>
-<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-    <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">SelectFilter</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$label</span><span class="p">,</span> <span class="nv">$data_arr</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">setIsMultiple</span><span class="p">(</span><span class="nx">bool</span><span class="p">);</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</pre></div>
-</td></tr></table></div>
-<p><strong>例1：</strong> 配置 $style = 'multi' 或者 $style = ''，支持单选、多选双模式。</p>
-<img alt="../_images/view_filter_select_1.png" class="align-center" src="../_images/view_filter_select_1.png" />
+<dl class="field-list">
+<dt class="field-odd">扩展方法：</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>setPlaceholders($placeholders)</strong> 设置提示语。</p></li>
+</ul>
 <div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -445,68 +517,232 @@
  8
  9
 10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-    <span class="sd">/** $style 可取 &#39;&#39;, &#39;simple&#39;</span>
-<span class="sd">      * &#39;&#39; 含快捷标签</span>
-<span class="sd">      * &#39;simple&#39; 只有开始和结束时间</span>
-<span class="sd">      * $ranges 默认取值 [&#39;total&#39;,&#39;today&#39;,&#39;this_week&#39;,&#39;this_month&#39;]</span>
-<span class="sd">      * $ranges 所有可取值 [&#39;total&#39;,&#39;today&#39;,&#39;this_week&#39;,&#39;this_month&#39;,&#39;yesterday&#39;,&#39;last_week&#39;,&#39;last_month&#39;]</span>
-<span class="sd">    */</span>
+    <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">TimeRangeFilter</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$label</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">setPlaceholders</span><span class="p">(</span><span class="k">array</span><span class="p">);</span>
 
-    <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TimeRangeFilter</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$label</span><span class="p">,</span> <span class="nv">$style</span><span class="p">,</span> <span class="nv">$ranges</span><span class="p">)</span>
+
+    <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">TimeRangeFilter</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$label</span><span class="p">))</span>
+        <span class="o">-&gt;</span><span class="na">setPlaceholders</span><span class="p">([</span>
+            <span class="s1">&#39;start&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;开始时间&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;end&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;结束时间&#39;</span>
+        <span class="p">]);</span>
 <span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </td></tr></table></div>
+</dd>
+<dt class="field-even">使用例子：</dt>
+<dd class="field-even"><p><strong>例1：</strong> 配置 $style = '' 或者 不配置，默认的显示。</p>
+<div class="figure align-center" id="id19">
+<img alt="../_images/view_filter_time_1.png" src="../_images/view_filter_time_1.png" />
+<p class="caption"><span class="caption-text">图：默认显示效果图</span><a class="headerlink" href="#id19" title="永久链接至图片">¶</a></p>
+</div>
+<p><strong>例2：</strong> 配置 $style = 'simple' ，将会隐藏样式前面的类型。</p>
+<div class="figure align-center" id="id20">
+<img alt="../_images/view_filter_time_2.png" src="../_images/view_filter_time_2.png" />
+<p class="caption"><span class="caption-text">图：简单时间范围过滤器效果图</span><a class="headerlink" href="#id20" title="永久链接至图片">¶</a></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>后台接收的参数可能有： <code class="docutils literal notranslate"><span class="pre">类型</span></code> <code class="docutils literal notranslate"><span class="pre">开始时间</span></code> <code class="docutils literal notranslate"><span class="pre">结束时间</span></code></p>
+<ol class="arabic simple">
+<li><p>类型字段名：「字段名」_type，值：参考上文的配置可选项；</p></li>
+<li><p>开始时间字段名：「字段名」_start，值：选择的开始时间（2019-08-06）；</p></li>
+<li><p>结束时间字段名：「字段名」_end，值：选择的结束时间（2019-08-07）；</p></li>
+</ol>
+<p>如：<code class="docutils literal notranslate"><span class="pre">submit_time_type=this_week</span></code> <code class="docutils literal notranslate"><span class="pre">submit_time_start=2019-08-06</span></code> <code class="docutils literal notranslate"><span class="pre">submit_time_end=2019-08-07</span></code></p>
+</div>
+</dd>
+</dl>
 </div>
 <div class="section" id="id10">
 <h3><strong>时间点</strong><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
-<p><strong>方法：</strong> <strong>new SimpleTimeFilter(</strong> $name, $label, $placeholder, $style = '', $end_min = false, $end_max = false <strong>)</strong></p>
-<p><strong>参数：</strong></p>
-<blockquote>
-<div><p><strong>$name：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 字段名，</p>
-<p><strong>$label：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 标签显示名称，</p>
-<p><strong>$placeholder：</strong>  <code class="docutils literal notranslate"><span class="pre">必填</span></code> 描述输入字段预期值的提示信息，</p>
-<p><strong>$style：</strong>  配置该组件的 class ，选择月份 <code class="docutils literal notranslate"><span class="pre">'date-month'</span></code> 选择年份 <code class="docutils literal notranslate"><span class="pre">'date-year'</span></code> 默认选择日期，</p>
-<p><strong>$end_min：</strong> 可选择的最早时间是否从当前开始，</p>
-<p><strong>$end_max：</strong> 可选择的最晚时间是否从当前结束。</p>
-</div></blockquote>
-<p><strong>例1：</strong> 配置 $style = '' 或者 不配置，日期的选择。</p>
-<img alt="../_images/view_filter_simple_time_1.png" class="align-center" src="../_images/view_filter_simple_time_1.png" />
+<dl class="field-list">
+<dt class="field-odd">方法：</dt>
+<dd class="field-odd"><p><strong>new SimpleTimeFilter(</strong> $name, $label, $placeholder, $style = '', $end_min = false, $end_max = false <strong>)</strong></p>
+</dd>
+<dt class="field-even">参数：</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>$name：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 字段名，</p></li>
+<li><p><strong>$label：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 标签显示名称，</p></li>
+<li><p><strong>$placeholder：</strong>  <code class="docutils literal notranslate"><span class="pre">必填</span></code> 描述输入字段预期值的提示信息，</p></li>
+<li><p><strong>$style：</strong>  配置该组件的 class 属性，选择月份 <strong>'date-month'</strong> 选择年份 <strong>'date-year'</strong> 默认选择日期，</p></li>
+<li><p><strong>$end_min：</strong> 可选择的最早时间是否从当前开始，</p></li>
+<li><p><strong>$end_max：</strong> 可选择的最晚时间是否从当前结束。</p></li>
+</ul>
+</dd>
+<dt class="field-odd">扩展方法：</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>暂无 <strong>set</strong> 方法。</p></li>
+</ul>
+</dd>
+<dt class="field-even">使用例子：</dt>
+<dd class="field-even"><p><strong>例1：</strong> 配置 $style = '' 或者 不配置，日期的选择。</p>
+<div class="figure align-center" id="id21">
+<img alt="../_images/view_filter_simple_time_1.png" src="../_images/view_filter_simple_time_1.png" />
+<p class="caption"><span class="caption-text">图：日期选择效果图</span><a class="headerlink" href="#id21" title="永久链接至图片">¶</a></p>
+</div>
 <p><strong>例2：</strong> 配置 $style = 'date-month' ，可按月份选择。</p>
-<img alt="../_images/view_filter_simple_time_2.png" class="align-center" src="../_images/view_filter_simple_time_2.png" />
+<div class="figure align-center" id="id22">
+<img alt="../_images/view_filter_simple_time_2.png" src="../_images/view_filter_simple_time_2.png" />
+<p class="caption"><span class="caption-text">图：月份选择效果图</span><a class="headerlink" href="#id22" title="永久链接至图片">¶</a></p>
+</div>
 <p><strong>例3：</strong> 配置 $style = 'date-year' ，可按年份选择。</p>
-<img alt="../_images/view_filter_simple_time_3.png" class="align-center" src="../_images/view_filter_simple_time_3.png" />
+<div class="figure align-center" id="id23">
+<img alt="../_images/view_filter_simple_time_3.png" src="../_images/view_filter_simple_time_3.png" />
+<p class="caption"><span class="caption-text">图：年份选择效果图</span><a class="headerlink" href="#id23" title="永久链接至图片">¶</a></p>
+</div>
+</dd>
+</dl>
 </div>
 <div class="section" id="id11">
-<h3><strong>范围过滤器</strong><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
-<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-    <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RangeInputFilter</span><span class="p">();</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</pre></div>
-</td></tr></table></div>
+<h3><strong>值域范围</strong><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">方法：</dt>
+<dd class="field-odd"><p><strong>new RangeInputFilter(</strong> $min_name, $max_name, $label, $unit='', $name='', $is_show_submit = false <strong>)</strong></p>
+</dd>
+<dt class="field-even">参数：</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>$min_name：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 左值字段名，</p></li>
+<li><p><strong>$max_name：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 右值字段名，</p></li>
+<li><p><strong>$label：</strong>  <code class="docutils literal notranslate"><span class="pre">必填</span></code> 标签显示名称，</p></li>
+<li><p><strong>$unit：</strong> 显示在组件框后面的内容，可作说明提示，</p></li>
+<li><p><strong>$name：</strong> 定义 <cite>class</cite> 属性，默认是有一个前缀 <cite>sure_</cite> ，</p></li>
+<li><p><strong>$is_show_submit：</strong> 是否显示 <strong>确定</strong> 按钮。</p></li>
+</ul>
+</dd>
+<dt class="field-odd">扩展方法：</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>暂无 <strong>set</strong> 方法。</p></li>
+</ul>
+</dd>
+<dt class="field-even">使用例子：</dt>
+<dd class="field-even"><p><strong>例1：</strong> 默认配置。</p>
+<div class="figure align-center" id="id24">
+<img alt="../_images/view_filter_range_input_1.png" src="../_images/view_filter_range_input_1.png" />
+<p class="caption"><span class="caption-text">图：默认值域范围效果图</span><a class="headerlink" href="#id24" title="永久链接至图片">¶</a></p>
+</div>
+<p><strong>例2：</strong> 额外配置 <code class="docutils literal notranslate"><span class="pre">$uint</span> <span class="pre">=</span> <span class="pre">'输入请从12开始'</span></code> 参数。</p>
+<div class="figure align-center" id="id25">
+<img alt="../_images/view_filter_range_input_2.png" src="../_images/view_filter_range_input_2.png" />
+<p class="caption"><span class="caption-text">图：带说明值域范围效果图</span><a class="headerlink" href="#id25" title="永久链接至图片">¶</a></p>
+</div>
+<p><strong>例3：</strong> 额外配置 <code class="docutils literal notranslate"><span class="pre">$is_show_submit</span> <span class="pre">=</span> <span class="pre">true</span></code> 参数。在点击输入框时/输入时显示 <code class="docutils literal notranslate"><span class="pre">确定</span></code> 按钮。</p>
+<div class="figure align-center" id="id26">
+<img alt="../_images/view_filter_range_input_3.png" src="../_images/view_filter_range_input_3.png" />
+<p class="caption"><span class="caption-text">图：显示确定按钮效果图</span><a class="headerlink" href="#id26" title="永久链接至图片">¶</a></p>
+</div>
+</dd>
+</dl>
 </div>
 <div class="section" id="id12">
-<h3><strong>树结构过滤器</strong><a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
-<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<h3><strong>树结构</strong><a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">方法：</dt>
+<dd class="field-odd"><p><strong>new TreeFilter(</strong> $name, $label, $data_arr, $options = array() <strong>)</strong></p>
+</dd>
+<dt class="field-even">参数：</dt>
+<dd class="field-even"><ul>
+<li><p><strong>$name：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 字段名，</p></li>
+<li><p><strong>$label：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 标签显示名称，</p></li>
+<li><p><strong>$data_arr：</strong> <code class="docutils literal notranslate"><span class="pre">必填</span></code> 树结构数据，</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>样例结构：
+    array (
+        &quot;id&quot;:&quot;1&quot;,
+        &quot;name&quot;:&quot;xx&quot;,
+        &quot;nodeId&quot;:&quot;0&quot;,
+        &quot;is_node&quot;:true,
+        &quot;is_check&quot;:false,
+    )
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>$options：</strong> 配置项：</p>
+<blockquote>
+<div><p><strong>1.</strong> <strong>'only_child'</strong> =&gt; true, 是否只能获取子节点，默认配置是 <strong>true</strong> ；</p>
+<p><strong>2.</strong> <strong>'tips'</strong> =&gt; '', 输入框提示语， 默认配置显示参数 <strong>$label</strong> 值；</p>
+<p><strong>3.</strong> <strong>'auto_submit'</strong> =&gt; true, 是否在选择完成后自动提交请求，默认配置是 <strong>false</strong> ；</p>
+<p><strong>4.</strong> <strong>'sel_data_type'</strong> =&gt; '', 选中数据类型, 'merge' 合并子节点 <code class="docutils literal notranslate"><span class="pre">未验证用法</span></code> ；</p>
+<p><strong>5.</strong> <strong>'sel_data_node_separate'</strong> =&gt; false, 选中数据区分阶段 <code class="docutils literal notranslate"><span class="pre">未验证用法</span></code> ；</p>
+<p><strong>6.</strong> <strong>'is_multi'</strong> =&gt; 'true', 是否多选，传字符串 'true' 或 'false' ，不配置默认是 'true'；</p>
+<p><strong>7.</strong> <strong>'is_has_button'</strong> =&gt; false, 是否在选择框底部显示 <code class="docutils literal notranslate"><span class="pre">清空</span></code> 和 <code class="docutils literal notranslate"><span class="pre">确定</span></code> 按钮；</p>
+<p><strong>8.</strong> <strong>'lazyLoad'</strong> =&gt; false, 是否开启异步加载，用于数据比较多的时候，默认配置是 <strong>false</strong> ；</p>
+<p><strong>9.</strong> <strong>'lazyLoadUrl'</strong> =&gt; '', 异步加载url，需要开启异步加载生效，默认配置是 <strong>空</strong> ；</p>
+<p><strong>10.</strong> <strong>'has_search'</strong> =&gt; true, 是否显示搜索框，默认配置是 <strong>true</strong> ；</p>
+<p><strong>11.</strong> <strong>'like_search'</strong> =&gt; false, 以为是个配置是否模糊搜索，看了代码没啥用；</p>
+<p><strong>12.</strong> <strong>'position'</strong> =&gt; 'absolute' ，树形框的位置，一般会配置 <strong>'fixed'</strong> 。</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<ol class="arabic simple">
+<li><p>配置 <code class="docutils literal notranslate"><span class="pre">'is_has_button'</span> <span class="pre">=</span> <span class="pre">true</span></code> 后一般不配置自动提交请求（ <strong>auto_submit</strong> ），默认配置是 <strong>false</strong> ；</p></li>
+<li><p>数据量庞大时可配置异步加载。</p></li>
+</ol>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+<dt class="field-odd">扩展方法：</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>暂无 <strong>set</strong> 方法。</p></li>
+</ul>
+</dd>
+<dt class="field-even">使用例子：</dt>
+<dd class="field-even"><p><strong>例1：</strong> 常规配置，需配置 <code class="docutils literal notranslate"><span class="pre">'position'</span> <span class="pre">=&gt;</span> <span class="pre">'fixed'</span></code> 让显示框置于顶层。</p>
+<blockquote>
+<div><div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
     <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TreeFilter</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$label</span><span class="p">,</span> <span class="nv">$data_arr</span><span class="p">,</span> <span class="p">[</span>
-        <span class="s1">&#39;is_multi&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
-        <span class="s1">&#39;only_child&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
         <span class="s1">&#39;position&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;fixed&#39;</span>
     <span class="p">]);</span>
 <span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </td></tr></table></div>
+<div class="figure align-center" id="id27">
+<img alt="../_images/view_filter_tree_1.png" src="../_images/view_filter_tree_1.png" />
+<p class="caption"><span class="caption-text">图：常规树形结构效果图</span><a class="headerlink" href="#id27" title="永久链接至图片">¶</a></p>
+</div>
+</div></blockquote>
+<p><strong>例2：</strong> 常规配置，需配置 <code class="docutils literal notranslate"><span class="pre">'is_has_button'</span> <span class="pre">=&gt;</span> <span class="pre">true</span></code> 在选择框底部显示 <code class="docutils literal notranslate"><span class="pre">清空</span></code> 和 <code class="docutils literal notranslate"><span class="pre">确定</span></code> 按钮。</p>
+<blockquote>
+<div><div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nv">$filters</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TreeFilter</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$label</span><span class="p">,</span> <span class="nv">$data_arr</span><span class="p">,</span> <span class="p">[</span>
+        <span class="s1">&#39;is_has_button&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span>
+    <span class="p">]);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<div class="figure align-center" id="id28">
+<img alt="../_images/view_filter_tree_2.png" src="../_images/view_filter_tree_2.png" />
+<p class="caption"><span class="caption-text">图：选择框底部显示按钮效果图</span><a class="headerlink" href="#id28" title="永久链接至图片">¶</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>配置底部按钮后树结构会全部收缩起来。</p>
+</div>
+</div></blockquote>
+</dd>
+</dl>
 </div>
 </div>
 <div class="section" id="id13">
 <h2><strong>自定义过滤器</strong><a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><strong>重要的两步：</strong></p>
+<ol class="arabic simple">
+<li><p>新建控制器并继承 <code class="docutils literal notranslate"><span class="pre">FilterAbs</span></code> 控制器, 重写 <code class="docutils literal notranslate"><span class="pre">onCreateFilter(\CRequest</span> <span class="pre">$request)</span></code> 方法。</p></li>
+<li><p>在控制器同级目录的 <code class="docutils literal notranslate"><span class="pre">view</span></code> 目录中新建 <strong>同名视图文件</strong> （首字母小写）。</p></li>
+</ol>
+</div>
+<p><strong>控制器写法：</strong></p>
 <div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -520,22 +756,33 @@
 11
 12
 13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-    <span class="k">use</span> <span class="nx">CC\util\common\widget\filter\FilterAbs</span><span class="p">;</span>
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="hll">    <span class="k">class</span> <span class="nc">ExampleFilter</span> <span class="k">extends</span> <span class="nx">FilterAbs</span>
+</span>    <span class="p">{</span>
+        <span class="o">...</span>
 
-    <span class="k">class</span> <span class="nc">CustomFilter</span> <span class="k">extends</span> <span class="nx">FilterAbs</span>
-    <span class="p">{</span>
-
-        <span class="k">protected</span> <span class="k">function</span> <span class="nf">onCreateFilter</span><span class="p">(</span><span class="nx">\CRequest</span> <span class="nv">$request</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">return</span> <span class="p">[</span>
-
-            <span class="p">];</span>
+<span class="hll">        <span class="k">public</span> <span class="k">function</span> <span class="nf">onCreateFilter</span><span class="p">(</span><span class="nx">\CRequest</span> <span class="nv">$request</span><span class="p">)</span>
+</span><span class="hll">        <span class="p">{</span>
+</span><span class="hll">            <span class="k">return</span> <span class="p">[</span>
+</span><span class="hll">                <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;在数组里传递给视图数据&#39;</span>
+</span>            <span class="p">];</span>
         <span class="p">}</span>
+
+        <span class="o">...</span>
     <span class="p">}</span>
 <span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </td></tr></table></div>
+<p><strong>视图文件写法：</strong> 视图内容自由发挥。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>控制器与视图存放目录：
+
+├─view
+│  └─exampleFilter.php    视图文件（首字母小写）
+├─ExampleFilter.php    控制器
+│
+</pre></div>
+</div>
 </div>
 </div>
 
