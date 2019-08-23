@@ -3,42 +3,71 @@
 ####################################################################################################
 
 ******************************************************************************************
-**111**
+**Session**
 ******************************************************************************************
 
-当前公司，是上级公司
+:获取登录名: **SessionAbs::getName()** `:String`
 
-CompanyServer::isManager()
-当前公司，是村级公司
+:获取登录用户类型: **SessionAbs::getUserClassify()** `:Int`
 
-CompanyServer::isCun()
-当前公司，是顶级公司
+    .. Tip::
 
-CompanyServer::isDing()
+        **返回结果参看用户枚举类型：** CC\\util\\db\\enum\\UserClassifyEnum
+
+        **当前已有枚举类型：**
+            
+            1. UserClassifyEnum::SUPER_ADMIN = 100;
+
+            2. UserClassifyEnum::ADMIN = 1;
+
+            3. UserClassifyEnum::USER = 0;
+        
+        **获取所有枚举类型：**
+
+            UserClassifyEnum::getValues(); // 返回：[100, 1, 0]
+
+
+
+:获取是否管理员: **SessionAbs::isSuperAdmin()** `:Bool`
+
+:获取用户ID: **\UserSession::getUid()** `:Int`
+
+:获取公司ID: **\UserSession::getComid()** `:Int`
+
+:获取版本号: **\UserSession::getVer()** `:String`
+
+
+******************************************************************************************
+**Company**
+******************************************************************************************
+
+:是否上级公司: **CompanyServer::isManager()** `:Bool`
+
+:是否村级公司: **CompanyServer::isCun()** `:Bool`
+
+
+
+
+:是否顶级公司: **CompanyServer::isDing()** `:Bool`
+
+:获取顶级公司ID: **CompanyServer::getRootId()** `:Int`
+
+
 当前公司及其子公司的id列表
-
 CompanyServer::getIds()
+
 当前公司的子公司的id列表
-
 CompanyServer::getSubComIds()
+
 当前公司整个公司体系的 id列表
-
 CompanyServer::getIds(CompanyServer::getRootId());
-顶级公司id
-
-CompanyServer::getRootId()
-当前公司id
-
-Session::getComID()
-当前用户id
-
-Session::getUserID()
-
-SessionAbs::getUserClassify() == UserClassifyEnum::ADMIN
 
 
 
 
+================================================================================
+**auth**
+================================================================================
 
 
 
@@ -50,6 +79,8 @@ AuthRange::getAuth(AuthType::getAuthType($authTypeString))->checkUids($uids)
 
 $authTypeString = AuthManager::AUTH_HOUSEHOLD_VIEW;
 $int = AuthType::getAuthType($authTypeString)->getInt();
+
+
 值	枚举	说明
 0	AuthRangeNumEnum::NONE	没有权限
 1	AuthRangeNumEnum::ALL	本公司
@@ -58,6 +89,8 @@ $int = AuthType::getAuthType($authTypeString)->getInt();
 4	AuthRangeNumEnum::CUSTOM	自定义
 5	AuthRangeNumEnum::DEPT_SUB	本部门及下属部门
 6	AuthRangeNumEnum::COMPANY_SUB	本公司及下级公司
+
+
 某权限，对应的所有人
 
 $uids = AuthRange::getAuth(AuthType::getAuthType($authTypeString))->getAllUids();

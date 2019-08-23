@@ -140,7 +140,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="checker.html"><strong>权限检查器</strong></a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>权限相关</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2"><strong>111</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#session"><strong>Session</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#company"><strong>Company</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#auth"><strong>auth</strong></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -237,43 +241,86 @@
             
   <div class="section" id="id1">
 <h1><strong>权限相关</strong><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<div class="section" id="id2">
-<h2><strong>111</strong><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<p>当前公司，是上级公司</p>
-<p>CompanyServer::isManager()
-当前公司，是村级公司</p>
-<p>CompanyServer::isCun()
-当前公司，是顶级公司</p>
-<p>CompanyServer::isDing()
-当前公司及其子公司的id列表</p>
-<p>CompanyServer::getIds()
-当前公司的子公司的id列表</p>
-<p>CompanyServer::getSubComIds()
-当前公司整个公司体系的 id列表</p>
-<p>CompanyServer::getIds(CompanyServer::getRootId());
-顶级公司id</p>
-<p>CompanyServer::getRootId()
-当前公司id</p>
-<p>Session::getComID()
-当前用户id</p>
-<p>Session::getUserID()</p>
-<p>SessionAbs::getUserClassify() == UserClassifyEnum::ADMIN</p>
+<div class="section" id="session">
+<h2><strong>Session</strong><a class="headerlink" href="#session" title="永久链接至标题">¶</a></h2>
+<dl class="field-list">
+<dt class="field-odd">获取登录名</dt>
+<dd class="field-odd"><p><strong>SessionAbs::getName()</strong> <cite>:String</cite></p>
+</dd>
+<dt class="field-even">获取登录用户类型</dt>
+<dd class="field-even"><p><strong>SessionAbs::getUserClassify()</strong> <cite>:Int</cite></p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p><strong>返回结果参看用户枚举类型：</strong> CC\util\db\enum\UserClassifyEnum</p>
+<p><strong>当前已有枚举类型：</strong></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>UserClassifyEnum::SUPER_ADMIN = 100;</p></li>
+<li><p>UserClassifyEnum::ADMIN = 1;</p></li>
+<li><p>UserClassifyEnum::USER = 0;</p></li>
+</ol>
+</div></blockquote>
+<p><strong>获取所有枚举类型：</strong></p>
+<blockquote>
+<div><p>UserClassifyEnum::getValues(); // 返回：[100, 1, 0]</p>
+</div></blockquote>
+</div>
+</dd>
+<dt class="field-odd">获取是否管理员</dt>
+<dd class="field-odd"><p><strong>SessionAbs::isSuperAdmin()</strong> <cite>:Bool</cite></p>
+</dd>
+<dt class="field-even">获取用户ID</dt>
+<dd class="field-even"><p><strong>UserSession::getUid()</strong> <cite>:Int</cite></p>
+</dd>
+<dt class="field-odd">获取公司ID</dt>
+<dd class="field-odd"><p><strong>UserSession::getComid()</strong> <cite>:Int</cite></p>
+</dd>
+<dt class="field-even">获取版本号</dt>
+<dd class="field-even"><p><strong>UserSession::getVer()</strong> <cite>:String</cite></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="company">
+<h2><strong>Company</strong><a class="headerlink" href="#company" title="永久链接至标题">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">是否上级公司</dt>
+<dd class="field-odd"><p><strong>CompanyServer::isManager()</strong> <cite>:Bool</cite></p>
+</dd>
+<dt class="field-even">是否村级公司</dt>
+<dd class="field-even"><p><strong>CompanyServer::isCun()</strong> <cite>:Bool</cite></p>
+</dd>
+<dt class="field-odd">是否顶级公司</dt>
+<dd class="field-odd"><p><strong>CompanyServer::isDing()</strong> <cite>:Bool</cite></p>
+</dd>
+<dt class="field-even">获取顶级公司ID</dt>
+<dd class="field-even"><p><strong>CompanyServer::getRootId()</strong> <cite>:Int</cite></p>
+</dd>
+</dl>
+<p>当前公司及其子公司的id列表
+CompanyServer::getIds()</p>
+<p>当前公司的子公司的id列表
+CompanyServer::getSubComIds()</p>
+<p>当前公司整个公司体系的 id列表
+CompanyServer::getIds(CompanyServer::getRootId());</p>
+<div class="section" id="auth">
+<h3><strong>auth</strong><a class="headerlink" href="#auth" title="永久链接至标题">¶</a></h3>
 <p>这些人，是否有某种权限？</p>
 <p>AuthRange::getAuth(AuthType::getAuthType($authTypeString))-&gt;checkUids($uids)
 当前这个人的某种权限，是哪种取值？</p>
 <p>$authTypeString = AuthManager::AUTH_HOUSEHOLD_VIEW;
-$int = AuthType::getAuthType($authTypeString)-&gt;getInt();
-值       枚举      说明
+$int = AuthType::getAuthType($authTypeString)-&gt;getInt();</p>
+<p>值       枚举      说明
 0       AuthRangeNumEnum::NONE  没有权限
 1       AuthRangeNumEnum::ALL   本公司
 2       AuthRangeNumEnum::SUB   下属
 3       AuthRangeNumEnum::ME    自己
 4       AuthRangeNumEnum::CUSTOM        自定义
 5       AuthRangeNumEnum::DEPT_SUB      本部门及下属部门
-6       AuthRangeNumEnum::COMPANY_SUB   本公司及下级公司
-某权限，对应的所有人</p>
+6       AuthRangeNumEnum::COMPANY_SUB   本公司及下级公司</p>
+<p>某权限，对应的所有人</p>
 <p>$uids = AuthRange::getAuth(AuthType::getAuthType($authTypeString))-&gt;getAllUids();</p>
 <p>$uids = DiCreate::getAuthRangeNumEnum()-&gt;getRangeByAuthType(AuthType::getAuthType($authTypeString))-&gt;getAllUids();</p>
+</div>
 </div>
 </div>
 
