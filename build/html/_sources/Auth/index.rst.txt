@@ -91,6 +91,15 @@ $int = AuthType::getAuthType($authTypeString)->getInt();
 6	AuthRangeNumEnum::COMPANY_SUB	本公司及下级公司
 
 
+AuthType::getAuthType($auth_type_name)->getInt();
+
+
+f ($auth_value == QwAuthRangeNumEnum::COMPANY_SUB) {
+    $users_tree_instance->setConditions([new NoComidCondition()]);
+}
+
+
+
 某权限，对应的所有人
 
 $uids = AuthRange::getAuth(AuthType::getAuthType($authTypeString))->getAllUids();

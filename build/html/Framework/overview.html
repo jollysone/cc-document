@@ -105,7 +105,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html"><strong>响应为Json格式</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html#jsonp"><strong>响应为Jsonp格式</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html#render"><strong>响应为Render格式</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应空数据格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应重定向格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id2"><strong>响应空数据格式</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">路由(Route)</span></p>
 <ul>
@@ -256,6 +257,8 @@
 如需要开放API接口，需要命名 FileManageListApiAction.php
 </pre></div>
 </div>
+<p>想要识别到控制器必须放在子模块下，并不支持子文件夹。也就是 命名只能 FileManageListaddApiAction.php 不能叫 FileManageListAddApiAction.php
+想要索引到 只能通过路由的方式</p>
 </div>
 
 

@@ -16,15 +16,15 @@
 
 **例1：** 配置控制器默认操作 'user' 表。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        protected function getTable()
-        {
-            return DBUtils::USER;
-        }
-    ?>
+        <?php
+            protected function getTable()
+            {111
+                return DBUtils::USER;
+            }
+        ?>
 
 ================================================================================
 **数据搜索条件**
@@ -40,33 +40,33 @@
 
 **例1：** 列表页重写搜索条件。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        protected function getSearchCondition()
-        {
-            $this->dbCondition->leftJoin(DBUtils::USER, 'u', 't.id = u.work_id');
+        <?php
+            protected function getSearchCondition()
+            {
+                $this->dbCondition->leftJoin(DBUtils::USER, 'u', 't.id = u.work_id');
 
-            ...
+                ...
 
-            $this->dbCondition->group('t.id')
-                ->order('t.is_draft desc, t.submit_time desc')
-                ->select('t.*');
+                $this->dbCondition->group('t.id')
+                    ->order('t.is_draft desc, t.submit_time desc')
+                    ->select('t.*');
 
-        }
-    ?>
+            }
+        ?>
 
 **例2：** 详情页通过类属性反射自动获取到 **id** 并自动添加条件。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        $this->dbCondition->addColumnsCondition(array(
-            't.id' => $this->id,
-        ));
-    ?>
+        <?php
+            $this->dbCondition->addColumnsCondition(array(
+                't.id' => $this->id,
+            ));
+        ?>
 
 ================================================================================
 **预处理数据**
@@ -80,17 +80,17 @@
 
 **例1：** 注入一个流程处理器对象 **ExampleListBeforeAdminHandler()** 。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        protected function onListBefore(&$list)
-        {
-            return [
-                new ExampleListBeforeAdminHandler(),
-            ];
-        }
-    ?>
+        <?php
+            protected function onListBefore(&$list)
+            {
+                return [
+                    new ExampleListBeforeAdminHandler(),
+                ];
+            }
+        ?>
 
 ================================================================================
 **配置表格字段**
@@ -104,17 +104,17 @@
 
 **例1：** 配置列表名为 **标题** 的一列。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        public function createListColumns(array $list)
-        {
-            $columns[] = new Column('标题', 'title');
+        <?php
+            public function createListColumns(array $list)
+            {
+                $columns[] = new Column('标题', 'title');
 
-            return $columns;
-        }
-    ?>
+                return $columns;
+            }
+        ?>
 
 ================================================================================
 **配置操作按钮**
@@ -128,23 +128,45 @@
 
 **例1：** 在列表中配置 ``详情`` 、``编辑`` 和 ``删除`` 三个按钮。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        public function createOperateButtons(array $list)
-        {
-            return [
-                function ($data) {
-                    $buttons[] = new ViewButtonWidget('详情', 'detail');
-                    $buttons[] = new EditAjaxButtonWidget('编辑', 'edit');
-                    $buttons[] = new OperateButtonWidget('删除','delete');
+        <?php
+            public function createOperateButtons(array $list)
+            {
+                return [
+                    function ($data) {
+                        $buttons[] = new ViewButtonWidget('详情', 'detail');
+                        $buttons[] = new EditAjaxButtonWidget('编辑', 'edit');
+                        $buttons[] = new OperateButtonWidget('删除','delete');
 
-                    return new ArrayDataWidget($buttons);
-                }
-            ];
-        }
-    ?>
+                        return new ArrayDataWidget($buttons);
+                    }
+                ];
+            }
+        ?>
+
+================================================================================
+**配置面包屑**
+================================================================================
+
+**适用：** ``ListAction``
+
+**说明：** 可以配置列表页顶部的面包屑显示。
+
+**例1：** 
+
+    .. code-block:: php
+        :linenos:
+
+        <?php
+        protected function getBreadcrumbs() {    
+                return [        
+                    ['name' => ''],        
+                    ['name' => '',  'url' => $this->genurl()]
+                ];
+            }
+        ?>
 
 
 ================================================================================
@@ -159,18 +181,18 @@
 
 **例1：** 配置列表页顶部的过滤器：**时间搜索** 和 **状态筛选** 。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        public function createListFilters()
-        {
-            $filters[] = new TimeRangeFilter('time', '时间', 'simple');
-            $filters[] = new SelectFilter('sub_status', '状态', TaskOpTypeEnum::getValues());
+        <?php
+            public function createListFilters()
+            {
+                $filters[] = new TimeRangeFilter('time', '时间', 'simple');
+                $filters[] = new SelectFilter('sub_status', '状态', TaskOpTypeEnum::getValues());
 
-            return $filters;
-        }
-    ?>
+                return $filters;
+            }
+        ?>
 
 ================================================================================
 **访问支持分组**
@@ -182,14 +204,14 @@
 
 **例1：** 配置支持 ``api`` 和 ``admin`` 分组访问。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        public function supportGroups() {    
-            return 'api,admin';
-        }
-    ?>
+        <?php
+            public function supportGroups() {    
+                return 'api,admin';
+            }
+        ?>
 
 ================================================================================
 **获得网页标题**
@@ -201,14 +223,14 @@
 
 **例1：** 获得网页标题信息。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        public function getPageTitle() { 
-            return $this->pageTitle;
-        }
-    ?>
+        <?php
+            public function getPageTitle() { 
+                return $this->pageTitle;
+            }
+        ?>
 
 ================================================================================
 **开启控制器事务**
@@ -220,14 +242,14 @@
 
 **例1：** 获得网页标题信息。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        protected function getIsOpenTransaction() {    
-            return true;
-        }
-    ?>
+        <?php
+            protected function getIsOpenTransaction() {    
+                return true;
+            }
+        ?>
 
 ================================================================================
 **配置布局文件**
@@ -247,23 +269,23 @@
 
 **例1：** 底层默认获取视图布局模板。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        public function getLayouts() {
-            return $this->layouts;
-        }
-    ?>
+        <?php
+            public function getLayouts() {
+                return $this->layouts;
+            }
+        ?>
 
 **例2：** 修改模板，让网页只渲染视图组件的模板。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        public $layouts = '/layouts/simple';
-    ?>
+        <?php
+            public $layouts = '/layouts/simple';
+        ?>
 
 
 ================================================================================
@@ -278,15 +300,15 @@
 
 **例1：** 配置不加载布局配置模板。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        // 弹窗不卡的秘密哦
-        public function getIsLayout() {
-            return false;
-        }
-    ?>
+        <?php
+            // 弹窗不卡的秘密哦
+            public function getIsLayout() {
+                return false;
+            }
+        ?>
  
 ================================================================================
 **配置控制器返回的数据格式**
@@ -300,32 +322,32 @@
 
 **例1：** 配置不加载布局配置模板。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        protected function getDataType() {        
-            return 'json';    
-        }
-    ?>
+        <?php
+            protected function getDataType() {        
+                return 'json';    
+            }
+        ?>
 
 **底层实现：** 通过配置不同的 **$data_type** 来实现不同的响应方式。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        switch ($data_type) {
-            case 'json':
-                return new CJsonData($data);
-            case 'jsonp':
-                return new CJsonpData($data);
-            case 'render':
-                return new CRenderData($data, $view, $isLayout, $layouts, $view_dir);
-            default:
-                return new CNoneData($data);
-        }
-    ?>
+        <?php
+            switch ($data_type) {
+                case 'json':
+                    return new CJsonData($data);
+                case 'jsonp':
+                    return new CJsonpData($data);
+                case 'render':
+                    return new CRenderData($data, $view, $isLayout, $layouts, $view_dir);
+                default:
+                    return new CNoneData($data);
+            }
+        ?>
 
 ================================================================================
 **返回响应附加字段**
@@ -337,26 +359,26 @@
 
 **例1：** 在返回的数据中追加总条数字段。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        protected function onExecute()
-        {    
-            return [        
-                'total' => CDbCommand::count($this->dbCondition)    
-            ]
-        }
-    ?>
+        <?php
+            protected function onExecute()
+            {    
+                return [        
+                    'total' => CDbCommand::count($this->dbCondition)    
+                ]
+            }
+        ?>
 
 **底层实现：** 通过合并方式追加在里面。
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        array_merge($data, $this->onExecute())
-    ?>
+        <?php
+            array_merge($data, $this->onExecute())
+        ?>
 
 ================================================================================
 **开启导出功能**
@@ -370,24 +392,24 @@
 
 **例1：** 
 
-.. code-block:: php
-    :linenos:
-    :emphasize-lines: 3,12
+    .. code-block:: php
+        :linenos:
+        :emphasize-lines: 3,12
 
-    <?php
-        protected function isExport() {    
-            return \CC::app()->url->getGroup() == \CEnv::RUN_CMD;
-        }
+        <?php
+            protected function isExport() {    
+                return \CC::app()->url->getGroup() == \CEnv::RUN_CMD;
+            }
 
-        protected function onExecExport($list) {    
-            $excel_data = ExcelBuilder::build($this, $list, [
-                new CustomFieldColumnBuildBeforeHandler('xxx', ['is_export_field' => true])
-            ]);
-            FileExportServer::asyncExportExcel($excel_data, 'xxx导出表', false);
+            protected function onExecExport($list) {    
+                $excel_data = ExcelBuilder::build($this, $list, [
+                    new CustomFieldColumnBuildBeforeHandler('xxx', ['is_export_field' => true])
+                ]);
+                FileExportServer::asyncExportExcel($excel_data, 'xxx导出表', false);
 
-            return new \CNoneData();
-        }
-    ?>
+                return new \CNoneData();
+            }
+        ?>
 
 
 ================================================================================
@@ -400,25 +422,25 @@
 
 **例1：** 
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-
-
-
-        尚未完善用法
+        <?php
 
 
 
-        list($filename, $url) = Excel::instance(ExcelBuilder::build($this, $list))
-            ->setExportDirForFlag()
-            ->createExeclForSave('');
+            尚未完善用法
 
-        $columns[] = (new Column('', 'pic'))->setExcelValueSetter(function ($data) {
-            return new FileDownColumnValueSetter('pic', 'images/' . $data['id']);
-        });
-    ?>
+
+
+            list($filename, $url) = Excel::instance(ExcelBuilder::build($this, $list))
+                ->setExportDirForFlag()
+                ->createExeclForSave('');
+
+            $columns[] = (new Column('', 'pic'))->setExcelValueSetter(function ($data) {
+                return new FileDownColumnValueSetter('pic', 'images/' . $data['id']);
+            });
+        ?>
  
 ================================================================================
 **如何关闭分页**
@@ -430,13 +452,13 @@
 
 **例1：** 
 
-.. code-block:: php
-    :linenos:
+    .. code-block:: php
+        :linenos:
 
-    <?php
-        public function getPageSize() {    
-            return 0;
-        }
-    ?>
+        <?php
+            public function getPageSize() {    
+                return 0;
+            }
+        ?>
  
 

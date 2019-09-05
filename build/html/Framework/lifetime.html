@@ -105,7 +105,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html"><strong>响应为Json格式</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html#jsonp"><strong>响应为Jsonp格式</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html#render"><strong>响应为Render格式</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应空数据格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应重定向格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id2"><strong>响应空数据格式</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">路由(Route)</span></p>
 <ul>
@@ -234,6 +235,8 @@
             
   <div class="section" id="id1">
 <h1><strong>生命周期</strong><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>框架引用</p>
+<p>In -s ...   会把框架里的资源文件引入到项目，所以不能 建立这些名字的文件目录  慎用</p>
 <p>尚未完善</p>
 <p>所有访问都定向到 index.php, 然后 $app-&gt;run();</p>
 <p>然后 执行 CUrlManager的 runController()</p>

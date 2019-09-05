@@ -105,7 +105,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html"><strong>响应为Json格式</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html#jsonp"><strong>响应为Jsonp格式</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html#render"><strong>响应为Render格式</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应空数据格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应重定向格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id2"><strong>响应空数据格式</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">路由(Route)</span></p>
 <ul>
@@ -234,13 +235,33 @@
             
   <div class="section" id="id1">
 <h1><strong>资源加密</strong><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<p>文件URL签名</p>
-<p>FileUtil::getSignUrl();
-文件URL反签名</p>
-<p>FileUtil::aliyunUrlUnsigned();</p>
+<dl class="field-list simple">
+<dt class="field-odd">文件URL签名</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="c1">// 结果：http://xxx.jpg  =&gt;  http://xxx.jpg?OSSAccessKeyId=3YP0p&amp;Signature=%2F6xalOa%2Ff&amp;Expires=1566959718</span>
+    <span class="nx">FileUtil</span><span class="o">::</span><span class="na">getSignUrl</span><span class="p">(</span><span class="nv">$oss_pic_url</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
 </div>
 <div class="section" id="id2">
 <h1><strong>资源解密</strong><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">文件URL反签名</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+    <span class="nx">FileUtil</span><span class="o">::</span><span class="na">aliyunUrlUnsigned</span><span class="p">(</span><span class="nv">$oss_pic_url</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
 </div>
 
 

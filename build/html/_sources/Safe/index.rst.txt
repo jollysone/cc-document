@@ -2,15 +2,26 @@
 **资源加密**
 ####################################################################################################
 
-文件URL签名
+:文件URL签名:
 
-FileUtil::getSignUrl();
-文件URL反签名
+.. code-block:: php
+    :linenos:
 
-FileUtil::aliyunUrlUnsigned();
+    <?php
+        // 结果：http://xxx.jpg  =>  http://xxx.jpg?OSSAccessKeyId=3YP0p&Signature=%2F6xalOa%2Ff&Expires=1566959718
+        FileUtil::getSignUrl($oss_pic_url);
+    ?>
+
 
 ####################################################################################################
 **资源解密**
 ####################################################################################################
 
+:文件URL反签名:
 
+.. code-block:: php
+    :linenos:
+
+    <?php
+        FileUtil::aliyunUrlUnsigned($oss_pic_url);
+    ?>

@@ -105,7 +105,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html"><strong>响应为Json格式</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html#jsonp"><strong>响应为Jsonp格式</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html#render"><strong>响应为Render格式</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应空数据格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应重定向格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id2"><strong>响应空数据格式</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">路由(Route)</span></p>
 <ul>
@@ -122,7 +123,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#deteleaction"><strong>删除控制器(DeteleAction)</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#other"><strong>其它(Other)</strong></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2"><strong>执行一个控制器</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3"><strong>面包屑</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -248,8 +248,13 @@
 <h1><strong>基本控制器</strong><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="caction">
 <h2><strong>控制器基类(CAction)</strong><a class="headerlink" href="#caction" title="永久链接至标题">¶</a></h2>
-<p><strong>说明：</strong> 如果 <strong>只需简单的处理数据功能</strong> , 可以直接继承 <code class="docutils literal notranslate"><span class="pre">\CAction</span></code> 并重写 <code class="docutils literal notranslate"><span class="pre">execute(CRequest</span> <span class="pre">$request)</span></code> 方法则可以实现一个API。重写后返回值需是一个 <code class="docutils literal notranslate"><span class="pre">Response</span></code> 响应, 这部分可参考 <code class="docutils literal notranslate"><span class="pre">响应(Response)</span></code> 章节， 一般使用 <strong>CJsonData</strong> 。</p>
-<p><strong>基础模板：</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">说明：</dt>
+<dd class="field-odd"><p>如果 <strong>只需简单的处理数据功能</strong> , 可以直接继承 <code class="docutils literal notranslate"><span class="pre">\CAction</span></code> 并重写 <code class="docutils literal notranslate"><span class="pre">execute(CRequest</span> <span class="pre">$request)</span></code> 方法则可以实现一个API。重写后返回值需是一个 <code class="docutils literal notranslate"><span class="pre">Response</span></code> 响应, 这部分可参考 <code class="docutils literal notranslate"><span class="pre">响应(Response)</span></code> 章节， 一般使用 <strong>CJsonData</strong> 。</p>
+</dd>
+<dt class="field-even">基础模板：</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
 <div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -286,7 +291,11 @@
 </div>
 <div class="section" id="listaction">
 <h2><strong>列表控制器(ListAction)</strong><a class="headerlink" href="#listaction" title="永久链接至标题">¶</a></h2>
-<p><strong>说明：</strong> 如果是一个列表页则可以继承这个方法。一般都会实现接口 <code class="docutils literal notranslate"><span class="pre">ITableViewCreator</span></code> 用于创建页面元素。</p>
+<dl class="field-list simple">
+<dt class="field-odd">说明：</dt>
+<dd class="field-odd"><p>如果是一个列表页则可以继承这个方法。一般都会实现接口 <code class="docutils literal notranslate"><span class="pre">ITableViewCreator</span></code> 用于创建页面元素。</p>
+</dd>
+</dl>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p><strong>构建 ListAction 基本的三步：</strong></p>
@@ -302,7 +311,10 @@
 <li><p>创建列表数据条的操作按钮（<strong>createOperateButtons(array $list)</strong>）。</p></li>
 </ol>
 </div>
-<p><strong>基础模板：</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">基础模板：</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -403,7 +415,11 @@
 </div>
 <div class="section" id="detailaction">
 <h2><strong>详情控制器(DetailAction)</strong><a class="headerlink" href="#detailaction" title="永久链接至标题">¶</a></h2>
-<p><strong>说明：</strong> 如果是一个详情页则可以继承这个方法。一般都会实现接口 <code class="docutils literal notranslate"><span class="pre">IFormViewBuilder</span></code> 用于创建页面元素。</p>
+<dl class="field-list simple">
+<dt class="field-odd">说明：</dt>
+<dd class="field-odd"><p>如果是一个详情页则可以继承这个方法。一般都会实现接口 <code class="docutils literal notranslate"><span class="pre">IFormViewBuilder</span></code> 用于创建页面元素。</p>
+</dd>
+</dl>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p><strong>构建 DetailAction 基本的三步：</strong></p>
@@ -417,7 +433,10 @@
 <li><p>创建渲染详情页信息组件（<strong>createFormInputs()</strong>）。</p></li>
 </ol>
 </div>
-<p><strong>基础模板：</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">基础模板：</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -484,7 +503,11 @@
 </div>
 <div class="section" id="saveaction">
 <h2><strong>保存控制器(SaveAction)</strong><a class="headerlink" href="#saveaction" title="永久链接至标题">¶</a></h2>
-<p><strong>说明：</strong> 如果是一个编辑页, 一般都会实现接口 <code class="docutils literal notranslate"><span class="pre">IFormViewBuilder</span></code> 用于创建页面元素。</p>
+<dl class="field-list simple">
+<dt class="field-odd">说明：</dt>
+<dd class="field-odd"><p>如果是一个编辑页, 一般都会实现接口 <code class="docutils literal notranslate"><span class="pre">IFormViewBuilder</span></code> 用于创建页面元素。</p>
+</dd>
+</dl>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p><strong>构建 DetailAction 基本的三步：</strong></p>
@@ -543,7 +566,10 @@
 <li><p>重写开启事务（<strong>getIsOpenTransaction()</strong>）。</p></li>
 </ol>
 </div>
-<p><strong>基础模板：</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">基础模板：</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -714,7 +740,11 @@
 </div>
 <div class="section" id="deteleaction">
 <h2><strong>删除控制器(DeteleAction)</strong><a class="headerlink" href="#deteleaction" title="永久链接至标题">¶</a></h2>
-<p><strong>说明：</strong> 默认可以拿到需要删除的 <strong>id</strong> 或其它条件，然后根据 <strong>id</strong> 或其它条件删除具体条目。</p>
+<dl class="field-list simple">
+<dt class="field-odd">说明：</dt>
+<dd class="field-odd"><p>默认可以拿到需要删除的 <strong>id</strong> 或其它条件，然后根据 <strong>id</strong> 或其它条件删除具体条目。</p>
+</dd>
+</dl>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p><strong>构建 DeteleAction 基本的步骤：</strong></p>
@@ -731,7 +761,10 @@
 <li><p>重写开启事务（<strong>getIsOpenTransaction()</strong>）。</p></li>
 </ol>
 </div>
-<p><strong>基础模板：</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">基础模板：</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
 <div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -863,26 +896,6 @@
 
     <span class="nv">$ret</span> <span class="o">=</span> <span class="nv">$action</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="nv">$req</span><span class="p">);</span>
     <span class="nv">$ret</span> <span class="o">=</span> <span class="nv">$ret</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</pre></div>
-</td></tr></table></div>
-</div>
-<div class="section" id="id3">
-<h3><strong>面包屑</strong><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
-<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
-   <span class="k">protected</span> <span class="k">function</span> <span class="nf">getBreadcrumbs</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">[</span>
-            <span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">],</span>
-            <span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>  <span class="s1">&#39;url&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">genurl</span><span class="p">()]</span>
-        <span class="p">];</span>
-    <span class="p">}</span>
 <span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </td></tr></table></div>

@@ -105,7 +105,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html"><strong>响应为Json格式</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html#jsonp"><strong>响应为Jsonp格式</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Response/index.html#render"><strong>响应为Render格式</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应空数据格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id1"><strong>响应重定向格式</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Response/index.html#id2"><strong>响应空数据格式</strong></a></li>
 </ul>
 <p class="caption"><span class="caption-text">路由(Route)</span></p>
 <ul>
@@ -317,6 +318,12 @@ $int = AuthType::getAuthType($authTypeString)-&gt;getInt();</p>
 4       AuthRangeNumEnum::CUSTOM        自定义
 5       AuthRangeNumEnum::DEPT_SUB      本部门及下属部门
 6       AuthRangeNumEnum::COMPANY_SUB   本公司及下级公司</p>
+<p>AuthType::getAuthType($auth_type_name)-&gt;getInt();</p>
+<dl class="simple">
+<dt>f ($auth_value == QwAuthRangeNumEnum::COMPANY_SUB) {</dt><dd><p>$users_tree_instance-&gt;setConditions([new NoComidCondition()]);</p>
+</dd>
+</dl>
+<p>}</p>
 <p>某权限，对应的所有人</p>
 <p>$uids = AuthRange::getAuth(AuthType::getAuthType($authTypeString))-&gt;getAllUids();</p>
 <p>$uids = DiCreate::getAuthRangeNumEnum()-&gt;getRangeByAuthType(AuthType::getAuthType($authTypeString))-&gt;getAllUids();</p>
