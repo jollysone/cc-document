@@ -205,7 +205,24 @@
             ])
             ->execute();
     ?>
-    
+
+更新原子数据使用 ``IncrementModel`` 类的 ``addData()`` 方法更新数据，同时需要增加需要更新哪一条的条件，否则就更新全部，如下：
+
+.. code-block:: php
+    :linenos:
+    :emphasize-lines: 3
+
+    <?php
+        IncrementModel::make('table_name')
+            ->addColumn('id', 1)
+            ->addData([
+                'num' => 1,
+                'surplus' => -1,
+            ])
+            ->execute();
+        
+        // update table_name set num = num + 1, surplus = surplus + -1 where id = 1
+    ?>
 
 返回结构如下：
 
