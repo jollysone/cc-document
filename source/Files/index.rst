@@ -132,3 +132,36 @@
         }
     ?>
 
+
+******************************************************************************************
+**网页录音文件转MP3**
+******************************************************************************************
+
+**导出Excel文件**
+
+.. code-block:: php
+    :linenos:
+
+    <?php
+        $mp3filepath = '/tmp/mp3' . md5($this->url) . '.mp3';
+            if (!is_file($mp3filepath)) {
+                $is_aliyun = true;
+                if ($is_aliyun) {
+                    $nowUrl = Alioss::instance()->getSignUrl($this->url);
+                    $content = @file_get_contents($nowUrl);
+                    $filepath = '/tmp/' . md5($nowUrl) . '.amr';
+                    file_put_contents($filepath, $content);
+                } else {
+                    $filepath = $this->url;
+                }
+                exec('ffmpeg -i ' . $filepath . '  -ab 128 ' . $mp3filepath);
+            }
+            if (is_file($mp3filepath)) {
+                header('Expires:Sun, 01 Mar 2015 11:40:14 GMT');
+                header('ETag:10490094371019910446');
+                header('Content-type: audio/mpeg');
+                header("Accept-Ranges: bytes");
+                $filesize = filesize($mp3filepath);
+                header("Accept-Length: $filesize");
+                readfile($mp3filepath);
+            }
